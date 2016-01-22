@@ -1,0 +1,7 @@
+psets/ps[0-9]/ps[0-9].tex
+psets/ps[0-9]/ps[0-9].pdf
+psets/ps[0-9]/ps[0-9]s.pdf
+
+*.aux
+*.log
+*.out
