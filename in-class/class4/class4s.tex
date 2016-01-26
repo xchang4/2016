@@ -1,0 +1,81 @@
+%% Please fill in your name and collaboration statement here.
+\newcommand{\studentName}{**FILL IN YOUR NAME HERE**}
+\newcommand{\collaborationStatement}{**FILL IN YOUR COLLABORATION STATEMENT HERE \\ (See the syllabus for information)**}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[solution, letterpaper]{cs20inclass}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{hyperref}
+\begin{document}
+\header{4}{Monday, February 1, 2016}
+
+\noindent Author: Tom Silver% \\
+
+\paragraph*{Executive Summary}
+
+\begin{enumerate}
+\item Strong Induction
+\begin{itemize}
+\item In simple terms, strong induction is similar to ordinary induction, except you use $P(0)$, $\ldots$, $P(n)$ instead of just $P(n)$ in order to prove $P(n+1)$.
+\item Formally, the difference between ordinary and strong induction is:\\
+Let $P(x)$ be a predicate and $m,n$ nonnegative integers.
+    \begin{itemize}
+    \item Ordinary Induction: If $P(m)$ is true and $P(n) \Rightarrow P(n+1)$\\ for all $n \geq m$, then $P(n)$ is true for all $n      \geq m$.
+    \item Strong Induction: If $P(m)$ is true and\\ $P(m), P(m+1), \dots, P(n)$ together $\Rightarrow P(n+1)$\\
+    for all $n \geq m$, then $P(n)$ is true for all $n \geq m$.
+    \end{itemize}
+\item Strong induction proofs begin with the identification of the proposition to be proven. The next step is to identify and verify the base cases. Note that with strong induction there are often multiple base cases. Next comes the inductive step, where you show that the proposition's truth for $0\ldots n$ entails its truth for $n+1$. Be sure to properly identify the proposition being inducted on.  
+\item Note that sometimes you will need to break your inductive step into multiple cases.
+\end{itemize}
+\end{enumerate}
+
+\problem
+
+The game of ``Take Away'' is played with a pile of 9 coins. Two teams take turns removing coins from the pile. At each turn, the team whose turn it is can choose to remove either one or two coins from the pile. The team that removes the last coin wins. 
+
+\subproblem Does the game have a winning strategy? Note: for the game to have a winning strategy one of the two teams -- either the team that removes coins first or the team that removes coins second -- must always be able to win. 
+
+\subproblem Generalize the game to a pile of any positive integer $n$ coins and show that the game always has a wining strategy (not necessarily for the same team).
+
+\begin{solution}
+
+\subsolution Yes, the second team can always win. The winning strategy for the second team is to ``complete to 3''. In other words, if the first team takes 1 coin, take 2 coins; if the first team takes 2 coins, take 1 coin.
+
+\subsolution $P(n) = $ there exists a winning strategy in Take Away with $n$ coins. We claim $P(n)$ holds for all $n > 0$. Base cases: for $P(1)$ and $P(2)$, we have the trivial winning strategies of taking the first 1 or 2 coins. For $P(3)$, we again have the trivial winning strategy of taking whatever coins remain after the first team plays. Strong inductive step: suppose that $P(1), ..., P(n)$ hold. For $m > 3$, we know that $P(m-3)$ holds by the inductive hypothesis. In other words, one of the teams can play so that they pick up the fourth to last coin. This team has a winning strategy: play so that they pick up the fourth to last coin, and then pick up the remaining 1 or 2 coins based on the other team's play. Thus $P(m)$, and we have finished the proof.
+  
+\end{solution}
+
+\problem
+
+Let $S$ be the sequence $a_1, a_2, a_3, \ldots$ where $a_1 = 1$, $a_2 = 2$, $a_3 = 3$, and $a_n = a_{n-1} + a_{n-2} + a_{n-3}$. Use strong induction to prove that $a_n < 2^n$ for all $n \geq 4$.
+
+\begin{solution}
+
+$P(n) = a_n < 2^n$ for all $n \geq 4$. Base cases: $P(4), P(5), P(6)$ hold (simply plug in the numbers). Strong inductive step: Suppose that $P(4), ..., (n)$ hold for $n \geq 6$. Notice that $a_{n+1} = a_n + a_{n-1} + a_{n-2} = (a_{n-1} + a_{n-2} + a_{n-3}) + a_{n-1} + a_{n-2} = 2(a_{n-1}+a_{n-2}) + a_{n-3}$. We know from the inductive hypothesis that $a_{n-3} < 2^{n-3} < 2^{n-1}$. We also know $a_{n-1} < 2^{n-1}$ and $a_{n-2} < 2^{n-2}$. Thus $a_{n+1} =  2(a_{n-1}+a_{n-2}) + a_{n-3} < 2(2^{n-1} + 2^{n-2}) + 2^{n-1} \implies a_{n+1} <2^{n+1}$.
+
+\end{solution}
+
+\problem 
+
+(BONUS). Prove using strong induction that for all $n \in \mathbb{N}$ such that $n \ge 2$, $n$ is divisible by a prime. {\em (Hint: In this problem, we consider all divisors, not just proper divisors, so a number is considered as being divisible by itself.  Split the inductive step into cases based on whether $n+1$ is prime.  What does it mean for a number to be composite?)}
+
+\begin{solution}
+
+$P(n) = n$ is divisible by a prime. Base cases: $P(2)$ is true, since 2 is divisible by itself. Strong inductive step: assume that $P(2)...P(n)$ holds for $n \ge 2$. If $n+1$ is prime, then it is divisible by itself, and $P(n+1)$ holds. Otherwise $n+1$ is composite, so there exists  $m, k < n+1$ such that $mk = n+1$. By the inductive hypothesis, $P(m)$ (and $P(k)$). So a prime divides $m$, and $m$ divides $n+1$, so that same prime divides $n+1$, and $P(n+1)$ holds.
+
+\end{solution}
+
+\problem (BONUS). Consider the sequence $a_1= 2, a_2= 5, a_3= 13, \cdots , a_{n} = 5a_{n-1} - 6 a_{n-2}$.
+Prove by strong induction that $a_n = 2^{n-1} + 3^{n-1}$ for all $n > 2$.
+
+\begin{solution}
+
+$P(n) = a_n = 2^{n-1} + 3^{n-1}$ for all $n > 2$. Base cases: $P(3), P(4), $ hold; simply plug in the numbers. Strong inductive step: suppose $P(3), ..., P(n)$ hold for $n \ge 4$. Then for $P(n+1)$, note that $a_{n+1} = 5a_{n} - 6 a_{n-1} = 5(2^{n-1} + 3^{n-1}) - 6(2^{n-2} + 3^{n-2}) = 5(2^{n-1}) + 5(3^{n-1}) - 3(2^{n-1}) - 2(3^{n-1}) = 2^n + 3^n$.
+ 
+\end{solution}
+
+\end{document}

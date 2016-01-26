@@ -15,6 +15,15 @@
 
 \noindent Author: Hannah Blumberg% \\
 
+\paragraph*{Executive Summary}
+
+\begin{enumerate}
+\item Let $P(x)$ be a predicate and $m, n$ nonnegative integers.  If $P(m)$ is true and $P(n) \Rightarrow P(n+1)$ for all $n \ge m$, then $P(n)$ is true for all $n \ge m$.
+\item Writing an inductive proof is like explaining to someone how to climb a ladder. If you can describe how to get onto one of the lower rungs of the ladder and you can describe how to get from one rung to the next , then someone can repeat the procedure as many times as they'd like to climb a ladder of any height.
+\item To write a proof by induction, first you need to identify the proposition to be proven.  Then prove the base case, prove the inductive step (how you can get from the proposition holding for $n$ to the proposition holding for $n+1$), and the conclusion.  Be sure you identify properly the thing being inducted upon.
+
+\end{enumerate}
+
 \paragraph*{Check-In Question}
 Suppose that we want to prove that statement $S$ is true for all positive integers $n$. Which of the following steps should be done first?
 \begin{enumerate}
@@ -39,7 +48,7 @@ Consider a group of $n+1$ cars. The first $n$ cars must have the same color by t
 
 \begin{solution}
 
-It is not correct to say ``likewise the last $n$ cars must also have the same color by the inductive assumption.'' Our inductive hypothesis only states that the first $n$ cars have the same color.
+The proof hinges on the observation that ``the two groups overlap in the middle''; however, this is not the case when $n = 2$.
   
 \end{solution}
 
