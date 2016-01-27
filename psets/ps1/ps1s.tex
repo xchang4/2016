@@ -30,7 +30,7 @@ There are 366 possible birthdays.
 
 \subproblem How many people must be in a group to guarantee that at least two people in the group have the same birthday? Identify your pigeons and holes.
 
-\subproblem How many people must be in a group to guarantee that at least $n$ people in the group have the same birthday? Identify your pigeons and holes. (You may use Problem 1.)
+\subproblem How many people must be in a group to guarantee that at least $n$ people in the group have the same birthday? Identify your pigeons and holes. (You may use the Generalized Pigeonhole Principle from Problem 1.)
 
 \begin{solution}
   \subsolution There must be 367 people in a group to guarantee that at least two have the same birthday. 366 will not suffice, since each could have a distinct birthday. We can think of the 367 people as pigeons and the 366 possible birthdays as holes. By the pigeonhole principle, a function mapping people to birthdays cannot be injective. Therefore at least two people must share the same birthday. 
@@ -39,12 +39,12 @@ There are 366 possible birthdays.
 \end{solution}
 
 
-\problem {4}{1/3 a page}
-Two natural numbers are \textit{coprime} if their greatest common divisor is 1. What is the largest value of $m$ for which the following statement is guaranteed? In any group of $m$ natural numbers between 2 and 50 (inclusive), at least two numbers in the group are not coprime. Use the pigeonhole principle to prove the statement with your value of $m$. 
+\problem {4}{1/3 page}
+Two natural numbers are \textit{coprime} if their greatest common divisor is 1. What is the smallest value of $m$ for which the following statement is guaranteed? ``In any group of $m$ natural numbers between 2 and 50 (inclusive), at least two numbers in the group are not coprime.'' Use the pigeonhole principle to prove the statement with your value of $m$. 
 
 \begin{solution}
 
-$m = 16$. There are 15 prime numbers less than 50: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47. First observe that $m = 15$ does not suffice, since the group of all prime numbers less than 50 are all coprime. Now note that two numbers are not coprime if one of the fifteen primes divides evenly into them both. Furthermore, any number between 2 and 50 is divisible by at least one of the prime numbers. We can conceive of a group of 16 numbers as pigeons and the prime numbers as holes. Our function maps a number to the least prime that divides the number. By the pigeonhole, this function cannot be injective, and therefore there is at least one prime that divides two numbers, i.e. those two numbers are not coprime.
+$m = 16$. There are 15 prime numbers less than 50: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47. First observe that $m = 15$ does not suffice, since the group of all prime numbers less than 50 are all coprime. Now note that two numbers are not coprime if one of the fifteen primes divides evenly into them both. Furthermore, any number between 2 and 50 is divisible by at least one of the prime numbers. We can conceive of a group of 16 numbers as pigeons and the prime numbers as holes. Our function maps a number to the least prime that divides the number. By the pigeonhole principle, this function cannot be injective, and therefore there is at least one prime that divides two numbers, i.e. those two numbers are not coprime.
 
 \end{solution}
 
@@ -64,7 +64,7 @@ We have that $\left( \sum_{i=0}^{k+1}i \right)^{2} = \left((k+1)+ \sum_{i=0}^{k}
   
 \end{solution}
 
-\problem {2+2+2}{1/3 a page}
+\problem {2+2+2}{1/3 page}
 A natural number $a$ is a perfect square if there exists another natural number $b$ such that $b^2 = a$.
 
 \subproblem Prove or provide a counterexample: if $c$ and $d$ are perfect squares, then $cd$ is a perfect square.
@@ -77,9 +77,9 @@ A natural number $a$ is a perfect square if there exists another natural number 
 
 \subsolution This statement is true. Let $c$ and $d$ be perfect squares. By definition, there exist natural numbers $a$ and $b$ such that $a^2 = c$ and $b^2 = d$. So $cd = a^2b^2$. By associativity and commutativity, $cd = (ab)(ab) = (ab)^2$. Therefore $cd$ is a perfect square by definition.
 
-\subsolution This statement is false. For a counterexample, consider the perfect square $4$. Let $c = 1$ and $d = 4$. 
+\subsolution This statement is false. For a counterexample, consider the perfect square $4$. Let $c = 2$ and $d = 2$. 
 
-\subsolution This statement is false. For a counterexample, consider $c = 1$ and $d = 4$, and $x = -1$, and $y = 2$.
+\subsolution This statement is false. For a counterexample, consider $c = 4$ and $d = 1$, and $x = -2$, and $y = 1$.
 
 \end{solution}
 
