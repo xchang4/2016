@@ -1,0 +1,145 @@
+\documentclass[solution, letterpaper]{cs20inclass}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{hyperref}
+\begin{document}
+\header{6}{Friday, February 5, 2016}
+
+\noindent Author: Tom Silver% \\
+
+\paragraph*{Executive Summary}
+\begin{enumerate}
+
+\item  A proposition is a statement that is either \emph{True} or \emph{False}. For brevity, we label propositions with letters ($p$ : ``Gold is a metal'').  In this case we can also say that \emph{p} is a propositional (Boolean) variable. 
+
+\item Logical operators combine propositions into \emph{compound} propositions . List of the most common logical operators: 
+
+
+\begin{tabular}{ | l l l |}
+\hline
+Symbol & Operation & Note\\
+\hline
+$\land$ & AND (Conjunction) & $p \land q$ is true when both $p$ and $q$ are true.\\
+\hline
+$\lor$ & OR (Disjunction)& $p \lor q$ is true when at least one of $p$ and $q$ is true.\\
+\hline
+$\neg$ & Negation & Another symbol is the horizontal bar: $\neg(p \land q) \equiv \overline{p \land q}$\\
+\hline
+$\oplus$ & Exclusive OR. & Like OR but it's false when both $p$ and $q$ are true. \\
+\hline
+$\to$ & Implication & Important equivalence: $p\to q \equiv \neg p \lor q$\\
+\hline
+$\leftrightarrow$ & IFF & Important equivalence: $p \leftrightarrow q \equiv (p \to q) \land (q \to p)$\\
+\hline
+\end{tabular}
+\end{enumerate}
+
+\problem
+
+Prove by truth table the first of the two distributive laws: 
+\begin{center}
+$p \lor (q \land r) \equiv (p \lor q) \land (p \lor r)$
+\end{center}
+
+\begin{solution}
+
+\begin{table}[h]
+\centering
+\label{my-label}
+\begin{tabular}{lllll}
+$p$ & $q$ & $r$ & $p \lor (q \land r)$ & $(p \lor q) \land (p \lor r)$ \\
+1 & 1 & 1 & 1                    & 1                           \\
+1 & 1 & 0 & 1                    & 1                           \\
+1 & 0 & 1 & 1                    & 1                           \\
+1 & 0 & 0 & 1                    & 1                           \\
+0 & 1 & 1 & 1                    & 1                           \\
+0 & 1 & 0 & 0                    & 0                           \\
+0 & 0 & 1 & 0                    & 0                           \\
+0 & 0 & 0 & 0                    & 0                          
+\end{tabular}
+\end{table}
+
+\end{solution}
+
+\problem
+
+\subproblem	
+Using the propositions p=``I study'', q=``I will pass the course'', r=``The professor accepts bribes'',  translate the following into statements of propositional logic: 
+	\begin{enumerate}
+	\item If I do not study, then I will not pass the course unless the professor accepts bribes.
+	\item If the professor accepts bribes, then I will pass the course without studying.
+	\item The professor does not accept bribes, but I study and will pass the course.
+	\end{enumerate}
+	
+	
+\subproblem Using the propositions p=``The night hunting is successful'', q=``The moon is full'', r=``The sky is cloudless'', translate the following into statements of propositional logic: 
+	
+	\begin{enumerate}
+	\item For successful night hunting it is necessary that the moon is full and the sky is cloudless.
+	\item The sky being cloudy is both necessary and sufficient for the night hunting to be successful.
+	\item  If the sky is cloudy, then the night hunting will not be successful unless the moon is full.
+	\end{enumerate}
+
+\begin{solution}
+
+\subsolution
+
+\begin{enumerate}
+\item $(\neg p \land q) \to r$
+\item $(r \land \neg p) \to q$
+\item $\neg r \land p \land q$
+\end{enumerate}
+
+\subsolution
+
+\begin{enumerate}
+\item $p \to (q \land r)$
+\item $\neg r \leftrightarrow q$
+\item $(\neg r \land p) \to q$
+\end{enumerate}
+
+\end{solution}
+
+\problem (BONUS) In the mini-lecture you saw how to add two boolean variables using logic operators. In this problem we will show how to subtract two boolean variables.\\
+Consider the boolean variables $a, b, c$ each representing a single bit. Write two propositional formulas: one for the result of the boolean subtraction $a-b$, and another for the the ``borrow bit" $c$, indicating whether a bit must be borrowed from an imaginary bit to the left of $a$ (the case when a=0 and b=1) to ensure that the result of the subtraction is always positive. Start by creating a ``truth'' table for $a-b$ and the borrow bit $c$. The borrow bit $c$ is always 1 initially, and is set to 0 only if borrowing was necessary. 
+
+\begin{solution}
+
+\begin{table}[]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{llll}
+$a$ & $b$ & $a-b$ & $c$ \\
+1 & 1 & 0   & 0 \\
+1 & 0 & 1   & 0 \\
+0 & 1 & 1   & 1 \\
+0 & 0 & 0   & 0
+\end{tabular}
+\end{table}
+
+So: $a-b = a \oplus b$ and $c = \neg a \land b$.
+ 
+\end{solution}
+
+\problem (BONUS) Using a truth table, find which of the following compound propositions are always true, regardless of the values of p and q: 
+
+\begin{enumerate} 
+\item $p \rightarrow (p \lor q)$
+\item $\lnot (p \rightarrow (p \lor q))$
+\item $p \rightarrow (p \rightarrow q)$
+\end{enumerate}
+
+\begin{solution}
+
+\begin{enumerate} 
+\item Always true
+\item Always false
+\item Not true for $p = 1, q = 0$
+\end{enumerate}
+
+\end{solution}
+
+\end{document}
