@@ -52,7 +52,7 @@ $$
 
 \begin{solution}
 
-TODO
+Base case: $\sum_{k=1}^{1}\frac{1}{1(1+1)}=\frac{1}{1+1} = \frac{1}{2}$. Inductive step: Suppose it holds for $n \ge 1$.  $\sum_{k=1}^{n+1}\frac{1}{k(k+1)} = \frac{1}{(n+1)(n+2)} + \sum_{k=1}^{n}\frac{1}{k(k+1)}$. By the inductive hypothesis, $\sum_{k=1}^{n}\frac{1}{k(k+1)} = \frac{n}{n+1}$, so the former equation is $\frac{1}{(n+1)(n+2)} + \frac{n}{n+1} = \frac{n^2 + 2n+1}{(n+1)(n+2)} = \frac{(n+1)^2}{(n+1)(n+2)} = \frac{n+1}{n+2}$.
 
 \end{solution}
 
@@ -68,7 +68,7 @@ A tromino is an arrangement of three squares like the one shown below. It can be
 
 \subproblem
 
- Prove by induction that every $2^n \times 2^n$ grid with one corner removed can be covered with trominos. Example:
+Prove by induction that every $2^n \times 2^n$ grid with one corner removed can be covered with trominos. Example:
 
 \begin{center}
 
@@ -93,19 +93,9 @@ $2^{2n}-1$ is divisible by $3$, for all $n>0$
 
 \begin{solution}
 
-\subsolution TODO
+\subsolution $P(n) = 2^n \times 2^n$ grid with a corner missing can be covered by trominos. Base case: $P(1)$ is clear. Inductive step: suppose that for $n \ge 1$, $P(n)$ holds. Then we can connect four $2^n \times 2^n$ blocks to arrive at a covered $2^{n-1} \times 2^{n-1}$ block. The top left, top right, and top left have corners in the middle, and the bottom right has its corner in the bottom right. The middle can then be filled with one additional tromino to complete the covering.
 
-\subsolution TODO 
-
-\end{solution}
-
-\problem 
-
-(BONUS). You are putting together a jigsaw puzzle with $n \geq 1$ pieces. At each step you join together two matching pieces and produce a new (composite) piece. Prove by induction that no matter in which order you join the pieces, it takes $n-1$ steps to complete the puzzle. 
-
-\begin{solution}
-
-TODO
+\subsolution Count the number of blocks!
 
 \end{solution}
 
@@ -113,10 +103,12 @@ TODO
 \begin{center}
 \includegraphics[width=10cm]{hanoi.jpg}
 \end{center}
-The objective of the game is to move the disks onto a different pole. There are two rules: you may only move one disk at once, and no disk may be placed on a pole with a smaller disk beneath it. Prove that a Tower of Hanoi with $n$ disks takes $2^n-1$ to solve.
+The objective of the game is to move the disks onto a different pole. There are two rules: you may only move one disk at once, and no disk may be placed on a pole with a smaller disk beneath it. Prove that a Tower of Hanoi with $n$ disks takes $2^n-1$ to solve. (Hint: first show that the number of moves required for $n$ disks is one plus twice the number of moves requires for $n-1$ disks.)
 \begin{solution}
 
-TODO
+Let $T_n$ be the number of moves required for $n$ disks to solve the game. Note that $T_0 = 0$ and $T_1 = 1$. Following the hint, we will first argue that $T_n = 2T_{n-1} + 1$. Consider the lowest largest disk. To move this disk, we need to first move the $n-1$ disks on top of it. Then we are free to move the largest disk to another pole, which is an additional 1 move. Notice that we must move this disk to a vacant pole, and the pole from which it is moving is vacant as a result; thus, all $n-1$ must be on one pole. By the rules of the game, they must be in order. So moving them there took $T_{n-1}$ steps. Now we must move them back onto the pole where the large peg now lies. This requires another $T_{n-1}$ steps. Thus the relation $T_n = 2T_{n-1} + 1$ holds.
+
+Next we claim that $T_n = 2T_{n-1} + 1 = 2^n-1$. We will prove this by induction. We have the base cases of $T_0 = 0 = 2^0-1$ and $T_1 = 1 = 2^1 - 1$. Inductive step: suppose that  $T_n = 2^n-1$. Then $T_{n+1} = 2T_{n+1}+1 = 2(2^n-1)+1 = 2^{n+1} - 2  + 1 = 2^{n+1}-1$.
  
 \end{solution}
 
