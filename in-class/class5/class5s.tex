@@ -103,7 +103,7 @@ $2^{2n}-1$ is divisible by $3$, for all $n>0$
 \begin{center}
 \includegraphics[width=10cm]{hanoi.jpg}
 \end{center}
-The objective of the game is to move the disks onto a different pole. There are two rules: you may only move one disk at once, and no disk may be placed on a pole with a smaller disk beneath it. Prove that a Tower of Hanoi with $n$ disks takes $2^n-1$ to solve. (Hint: first show that the number of moves required for $n$ disks is one plus twice the number of moves requires for $n-1$ disks.)
+The objective of the game is to move the disks onto a different pole. There are two rules: you may only move one disk at once, and no disk may be placed on a pole with a smaller disk beneath it. Prove that a Tower of Hanoi with $n$ disks takes $2^n-1$ moves to solve. (Hint: first show that the number of moves required for $n$ disks is one plus twice the number of moves requires for $n-1$ disks.)
 \begin{solution}
 
 Let $T_n$ be the number of moves required for $n$ disks to solve the game. Note that $T_0 = 0$ and $T_1 = 1$. Following the hint, we will first argue that $T_n = 2T_{n-1} + 1$. Consider the lowest largest disk. To move this disk, we need to first move the $n-1$ disks on top of it. Then we are free to move the largest disk to another pole, which is an additional 1 move. Notice that we must move this disk to a vacant pole, and the pole from which it is moving is vacant as a result; thus, all $n-1$ must be on one pole. By the rules of the game, they must be in order. So moving them there took $T_{n-1}$ steps. Now we must move them back onto the pole where the large peg now lies. This requires another $T_{n-1}$ steps. Thus the relation $T_n = 2T_{n-1} + 1$ holds.

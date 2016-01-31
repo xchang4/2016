@@ -69,7 +69,7 @@ $p$ & $q$ & $r$ & $p \lor (q \land r)$ & $(p \lor q) \land (p \lor r)$ \\
 Using the propositions p=``I study'', q=``I will pass the course'', r=``The professor accepts bribes'',  translate the following into statements of propositional logic: 
 	\begin{enumerate}
 	\item If I do not study, then I will not pass the course unless the professor accepts bribes.
-	\item If the professor accepts bribes, then I will pass the course without studying.
+	\item If the professor accepts bribes, then I will pass the course regardless of whether or not I study.
 	\item The professor does not accept bribes, but I study and will pass the course.
 	\end{enumerate}
 	
@@ -88,7 +88,7 @@ Using the propositions p=``I study'', q=``I will pass the course'', r=``The prof
 
 \begin{enumerate}
 \item $(\neg p \land q) \to r$
-\item $(r \land \neg p) \to q$
+\item $r \implies q$
 \item $\neg r \land p \land q$
 \end{enumerate}
 
@@ -109,7 +109,6 @@ Consider the boolean variables $a, b, c$ each representing a single bit. Write t
 
 \begin{table}[]
 \centering
-\caption{My caption}
 \label{my-label}
 \begin{tabular}{llll}
 $a$ & $b$ & $a-b$ & $c$ \\
