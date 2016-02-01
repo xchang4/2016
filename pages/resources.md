@@ -17,6 +17,7 @@ The following list has some recommendations in case you are eager to learn more,
 * [Monte Carlo Statistical Methods](http://www.springer.com/statistics/statistical+theory+and+methods/book/978-0-387-21239-5) by Christian P. Robert and George Casella (available as download via [Harvard Library](https://library.harvard.edu))
 
 ### Materials from last year
-[AM207 - 2015](http://am207.github.io/2015/)
+
+* Please see the folder on github. 
 
 
