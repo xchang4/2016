@@ -88,8 +88,9 @@ n+1 < T_k + T_{k-1} + T_{k-2}
 \end{math}
 \\\\(The penultimate inequality is why we need 3 base cases.)  Now by the inductive hypothesis, since $d < n+1$, there is a Tribonacci sum for $d$. Furthermore, this Tribonacci sum does not contain $T_k$, since $d < T_k$. Thus the Tribonacci sum of $d$ combined with $T_k$ forms a Tribonacci sum for $n+1$.
 \end{solution}
-
-Fun thing to think about: Using the fact you proved in part (B) of this question, we can devise an encoding system for natural numbers using Tribonacci numbers. In the decimal notation we are familiar with, we write ``14'' to represent the number $1(10^1) + 4(10^0)$. To represent the same number in our Tribonacci encoding system, we will write $100010$ or $100001$, since $14 = T_5 + T_1 = T_5 + T_0$. For example, a Tribonacci encoding of $3$ is $101$, and a Tribonacci encoding of $9$ is $10011$. The property we are exploiting here is called ``completeness'' of the Tribonacci sequence.
+\begin{tiny}
+Fun thing to think about: Using the fact you proved in part (B) of this question, we can devise an encoding system for natural numbers using Tribonacci numbers. In the decimal notation we are familiar with, we write ``14'' to represent the number $1(10^1) + 4(10^0)$. To represent the same number in our Tribonacci encoding system, we could write $100010$ or $100001$, since $14 = T_5 + T_1 = T_5 + T_0$. For example, a Tribonacci encoding of $3$ is $101$, and a Tribonacci encoding of $9$ is $10011$. The property we are exploiting here is called ``completeness'' of the Tribonacci sequence.
+\end{tiny}
 
 \problem{2+4+3+2}{3/4 page}
 
