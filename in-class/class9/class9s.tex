@@ -1,0 +1,146 @@
+\documentclass[12pt]{article}
+\usepackage{latexsym}
+\usepackage{amssymb,amsmath}
+\usepackage[pdftex]{graphicx}
+\usepackage{color}
+
+
+\topmargin = 0.1in \textwidth=5.7in \textheight=8.6in
+
+\oddsidemargin = 0.2in \evensidemargin = 0.2in
+
+\newcommand{\cabal}{\text{cabal}}
+\newcommand{\PersonA}{\text{Charles}}
+\newcommand{\PersonB}{\text{Corinne}}
+\newcommand{\PersonC}{\text{Hannah}}
+\newcommand{\PersonD}{\text{Jenny}}
+\newcommand{\PersonE}{\text{Keenan}}
+\newcommand{\PersonF}{\text{Tom}}
+
+
+\begin{document}
+
+\begin{center}
+COMPUTER SCIENCE 20, SPRING 2016 \\
+
+\smallskip
+
+Module \#9 (Quantificational Logic I)
+\end{center}
+Author: Hannah Blumberg, Edited by Michelle Danoff\\
+Reviewers: Steve Komarov\\
+Last modified: February 12, 2016
+
+\medskip
+
+\paragraph*{Executive Summary}
+\begin{enumerate}
+
+\item Propositions and predicates
+\begin{itemize}
+
+\item A proposition $P$ is like a boolean variable. Its value is either ``true'' or ``false.''
+\item A predicate $P(x)$ is like a boolean-valued function. It may have the value ``true'' for some some set of input values and the value ``false'' for others.
+\item A predicate can have more than one argument; e.g. Enrolled($x, y$) might mean ``student $x$ is enrolled in course $y$.'' 
+\item Teh values that  $x$ and $y$ might assume are the domain of the function. 
+\end{itemize}
+
+\item Quantifiers
+\begin{itemize}
+\item The existential quantifier: $\exists x P(x)$ or $\exists x. P(x)$ or $\exists x \mbox{ s.t. }P(x)$ means ``there exists at least one $x$ in the domain $D$ such that $P(x)$ is true.
+
+\item The universal quantifier: $\forall x P(x)$ or $\forall x. P(x)$  means ``for every $x$ in the domain $D$, $P(x)$ is true.
+
+\end{itemize}
+
+\item Multiple quantifiers
+\begin{itemize}
+
+\item  $\exists x P(x)$ and $\forall x P(x)$ are both propositions, subject to the rules of logic that you already know.
+
+\item  $\exists x P(x,y)$ and $\forall x P(x,y)$ are both predicates of the form $Q(y)$, subject to the rules of quantificational logic that you are learning.
+
+\item $\exists x \exists y P(x,y)$ and $\forall x \forall y P(x,y)$ are both propositions. The order of the quanitifiers is irrelevant.
+
+\item $\exists x \forall y P(x,y)$ and $\forall y \exists x P(x,y)$ are both propositions, but they are not equivalent! The order of the quantifiers is important. 
+
+\end{itemize}
+
+\item Negation and quantifiers
+\begin{itemize}
+\item $\neg (\exists x. P(x)) \leftrightarrow \forall x. (\neg P(x))$.
+\item $\neg (\forall x. P(x)) \leftrightarrow \exists x. (\neg P(x))$.
+
+\end{itemize}
+
+\end{enumerate}
+
+\pagebreak
+
+\paragraph*{Small group problems}
+
+\begin{enumerate}
+
+\item Convert the following English sentences into logical formulas. You may use expressions like $x=y$ or $x\neq y$ to indicate whether or not the variables $x$ and $y$ denote different people. The domain of discourse is all people. Let the predicate $H(x)$ mean that ``$x$ is happy,'' and let the predicate $L(x,y)$ mean that ``$x$ loves $y$.''
+
+\subitem (i) At least one person is happy.
+\subitem (ii) At least two people are happy.
+\subitem (iii) At least one person is unhappy.
+\subitem (iv) Exactly one person is happy.
+\subitem (v) Not everyone loves someone else. (Write this in 3 different ways.)
+
+
+\item Let the domain of discourse be all members of the class and let $L(x,y)$ be the predicate ``$x$ likes $y$." Write the following colloquial English sentences using quantificational formulas. The sentences are not necessarily unambiguous. If a sentence has more than one possible meaning, explain the ambiguity and which interpretation you have chosen.
+
+\begin{enumerate}
+
+\item Everyone in the class likes some other member of the class.
+
+\item Someone doesn't like anybody and nobody likes that person.
+
+\item At least three different people like the same person.
+
+\end{enumerate}
+
+
+\item A certain cabal (\emph{cabal: a secret political clique or faction})
+ within the CS~20 course staff is
+plotting to make the final exam \emph{ridiculously hard}.
+(``Problem~1.  Prove the Poincare Conjecture starting from the axioms
+of ZFC.  Express your answer in khipu---the knot language of the
+Incas.'')  The only way to stop their evil plan is to determine
+exactly who is in the cabal.  The course staff includes the following six
+people: \[
+\PersonA,\PersonB,\PersonC,\PersonD,\PersonE,\PersonF \]
+The cabal is a subset of these six.  A membership roster has been
+found and appears below, but it is deviously encrypted in logic
+notation.  The predicate $\cabal$ indicates who is in the cabal; that is,
+$\cabal(x)$ is true if and only if $x$ is a member of the cabal.  Use the information below 
+to deduce who is in the cabal. (Credit: adapted from Albert R. Meyer / MIT 6.042)
+\begin{gather}
+\exists x\exists y\exists z \,
+    (x \neq y \wedge
+     x \neq z \wedge
+     y \neq z \wedge
+     \cabal(x) \wedge \cabal(y) \wedge \cabal(z))
+\\
+\cabal(\PersonF) \Rightarrow \forall x\, \cabal(x) \\ \lnot(\cabal(\PersonA) \wedge \cabal(\PersonD)) \\
+\cabal(\PersonD) \Rightarrow \cabal(\PersonA)\\
+(\cabal(\PersonE) \vee \cabal(\PersonC)) \Rightarrow \lnot(\cabal(\PersonB))
+\end{gather}
+
+
+\item The domain of discourse is the set of all finite-length binary strings as in Meyer, problem 3.21. The predicates Substring($x,y$) (meaning $x$ is a substring of $y$) and Prefix($x,y$) (meaning $x$ is a prefix of $y$) are available. Note that your answers are not limited to the use of the Substring and Prefix predicates.
+
+\begin{enumerate}
+\item Write a predicate Suffix($x, y$) that means $x$ is a suffix of $y$.
+
+
+\item Write an expression that means $x$ consists of alternating 0s and 1s, e.g 01010 or 101010. (Hint: Consider substrings of size two.)
+
+
+\item Write an expression that means $x$ is the binary representation of an integer of the form $5(2^k)$ for some integer $k \geq 0$.
+\end{enumerate}
+
+\end{enumerate}
+\end{document}
