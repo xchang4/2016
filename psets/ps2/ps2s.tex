@@ -18,7 +18,7 @@
 \PART{Tom}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \problem{4+4}{1 line each}
-\subproblem Define the propositions p=``You obey the speed limit'' and the q=``You are going to a wedding''. Write the following sentences as compound propositions using p and q: 
+\subproblem Define the propositions p=``You obey the speed limit'' and q=``You are going to a wedding''. Write the following sentences as compound propositions using p and q: 
 \begin{enumerate}
 \item Failing to obey the speed limit implies that you are going to a wedding.
 \item You drive below the speed limit only if you are going to a wedding. 
@@ -26,7 +26,7 @@
 \item You drive above the speed limit whenever you are going to a wedding. 
 \end{enumerate}
 
-\subproblem Define the propositions p=``The home team wins,'' q=``It is raining,'' r=``There is an earthquake '' Write the following sentences as compound propositions using p,q, and r:
+\subproblem Define the propositions p=``The home team wins,'' q=``It is raining,'' r=``There is an earthquake.'' Write the following sentences as compound propositions using p, q, and r:
 \begin{enumerate}
 \item Either rain or an earthquake is sufficient for the home team to win. 
 \item Rain and earthquake are necessary but not sufficient for the home team to win. 
@@ -54,17 +54,19 @@
 
 \end{solution}
 
+\pagebreak
+
 \problem{5+6}{3/4 page}
 
 The Tribonacci numbers are defined by $T_0 = 1, T_1 = 1, T_2 = 2$, and $T_n = T_{n_1} + T_{n-2} + T_{n-3}$ for all $n \ge 3$. The beginning of the Tribonacci sequence is $1, 1, 2, 4, 7, 13, ...$. 
 
 \subproblem Use strong induction to prove that $T_n \le 3^n$ for all natural numbers $n$.
 
-\subproblem Use strong induction to prove that any positive integer can be written as the sum of one or more \textit{distinct} Tribonacci numbers. For example, $3 = T_0 + T_2$, and $9 = T_0 + T_1 + T_4$.
+\subproblem Use strong induction to prove that any positive integer can be written as the sum of one or more \textit{distinct} Tribonacci numbers. For example, $3 = T_0 + T_2$, and $9 = T_0 + T_1 + T_4$. (Hint: consider the greatest $T_k$ less than $n+1$. Can you add other Tribonacci numbers to $T_k$ to reach $n+1$?)
 
 \begin{solution}
 \subsolution 
-Let $P(n) = T_n \le 3^n$. Base cases: $P(0)$ is true, since $T_0 = 1 \le 3^0 = 1$. $P(1)$ is true, since $T_1 = 1 \le 3^1 = 3$. $P(2)$ is also true, since $T_2 = 2 \le 3^2 = 9$. Inductive step: assume $P(1), ..., P(n)$ holds for $n \ge 2$. Then 
+Let $P(n)$ be the predicate $T_n \le 3^n$. Base cases: $P(0)$ is true, since $T_0 = 1 \le 3^0 = 1$. $P(1)$ is true, since $T_1 = 1 \le 3^1 = 3$. $P(2)$ is also true, since $T_2 = 2 \le 3^2 = 9$. Inductive step: assume $P(1), ..., P(n)$ holds for $n \ge 2$. Then 
 \begin{math}
 T_{n+1} = T_n + T_{n-1} + T_{n-2}
 \\ \le 3^n + 3^{n-1} + 3^{n-2}
@@ -74,7 +76,7 @@ T_{n+1} = T_n + T_{n-1} + T_{n-2}
 \end{math}
 
 \subsolution
-Let $P(n) = n$ can be written as the sum of distinct Tribonacci numbers. We will call a set of distinct Tribonacci numbers that sum to $n$ a ``Tribonacci sum of $n$''. 
+Let $P(n)$ be the predicate ``$n$ can be written as the sum of distinct Tribonacci numbers''. We will call a set of distinct Tribonacci numbers that sum to $n$ a ``Tribonacci sum of $n$''. 
 \\\\
 Base cases: $P(1) = T_1$, $P(2) = T_2, P(3) = T_1 + T_2$. 
 \\\\
@@ -87,10 +89,10 @@ n+1 < T_k + T_{k-1} + T_{k-2}
 \\ \implies d < T_k
 \end{math}
 \\\\(The penultimate inequality is why we need 3 base cases.)  Now by the inductive hypothesis, since $d < n+1$, there is a Tribonacci sum for $d$. Furthermore, this Tribonacci sum does not contain $T_k$, since $d < T_k$. Thus the Tribonacci sum of $d$ combined with $T_k$ forms a Tribonacci sum for $n+1$.
-\end{solution}
 \begin{tiny}
 Fun thing to think about: Using the fact you proved in part (B) of this question, we can devise an encoding system for natural numbers using Tribonacci numbers. In the decimal notation we are familiar with, we write ``14'' to represent the number $1(10^1) + 4(10^0)$. To represent the same number in our Tribonacci encoding system, we could write $100010$ or $100001$, since $14 = T_5 + T_1 = T_5 + T_0$. For example, a Tribonacci encoding of $3$ is $101$, and a Tribonacci encoding of $9$ is $10011$. The property we are exploiting here is called ``completeness'' of the Tribonacci sequence.
 \end{tiny}
+\end{solution}
 
 \problem{2+4+3+2}{3/4 page}
 
@@ -109,7 +111,7 @@ Two logical propositions $A$ and $B$ are said to be \textit{logically equivalent
 
 \subproblem Suppose you have one variable, $p$, and the $\land$ and $\neg$ operations. How many syntactically distinct (i.e. not SE) propositions can you make with $n$ $\land$ operations? Prove your answer by induction.
 
-\subproblem Prove that every proposition has infinitely many LE syntactically distinct propositions.
+\subproblem Prove by contradiction that every proposition has infinitely many LE syntactically distinct propositions.
 
 \begin{solution}
 
@@ -140,7 +142,7 @@ $p$ & $q$ & $r$& $p \to (q \to r)$ & $p \land q \land \neg r$ \\
 \item both
 \end{enumerate}
 
-\subsolution We can make $2^{n+1}$ syntactically distinct propositions with $n \land$ operations. Base case: For $n = 0$, we have $p$ and $\neg p$ as syntactically distinct propositions. Inductive step: assume we have $2^{n+1}$ syntactically distinct propositions with $n \land$ operations. For each of these propositions, we can create two new syntactically distinct propositions with $n+1 \land$ operations by adding either $\land p$ or $\land \neg p$ to the end. Thus we have $2(2^{n+1}) = 2^{n+2}$ propositions.
+\subsolution We can make $2^{n+1}$ syntactically distinct propositions with $n \; \land$ operations. Base case: For $n = 0$, we have $p$ and $\neg p$ as syntactically distinct propositions. Inductive step: assume we have $2^{n+1}$ syntactically distinct propositions with $n \land$ operations. For each of these propositions, we can create two new syntactically distinct propositions with $n+1 \; \land$ operations by adding either $\land p$ or $\land \neg p$ to the end. Thus we have $2(2^{n+1}) = 2^{n+2}$ propositions.
 
 \subsolution Suppose to the contrary, that there is a logical proposition $A$ with only finitely many LE syntactically distinct propositions. Let $A'$ be the LE proposition with the greatest number of $\lor$ operations. Then $A' \lor (p \land \neg p)$ is LE and syntactically distinct from $A'$ and $A$. But it has more $\lor$ operations than $A'$, so we have a contradiction.
 
