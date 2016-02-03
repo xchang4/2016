@@ -15,12 +15,8 @@
 \item Forms of propositional formulas
 
 \begin{itemize}
-  \item  Disjunctive form: \textsc{Or}s of \textsc{And}-terms, where each \textsc{And}-term consists of variables (or negations of variables). E.g.: $(p \land q) \lor (p \land r) \lor (q \land \lnot r \land t) $
-
-  \item Disjunctive \emph{normal} form: like the disjunctive form, but with the restriction that every \textsc{And}-term must consists of \emph{all} variables (or negations of variables). E.g.: $(p \land q \land  r) \lor (\lnot p \land q \land r)\lor (\lnot p \land \lnot q \land r) $ There will be one factor for each ``true'' line in the truth table.
-
-  \item Conjunctive form: \textsc{And}s of \textsc{Or}-terms, where each \textsc{Or}-term consists of variables (or negations of variables). E.g.: $(p \lor \lnot q) \land (p \lor r) \land (q \lor \lnot r \lor t)$
-  \item Conjunctive \emph {normal} form: like the conjunctive form, but with the restriction that every \textsc{Or}-term must consist of \emph{all} variables (or negations of variables). E.g.: $(p \lor q \lor r) \land (p \lor \lnot q \lor r) \land (\lnot p \lor q \lor r)$ There will be one factor for each ``false'' line in the truth table.
+  \item  Disjunctive normal form: \textsc{Or}s of \textsc{And}-terms, where each \textsc{And}-term consists of variables (or negations of variables), e.g. $(p \land q) \lor (p \land r) \lor (q \land \lnot r \land t) $, or $(p \land q \land  r) \lor (\lnot p \land q \land r)\lor (\lnot p \land \lnot q \land r) $.
+  \item Conjunctive form: \textsc{And}s of \textsc{Or}-terms, where each \textsc{Or}-term consists of variables (or negations of variables), e.g. $(p \lor \lnot q) \land (p \lor r) \land (q \lor \lnot r \lor t)$, or $(p \lor q \lor r) \land (p \lor \lnot q \lor r) \land (\lnot p \lor q \lor r)$.
 
 \end{itemize}
 
@@ -55,9 +51,14 @@
 
 \problem
 
-Explain why $A \rightarrow B \equiv \lnot A \lor B$ (Hint: use truth tables in your answer).
+\subproblem Explain why $A \rightarrow B \equiv \lnot A \lor B$ (Hint: use truth tables in your answer).
+
+\subproblem The following formula is satisfiable.  \emph{Without using a truth table}, find a satisfying assignment, and explain your method:
+	$$(((p \lor q \lor r) \land (\neg r \land s)) \lor \neg p) \rightarrow ((\neg s \lor t) \oplus \neg q) $$
 
 \begin{solution}
+
+\subsolution
   First, let's consider the truth table for $A \rightarrow B$. If $A$ is true, then $B$ must also be true. If $A$ isn't true, then we do not require that $B$ be either true or false.
   \begin{center}
     \begin{tabular}{|c|c|c|}\hline
@@ -81,22 +82,15 @@ Explain why $A \rightarrow B \equiv \lnot A \lor B$ (Hint: use truth tables in y
   \end{center}
   
   Since the truth tables are identical, we can conclude that the two expressions are equivalent.
-  
-\end{solution}
 
-\problem
+\subsolution Rewrite the formula as $A \rightarrow B \equiv \lnot A \lor B$, by the equivalence in Problem 1. If we set $p$ to 1 and $s$ to 0, then $A$ will evaluate to 0 and we have found a satisfying assignment. We can then populate the other variables with whatever values we wish. The following assignment is satisfying: $p = 1$, $q = 0$, $r = 0$, $s = 0$, $t = 0$.
 
-The following formula is satisfiable.  \emph{Without using a truth table}, find a satisfying assignment, and explain your method:
-	$$(((p \lor q \lor r) \land (\neg r \land s)) \lor \neg p) \rightarrow ((\neg s \lor t) \oplus \neg q) $$
-
-\begin{solution}
-Rewrite the formula as $A \rightarrow B \equiv \lnot A \lor B$, by the equivalence in Problem 1. If we set $p$ to 1 and $s$ to 0, then $A$ will evaluate to 0 and we have found a satisfying assignment. We can then populate the other variables with whatever values we wish. The following assignment is satisfying: $p = 1$, $q = 0$, $r = 0$, $s = 0$, $t = 0$.
 \end{solution}
 
 \problem
 
 \subproblem Put the following formula in conjunctive normal form: $(\lnot (p \oplus q)) \rightarrow r$.
-\subproblem Put the following formula in disjunctive form: $p \lor (q \rightarrow p)$
+\subproblem Put the following formula in disjunctive normal form: $p \lor (q \rightarrow p)$
 
 \begin{solution}
 \subsolution We should remove the $\rightarrow$ immediately, and then remove the double negation, which leaves $(p \oplus q) \lor r$. This expands to $((p \lor q) \land \lnot (p \land q)) \lor r \equiv ((p \lor q) \land (\lnot p \lor \lnot q)) \lor r$, using De Morgan's Laws. Finally, we can use the distributive property of \textsc{Or} to reduce the expression to $(p \lor q \lor r) \land (\lnot p \lor \lnot q \lor r)$, which is in CNF.
@@ -106,7 +100,7 @@ Rewrite the formula as $A \rightarrow B \equiv \lnot A \lor B$, by the equivalen
 \problem
 
 \subproblem Find an easy way to check whether a formula in disjunctive normal form is satisfiable.
-\subproblem Sam wakes up one night thinking that he has solved the P=?NP question:  P = NP!  Given a logical formula, just put the formula into disjuntive normal form, then use the method in part (a) to check to see if it is satisfiable. Why won't Sam win the million dollar prize for settling the question?
+\subproblem (BONUS) Sam wakes up one night thinking that he has solved the P=?NP question:  P = NP!  Given a logical formula, just put the formula into disjuntive normal form, then use the method in part (a) to check to see if it is satisfiable. Why won't Sam win the million dollar prize for settling the question?
 
 \begin{solution}
 \subsolution A DNF formula is satisfiable if and only if at least one of its terms is satisfiable, and a term is satisfiable if and only if it does not contain both $p$ and $\lnot p$ for some variable $p$. This can be checked in polynomial time.

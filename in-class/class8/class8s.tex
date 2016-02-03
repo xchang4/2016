@@ -5,7 +5,7 @@
 \usepackage{tikz}
 \usepackage{hyperref}
 \begin{document}
-\header{7}{Wednesday, February 10, 2016}
+\header{8}{Wednesday, February 10, 2016}
 
 \noindent Author: Jack Dent% \\
 
@@ -19,19 +19,19 @@
 \begin{tabular}{| l | l |}
 \hline
 Gate & Operation \\ \hline
-AND & $a \land b$ \\ \hline
-OR & $a \lor b$ \\ \hline
-NOT & $\lnot a$ \\ \hline
-NAND & $\lnot(a \land b)$ \\ \hline
-NOR & $\lnot(a \lor b)$ \\ \hline
-XOR & $a \oplus b$ \\ \hline
-XNOR & $\lnot (a \oplus b)$ \\ \hline
+\textsc{And} & $a \land b$ \\ \hline
+\textsc{Or} & $a \lor b$ \\ \hline
+\textsc{Not} & $\lnot a$ \\ \hline
+\textsc{Nand} & $\lnot(a \land b)$ \\ \hline
+\textsc{Nor} & $\lnot(a \lor b)$ \\ \hline
+\textsc{Xor} & $a \oplus b$ \\ \hline
+\textsc{Xnor} & $\lnot (a \oplus b)$ \\ \hline
 \end{tabular}
 \end{table}
 
-The gates NAND and NOR are special because they are functionally complete: each one of them is capable of representing all possible propositional formulas. This means that every logic circuit can be built using only NAND gates or using only NOR gates. 
+The gates \textsc{Nand} and \textsc{Nor} are special because they are functionally complete: each one of them is capable of representing all possible propositional formulas. This means that every logic circuit can be built using only NAND gates or using only\textsc{Nor} gates. 
 
-\item Binary Arithmetic. There is a close relationship between arithmetic operations (addition, subtraction,...) and logic operations (AND, OR, ...) when the numbers being manipulated are represented in binary. Computers perform arithmetic using logic circuits that are essentially physical implementations of propositional formulas.  
+\item Binary Arithmetic. There is a close relationship between arithmetic operations (addition, subtraction,...) and logic operations (\textsc{And},\textsc{Or}, ...) when the numbers being manipulated are represented in binary. Computers perform arithmetic using logic circuits that are essentially physical implementations of propositional formulas.  
 
 \end{enumerate}
 \pagebreak
@@ -51,14 +51,14 @@ Perform the following operations in binary, check your answers by performing the
 \problem
 A light bulb is connected to three light switches so that:
   \begin{itemize}
-    \item When any one switch is in the on position (and the other two are in the off position), the light bulb is lit.
+    \item When all of the switches are off, the light bulb is not lit.
     \item When any switch is flipped from on to off or vice versa, the light bulb goes out if it was lit or lights up if it was off.
   \end{itemize}
 Construct a circuit that could connect the three switches to the bulb in this way.
 
 \begin{solution}
 
-The bulb should only light when an even number of switches are activated. Suppose our three inputs are labeled A, B and C. We can construct a circuit as follows: feed A and B into an \textsc{Xor} gate, and feed the output from that gate into an \textsc{Xor} gate with C. The output from that gate should be connected to the light switch.
+The bulb should only light when an odd number of switches are activated. Suppose our three inputs are labeled A, B and C. We can construct a circuit as follows: feed A and B into an \textsc{Xor} gate, and feed the output from that gate into an \textsc{Xor} gate with C. The output from that gate should be connected to the light switch.
 \end{solution}
 
 \problem The Orcish elevator in Middle-earth is a peculiar machine: it can move up only during the day, and move down --- only during the night. In addition, it cannot move up if it's cold, and it cannot move down if it's hot. Define p and q:
@@ -94,6 +94,6 @@ Construct the following gates:
 \end{solution}
   
 \problem
-(BONUS) Construct a binary adder: design a circuit which takes in as input $a_1$ and $a_2$, and outputs a binary representation of their sum.
+(BONUS) Construct a binary subtractor: design a circuit which takes in as input $a_1$ and $a_2$, each of which is $4$ bits long, and outputs a binary representation of their difference.
 
 \end{document}
