@@ -15,8 +15,9 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\PART{Tom}
+\PART{Jack}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \problem{4+4}{1 line each}
 \subproblem Define the propositions p=``You obey the speed limit'' and the q=``You are going to a wedding''. Write the following sentences as compound propositions using p and q: 
 \begin{enumerate}
@@ -53,6 +54,25 @@
 \end{enumerate}
 
 \end{solution}
+
+\problem{3+3+4}{3 lines each}
+
+\subproblem Put the following formula in conjunctive normal form: $(p \leftrightarrow q) \land r$
+\subproblem Put the following formula in disjunctive normal form: $(p \oplus q) \rightarrow (r \land q)$
+\subproblem Put the following formula in disjunctive normal form: $((p \rightarrow q) \rightarrow p) \rightarrow p$. What do you notice about your answer?
+
+\begin{solution}
+\subsolution  We can replace $p \leftrightarrow q$ with $(p \rightarrow q) \land (q \rightarrow p)$. The statement then becomes $(p \rightarrow q) \land (q \rightarrow p) \land r$, which we can rewrite as $(\lnot p \lor q) \land (\lnot q \lor p) \land r$, which is in CNF.
+
+\subsolution Recall that $p \oplus q \equiv (p \lor q) \land \lnot (p \land q)$. The expression then expands to $(p \lor q) \land \lnot (p \land q) \rightarrow (r \land q)$ which is equivalent to $\lnot((p \lor q) \land \lnot (p \land q)) \lor (r \land q)$. Using De Morgan's laws to remove the negation, we get $\lnot (p \lor q) \lor (p \land q) \lor (r \land q)$, which simplifies to $(\lnot p \land \lnot q) \lor (p \land q) \lor (r \land q)$.
+
+\subsolution Eliminating $\rightarrow$, we get $\lnot (\lnot (\lnot p \lor q) \lor p) \lor p$. Then, pushing the negations inwards, the expression becomes $(\lnot (\lnot p \lor q) \land \lnot p) \lor p$ and $((\lnot p \lor q) \land \lnot p) \lor p$. Finally, pushing the disjunctions in using the distributive property gives $(\lnot p \lor q \lor p) \land (\lnot p \lor p)$. This is a tautology, known as Peirce's law.
+
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\PART{Michelle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \problem{5+6}{3/4 page}
 

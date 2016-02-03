@@ -9,3 +9,5 @@ in-class/class[0-9]/class[0-9]s.pdf
 *.aux
 *.log
 *.out
+
+.DS_Store
