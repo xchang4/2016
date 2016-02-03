@@ -32,7 +32,9 @@
 
 \subsolution Eliminating $\rightarrow$, we get $\lnot (\lnot (\lnot p \lor q) \lor p) \lor p$. Then, pushing the negations inwards, the expression becomes $(\lnot (\lnot p \lor q) \land \lnot p) \lor p$ and $((\lnot p \lor q) \land \lnot p) \lor p$. Finally, pushing the disjunctions in using the distributive property gives $(\lnot p \lor q \lor p) \land (\lnot p \lor p)$. This is a tautology, known as Peirce's law.
 
-\subsolution TODO
+\subsolution Any logical statement can be represented using a truth table, where each possible combination of variables evaluates to either true or false. We can say that for any combination of variables the statement is true as long as it is not one of the combinations that evaluates to false. The previous sentence can always be represented as follows: reading off the truth table, each term of the  statement will be the negation of one of the cases where the statement evaluates to false. Each of these terms will be joined with ands. Logically this statement will be correct, but it is not yet in conjunctive normal form because there are ands inside the individual terms, as well as connecting the terms. Conjunctive normal form needs to have exclusively ors inside each of the terms. 
+
+De Morgan's law can then be applied to each of the individual terms in order to convert the statement to conjunctive normal form. When De Morgan's law is applied to one term, all of the variables in that term will flip their value (true to false, or false to true), the term as a whole will be negated, and the ands joining the variables will flip to ors. If De Morgan's law is applied to each of the terms in the statement as just described, the resultant statement will have terms joined with ands but there will only be ors within each individual term; the statement will be in conjunctive normal form. Since any logical statement can be represented using a truth table, this methodology can be used for any logical statement. 
 
 \end{solution}
 
@@ -40,7 +42,7 @@
 \PART{Michelle}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\problem{TODO}{TODO}
+\problem{1+2}{}
 
 While wandering the halls of Hogwarts, Harry stumbles upon a note that reads: "Danger lies before you, while safety lies behind. Drink some of us to help you, the combination you must find". Harry sees four bottles of mysterious potion, one colored red, one blue, one yellow, and one green. A sign next to the door reads:
 
@@ -64,8 +66,11 @@ Luckily, Harry sees all the colored bottles. Define r, y, b, g:
 
 \begin{solution}
 
-\subsolution TODO
-\subsolution TODO
+\subsolution $(r \land y \land g) \lor (b \land (y \oplus g))$
+
+could also do 
+$(r \land y \land g) \lor (b \land y) \lor (b \land g)$
+\subsolution [several possible solutions for this]
 
 \end{solution}
 
