@@ -98,7 +98,7 @@ Fun thing to think about: Using the fact you proved in part (B) of this question
 
 Two logical propositions $A$ and $B$ are said to be \textit{logically equivalent} (LE) if $A \leftrightarrow B$. Two propositions are said to be $\textit{syntactically equivalent}$ (SE) if they are written with the same variables and operations in the same order. For example, $A = (p \land q) \lor r$ and $B = (p \land q) \lor r$ are both LE and SE; $A  = p \to p$ and $B = p \lor \neg p$ are LE but not SE; $A = p$ and $B = q$ are neither LE nor SE.
 
-\subproblem Provide a truth table to prove that $A  = p \to (q \to r)$ and $B = p \land q \land \neg r$ are LE.
+\subproblem Provide a truth table to prove that $A  = \neg (p \to (q \to r))$ and $B = p \land q \land \neg r$ are LE.
 
 \subproblem For each of the following, state whether $A$ and $B$ are LE, SE, both, or neither. No explanation nor truth table required.
 
@@ -121,15 +121,15 @@ Two logical propositions $A$ and $B$ are said to be \textit{logically equivalent
 \centering
 \label{my-label}
 \begin{tabular}{lllll}
-$p$ & $q$ & $r$& $p \to (q \to r)$ & $p \land q \land \neg r$ \\
-1 & 1 & 1 & 1               & 1                      \\
-1 & 1 & 0 & 0               & 0                      \\
-1 & 0 & 1 & 1               & 1                      \\
-1 & 0 & 0 & 1               & 1                      \\
-0 & 1 & 1 & 1               & 1                      \\
-0 & 1 & 0 & 1               & 1                      \\
-0 & 0 & 1 & 1               & 1                      \\
-0 & 0 & 0 & 1               & 1                     
+$p$ & $q$ & $r$& $\neg(p \to (q \to r))$ & $p \land q \land \neg r$ \\
+1 & 1 & 1 & 0               & 0                      \\
+1 & 1 & 0 & 1               & 1                      \\
+1 & 0 & 1 & 0               & 0                      \\
+1 & 0 & 0 & 0               & 0                      \\
+0 & 1 & 1 & 0               & 0                      \\
+0 & 1 & 0 & 0               & 0                      \\
+0 & 0 & 1 & 0               & 0                      \\
+0 & 0 & 0 & 0               & 0                     
 \end{tabular}
 \end{table}
 
