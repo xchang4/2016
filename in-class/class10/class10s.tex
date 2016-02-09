@@ -1,0 +1,105 @@
+\documentclass[solution, letterpaper]{cs20inclass}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{hyperref}
+\begin{document}
+\header{10}{Wednesday, February 17, 2016}
+
+\noindent Author: Tom Silver% \\
+
+\paragraph*{Executive Summary}
+\begin{enumerate}
+
+\item Propositions and predicates
+\begin{itemize}
+
+\item A proposition $P$ is like a boolean variable. Its value is either ``true'' or ``false.''
+\item A predicate $P(x)$ is like a boolean-valued function. It may have the value ``true'' for some values of the $x$ and the value ``false'' for others.
+\item A predicate can have more than one argument; e.g. Enrolled($x, y$) might mean ``student $x$ is enrolled in course $y$.'' 
+\item In principle it is important to know the (possibly infinite) set of values $D$ that $x$ and $y$ might assume (the domain of the function). 
+\end{itemize}
+
+\item Quantifiers
+\begin{itemize}
+\item The existential quantifier: $\exists x P(x)$ or $\exists x. P(x)$ or $\exists x \mbox{ s.t. }P(x)$ means ``there exists at least one $x$ in the domain $D$ such that $P(x)$ is true.
+
+\item The universal quantifier: $\forall x P(x)$ or $\forall x. P(x)$  means ``for every $x$ in the domain $D$, $P(x)$ is true.
+
+\end{itemize}
+
+\item Multiple quantifiers
+\begin{itemize}
+
+\item  $\exists x P(x)$ and $\forall x P(x)$ are both propositions, subject to the rules of logic that you already know.
+
+\item  $\exists x P(x,y)$ and $\forall x P(x,y)$ are both predicates of the form $Q(y)$, subject to the rules of quantificational logic that you are learning.
+
+\item $\exists x \exists y P(x,y)$ and $\forall x \forall y P(x,y)$ are both propositions. The order of the quanitifiers is irrelevant.
+
+\item $\exists x \forall y P(x,y)$ and $\forall y \exists x P(x,y)$ are both propositions, but they are different! The order of the quantifiers is important. 
+
+\end{itemize}
+
+\item Negation and quantifiers
+\begin{itemize}
+\item $\neg (\exists x. P(x)) \leftrightarrow \forall x. (\neg P(x))$.
+\item $\neg (\forall x. P(x)) \leftrightarrow \exists x. (\neg P(x))$.
+
+\end{itemize}
+
+\end{enumerate}
+
+\problem Recall from Problem Set 1: Let $A$ be the set of your pigeons, and let $B$ be the set of pigeonholes in which they live. The \textit{Generalized Pigeonhole Principle} states that for a natural number $k$, if $|A| > k|B|$, then there is a pigeonhole in which more than $k$ pigeons live. Restate the GPP using quantifiers. Then negate the GPP (as you would for a proof by contradiction).
+
+\begin{solution}
+Restatement:
+$\forall k \in \mathbb{N}, \forall A, B, |A| > k|B| \implies \exists b \in B$ s.t. $b$ contains more than $k$ pigeons.\\
+Negation:
+$\exists k \in \mathbb{N}, \exists A, B$ s.t. $|A| > k|B|$ and $\forall b \in B$, $b$ contains less than or equal to $k$ pigeons.
+\end{solution}
+
+\problem
+ The domain of discourse is the set of all finite-length binary strings. The predicates Substring($x,y$) (meaning $x$ is a substring of $y$) and Prefix($x,y$) (meaning $x$ is a prefix of $y$) are available.
+
+\subproblem  Write an expression that means $x$ consists of alternating 0s and 1s, e.g 01010 or 101010.
+\subproblem  Write an expression that means $x$ is the binary representation of an integer of the form $5(2^k)$ for some integer $k \geq 0$.
+\subproblem Write three different expressions that means $x$ consists of one or more 1s, and no 0s. Important caveat: none of your expressions may contain ``0''.
+\subproblem (BONUS) Write a fourth expression for (c) that is \textit{recursive}, meaning that the expression appears in its own definition.
+
+\begin{solution}
+\subsolution $Alternating(x) = \neg Substring(01, x) \wedge \neg Substring(10, x)$
+\subsolution $FiveTwoPow(x) = Prefix(101, x)$
+\subsolution 1: $AllOnes(x) = \forall y \; Substring(y, x) \implies Substring(1, y)$.\\
+2: $AllOnes(x) = \forall y \; Substring(y, x) \implies Prefix(1, y)$.\\
+3: $AllOnes(x) = Prefix(1, x) \wedge \forall y \; Prefix(y, x) \implies Prefix(1, y)$
+\subsolution $AllOnes(x) = Prefix(1, x) \wedge \forall y \; Prefix(y, x) \implies AllOnes(y)$ (or Substring may be used)
+
+\end{solution}
+
+
+\problem
+We define a committee to be a set of senators $\mathcal{S} = \{S_1,S_2,\cdots,S_n\}$. The predicate $M(S,\mathcal{C})$ means ``Senator $S$ is a member of committee $\mathcal{C}$.'' Rewrite the following in terms of predicate logic.
+
+\subproblem Every committee has at least two senators serving on it.
+\subproblem Any two distinct senators determine a unique committee. 
+
+\begin{solution}
+\subsolution $\forall \mathcal{C} \subseteq \mathcal{S}, \exists S_i, S_j  \in \mathcal{S} $ s.t. $i \neq j$ and $S_i, S_j \in \mathcal{C}$.
+\subsolution $\forall \mathcal{C} \subseteq \mathcal{S}, \forall S_i, S_j \in \mathcal{S}$, $S_i, S_j \in \mathcal{C} \implies i = j$.
+\end{solution}
+
+\problem The domain of discourse is the set of integers. Let $S(x, y, z)$ mean that ``$z$ is the sum of $x$ and $y$.''
+
+\subproblem Write a formula that means $x$ is an even integer. 
+\subproblem Write a formula that symbolizes the commutative property for addition $(x+y = y +x)$ of integers.
+\subproblem Write a formula that symbolizes the associative law for addition\\ $(x + (y + z) = (x + y) + z)$ of integers.
+
+\begin{solution}
+\subsolution $Even(x) = \exists y. S(x, y, y)$   
+\subsolution $\forall x_1, x_2, y, z, S(x_1, y, z) = S(x_2, z, y) \implies x_1 = x_2$
+\subsolution $\forall u_1, u_2, v, w, x, y, z, S(w, x, y) \wedge S(v, y, z) \wedge S(u_1, x, v) \wedge (u_2, w, z) \implies u_1 = u_2$
+\end{solution}
+
+\end{document}
