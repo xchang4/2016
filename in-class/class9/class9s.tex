@@ -85,4 +85,30 @@
 
 \end{solution}
 
+\problem A certain cabal (\emph{cabal: a secret political clique or faction})
+ within the CS~20 course staff is
+plotting to make the final exam \emph{ridiculously hard}. The only way to stop their evil plan is to determine exactly who is in the cabal. Some of the course staff include: Michelle, Erin, Tom, Hannah, Crystal, and Jack. The cabal is a subset of these six. A membership roster ahs been found and appears below, but it is deviously encrypted in logic notation. The predicate $cabal$ indicates who is in the cabal; that is, $cabal(x)$ is true if and only if $x$ is a member of the cabal. Use the following information to gather who is in the cabal. 
+
+\subproblem $\exists x \exists y \exists z (x \neq y \land x \neq z \land y \neq z \land cabal(x) \land cabal(y) \land cabal(z))$
+\subproblem $cabal(Jack) \rightarrow \forall x cabal(x)$
+\subproblem $\lnot (cabal(Michelle) \land cabal(Hannah))$
+\subproblem $cabal(Hannah) \rightarrow cabal(Michelle)$
+\subproblem $cabal(Crystal) \land cabal(Tom) \rightarrow \lnot(cabal(Erin))$
+
+\begin{solution}
+Michelle, Crystal, and Tom are in the cabal
+\end{solution}
+
+\problem Let us consider all finite length binary strings. We may use the following operations: $substring(x,y)$, which will return true if x is a substring of y, and $prefix(x,y)$, which will return true if x is a prefix of y. For the following problems, assume input $x$ consists of exclusively 0s and 1s. 
+
+\subproblem Write an expression that means $x$ consists of alternating 0s and 1s. For example, 01010101 or 10101010, but not 110010100. 
+
+\subproblem Write an expression that means that $x$ is the binary representation of an integer of the form $5(2^k)$ for some integer $k \geq 0$. 
+
+\begin{solution}
+\subsolution $\lnot substring(11, x) \land \lnot substring(00,x)$
+\subsolution $ prefix(101, x) \land \lnot substring(11, x) \land \lnot substring(10101, x) \land \lnot substring(001,x)$
+
+\end{solution}
+
 \end{document}
