@@ -16,7 +16,7 @@ This in-class midterm review is a puzzle. Each problem gives you one piece of th
 \problem What follows is alleged to be a proof of the ``Anti-Friendship Theorem'': that for all $n$, there exists a set of $n$ people for which all subsets of 3 people are neither all friends nor all enemies. Find the \textit{first} line that contains a \textbf{logical flaw}, if one exists. (If something is ``unnecessary'' but logically true, it is not a logical flaw.)
 
 \begin{enumerate}
-\item Proceeding by induction, we define the predicate $P(n) = $ there exists a set of $n$ people or which all subsets of 3 people are neither all friends nor all enemies.
+\item Proceeding by induction, we define the predicate $P(n) = $ there exists a set of $n$ people for which all subsets of 3 people are neither all friends nor all enemies.
 \item Base cases: Suppose Alice and Bob are friends, Bob and Charlotte are friends, but Alice and Charlotte are not friends. $P(3)$ evidently holds. Add Dianne, a friend of Bob but not of Alice or Charlotte. Thus $P(4)$ holds.
 \item Add Eric, a friend of Alice and Charlotte but not Bob or Dianne. Thus $P(5)$ holds as well.
 \item Inductive step: Assume for that $n \ge 5$, $P(3), P(4), ..., P(n)$ holds.
@@ -95,18 +95,21 @@ S & E & O & T & R
   % Write your answer here.
 \end{solution}
 
-\problem Let $P_1, ...., P_8$ be 8 propositions. Use the quantificational logic statements below to deduce which of the propositions is True.
+\problem Use the quantificational logic statements below to deduce which of the propositions is True.
 
-\begin{itemize}
-\item $\forall i, (i < 6 \wedge P_i) \to \neg P_{i-1}$.
-\item $\forall i, j, (j > 1 \wedge \neg P_i) \to \neg P_{ij}$ (where $ij$ is multiplication of integers)
-\end{itemize}
+\begin{enumerate}
+\item $\forall n \in \mathbb{N}, \exists m \in \mathbb{N} . n\cdot m = 1$
+\item $\forall n \in \mathbb{N}, \forall m \in \mathbb{N} . n+m = n$
+\item $\exists n \in \mathbb{N}, \forall m \in \mathbb{N} . n+m = n$
+\item $\exists n \in \mathbb{N}, \forall m \in \mathbb{N} . n\cdot m = n$
+\item $\exists n \in \mathbb{N}, \forall m \in \mathbb{N} . n\cdot m = m$
+\end{enumerate}
 
 \begin{table}[h]
 \centering
 \begin{tabular}{llllllll}
-1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
-M & N & R & E & P & O & L & A
+1 & 2 & 3 & 4 & 5 \\
+M & N & R & E & L
 \end{tabular}
 \caption{Problem 4 Clue}
 \end{table}
@@ -120,7 +123,7 @@ M & N & R & E & P & O & L & A
 \begin{table}[h]
 \centering
 \begin{tabular}{llllllll}
-2 & 5 & 9 & 12 & 17 & 26 & 50 & >50 \\
+2 & 5 & 9 & 12 & 17 & 26 & 50 & $>50$ \\
 A & W & B & K & U & O & N & T
 \end{tabular}
 \caption{Problem 5 Clue}
