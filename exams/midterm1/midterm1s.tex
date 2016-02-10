@@ -36,6 +36,16 @@ p & q & r & $\neg (\neg p \lor q) \to r$ & $\neg r \oplus (\neg p \land q)$ \\
 \end{table}
 \end{solution}
 
+\problem{}{} Perform the following operations in binary.
+
+\subproblem $1111_2 + 1111_2$
+\subproblem $1010_2 - 100_2$
+
+\begin{solution}
+\subsolution $11110_2$
+\subsolution $110_2$
+\end{solution}
+
 \problem{}{} Let the domain of discourse be all Harvard CS courses. The predicate $P(c, d)$ means that course $c$ is a prerequisite for course $d$. Assume that it is not possible for a course to be a prerequesite of itself. Write the following English sentences using quantificational formulas.
 
 \subproblem There is a course that is a prerequisite for every other course.
@@ -60,37 +70,20 @@ T_{n+1} = T_n + T_{n-1} + T_{n-2}
 \end{math}
 \end{solution}
 
+
 \problem{}{}
 
-While wandering the halls of Hogwarts, Harry stumbles upon a note that reads: "Danger lies before you, while safety lies behind. Drink some of us to help you, the combination you must find". Harry sees four bottles of mysterious potion, one colored red, one blue, one yellow, and one green. A sign next to the door reads:
-
-\begin{enumerate}
-\item Drink two of these potions, one must be colored blue.
-\item If blue you do not have, the other three will tide you through.
-\item Pair not blue with red
-\item Or face your fate with dread
-\end{enumerate}
-
-Luckily, Harry sees all the colored bottles. Define r, y, b, g:
-\begin{enumerate}
-\item r: Harry drinks the red potion
-\item y: Harry drinks the yellow potion
-\item b: Harry drinks the blue potion
-\item g: Harry drinks the green potion
-\end{enumerate}
-
-\subproblem Write a proposition that evaluates to True if Harry selects a valid combination of potions. 
-\subproblem Draw a logic circuit that implements the proposition in (a) with as few gates as possible from this list: \textsc{Not}, \textsc{Or}, \textsc{And}, \textsc{Xor}, \textsc{Nand}, \textsc{Xnor}.
+Prove that in any group of six people, at least two of them know the same number of people. Note that you don't know yourself, and that if A knows B then B knows A (thus ``knows'' is a symmetric relation). 
 
 \begin{solution}
 
-\subsolution $(r \land y \land g) \lor (b \land (y \oplus g))$
+There are 6 possible numbers of people a person can know (0 through 5 since you cannot know yourself).
 
-could also do 
-$(r \land y \land g) \lor (b \land y) \lor (b \land g)$
-\subsolution 
-\includegraphics[width=3in]{LogicGate.jpg}
+Suppose that each person knows a different number of people. Then someone (person A) knows 0 people and someone (person B) else knows 5 people. Since B knows 5 people and cannot know him or herself, then B knows A. Since knowing is a symmetric relation, A knows B. This is a contradiction because A knows 0 people.
+
+Since we have arrived at a contradiction, we can conclude that in any group of six people, at least two of them know the same number of people.
 
 \end{solution}
+
 
 \end{document}
