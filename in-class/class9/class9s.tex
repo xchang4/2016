@@ -1,39 +1,16 @@
-\documentclass[12pt]{article}
-\usepackage{latexsym}
-\usepackage{amssymb,amsmath}
-\usepackage[pdftex]{graphicx}
-\usepackage{color}
-
-
-\topmargin = 0.1in \textwidth=5.7in \textheight=8.6in
-
-\oddsidemargin = 0.2in \evensidemargin = 0.2in
-
-\newcommand{\cabal}{\text{cabal}}
-\newcommand{\PersonA}{\text{Charles}}
-\newcommand{\PersonB}{\text{Corinne}}
-\newcommand{\PersonC}{\text{Hannah}}
-\newcommand{\PersonD}{\text{Jenny}}
-\newcommand{\PersonE}{\text{Keenan}}
-\newcommand{\PersonF}{\text{Tom}}
-
-
+\documentclass[solution, letterpaper]{cs20inclass}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{hyperref}
 \begin{document}
+\header{8}{Wednesday, February 10, 2016}
 
-\begin{center}
-COMPUTER SCIENCE 20, SPRING 2016 \\
-
-\smallskip
-
-Module \#9 (Quantificational Logic I)
-\end{center}
-Author: Hannah Blumberg, Edited by Michelle Danoff\\
-Reviewers: Steve Komarov\\
-Last modified: February 12, 2016
-
-\medskip
+\noindent Author: Michelle Danoff% \\
 
 \paragraph*{Executive Summary}
+
 \begin{enumerate}
 
 \item Propositions and predicates
@@ -42,14 +19,14 @@ Last modified: February 12, 2016
 \item A proposition $P$ is like a boolean variable. Its value is either ``true'' or ``false.''
 \item A predicate $P(x)$ is like a boolean-valued function. It may have the value ``true'' for some some set of input values and the value ``false'' for others.
 \item A predicate can have more than one argument; e.g. Enrolled($x, y$) might mean ``student $x$ is enrolled in course $y$.'' 
-\item Teh values that  $x$ and $y$ might assume are the domain of the function. 
+\item The values that  $x$ and $y$ might assume are the domain of the function. 
 \end{itemize}
 
 \item Quantifiers
 \begin{itemize}
-\item The existential quantifier: $\exists x P(x)$ or $\exists x. P(x)$ or $\exists x \mbox{ s.t. }P(x)$ means ``there exists at least one $x$ in the domain $D$ such that $P(x)$ is true.
+\item The existential quantifier: $\exists x P(x)$ or $\exists x. P(x)$ or $\exists x \mbox{ s.t. }P(x)$ means there exists at least one $x$ in the domain $D$ such that $P(x)$ is true.
 
-\item The universal quantifier: $\forall x P(x)$ or $\forall x. P(x)$  means ``for every $x$ in the domain $D$, $P(x)$ is true.
+\item The universal quantifier: $\forall x P(x)$ or $\forall x. P(x)$  means for every $x$ in the domain $D$, $P(x)$ is true.
 
 \end{itemize}
 
@@ -73,74 +50,65 @@ Last modified: February 12, 2016
 
 \end{itemize}
 
-\end{enumerate}
 
 \pagebreak
-
-\paragraph*{Small group problems}
-
-\begin{enumerate}
-
-\item Convert the following English sentences into logical formulas. You may use expressions like $x=y$ or $x\neq y$ to indicate whether or not the variables $x$ and $y$ denote different people. The domain of discourse is all people. Let the predicate $H(x)$ mean that ``$x$ is happy,'' and let the predicate $L(x,y)$ mean that ``$x$ loves $y$.''
-
-\subitem (i) At least one person is happy.
-\subitem (ii) At least two people are happy.
-\subitem (iii) At least one person is unhappy.
-\subitem (iv) Exactly one person is happy.
-\subitem (v) Not everyone loves someone else. (Write this in 3 different ways.)
-
-
-\item Let the domain of discourse be all members of the class and let $L(x,y)$ be the predicate ``$x$ likes $y$." Write the following colloquial English sentences using quantificational formulas. The sentences are not necessarily unambiguous. If a sentence has more than one possible meaning, explain the ambiguity and which interpretation you have chosen.
-
-\begin{enumerate}
-
-\item Everyone in the class likes some other member of the class.
-
-\item Someone doesn't like anybody and nobody likes that person.
-
-\item At least three different people like the same person.
-
 \end{enumerate}
 
+\problem Convert the following English sentences into logical formulas. You may use expressions like $x=y$ or $x\neq y$ to indicate whether or not the variables $x$ and $y$ denote different people. The domain of discourse is all people. Let the predicate $H(x)$ mean that ``$x$ is happy,'' and let the predicate $L(x,y)$ mean that ``$x$ loves $y$.''
 
-\item A certain cabal (\emph{cabal: a secret political clique or faction})
+\subproblem At least one person is happy.
+\subproblem At least two people are happy.
+\subproblem At least one person is unhappy.
+\subproblem Exactly one person is happy.
+\subproblem Not everyone loves someone else. (Write this in 3 different ways.)
+
+\begin{solution}
+\subsolution $\exists x. H(x)$
+\subsolution $\exists x.y.H(x) \wedge H(y)$
+\subsolution $\exists x. \lnot H(x)$
+\subsolution $\exists x. H(x) \wedge \forall y (H(y) \rightarrow x = y)$
+\subsolution $\exists x. \forall y(\lnot L(x,y)), \lnot(\forall x \exists y. L(x,y)), \exists x . \lnot (\exists y . L(x,y))$
+
+\end{solution}
+
+\problem Let the domain of discourse be all members of the class and let $L(x,y)$ be the predicate ``$x$ likes $y$." Write the following colloquial English sentences using quantificational formulas. The sentences are not necessarily unambiguous. If a sentence has more than one possible meaning, explain the ambiguity and which interpretation you have chosen.
+
+\subproblem Everyone in the class likes some other member of the class.
+\subproblem Someone doesn't like anybody and nobody likes that person.
+\subproblem At least three different people like the same person.
+
+\begin{solution}
+
+\subsolution $\forall x \exists y . (L(x,y) \wedge x \neq y)$
+\subsolution $\exists x \forall y . (\lnot L(x,y) \wedge \lnot L(y,x))$
+\subsolution $\exists x. y. z. w. (L(x,w) \land L(y,w) \land L(z,w) \land x \neq y \neq z)$
+
+\end{solution}
+
+\problem A certain cabal (\emph{cabal: a secret political clique or faction})
  within the CS~20 course staff is
-plotting to make the final exam \emph{ridiculously hard}.
-(``Problem~1.  Prove the Poincare Conjecture starting from the axioms
-of ZFC.  Express your answer in khipu---the knot language of the
-Incas.'')  The only way to stop their evil plan is to determine
-exactly who is in the cabal.  The course staff includes the following six
-people: \[
-\PersonA,\PersonB,\PersonC,\PersonD,\PersonE,\PersonF \]
-The cabal is a subset of these six.  A membership roster has been
-found and appears below, but it is deviously encrypted in logic
-notation.  The predicate $\cabal$ indicates who is in the cabal; that is,
-$\cabal(x)$ is true if and only if $x$ is a member of the cabal.  Use the information below 
-to deduce who is in the cabal. (Credit: adapted from Albert R. Meyer / MIT 6.042)
-\begin{gather}
-\exists x\exists y\exists z \,
-    (x \neq y \wedge
-     x \neq z \wedge
-     y \neq z \wedge
-     \cabal(x) \wedge \cabal(y) \wedge \cabal(z))
-\\
-\cabal(\PersonF) \Rightarrow \forall x\, \cabal(x) \\ \lnot(\cabal(\PersonA) \wedge \cabal(\PersonD)) \\
-\cabal(\PersonD) \Rightarrow \cabal(\PersonA)\\
-(\cabal(\PersonE) \vee \cabal(\PersonC)) \Rightarrow \lnot(\cabal(\PersonB))
-\end{gather}
+plotting to make the final exam \emph{ridiculously hard}. The only way to stop their evil plan is to determine exactly who is in the cabal. Some of the course staff include: Michelle, Erin, Tom, Hannah, Crystal, and Jack. The cabal is a subset of these six. A membership roster ahs been found and appears below, but it is deviously encrypted in logic notation. The predicate $cabal$ indicates who is in the cabal; that is, $cabal(x)$ is true if and only if $x$ is a member of the cabal. Use the following information to gather who is in the cabal. 
 
+\subproblem $\exists x \exists y \exists z (x \neq y \land x \neq z \land y \neq z \land cabal(x) \land cabal(y) \land cabal(z))$
+\subproblem $cabal(Jack) \rightarrow \forall x cabal(x)$
+\subproblem $\lnot (cabal(Michelle) \land cabal(Hannah))$
+\subproblem $cabal(Hannah) \rightarrow cabal(Michelle)$
+\subproblem $cabal(Crystal) \land cabal(Tom) \rightarrow \lnot(cabal(Erin))$
 
-\item The domain of discourse is the set of all finite-length binary strings as in Meyer, problem 3.21. The predicates Substring($x,y$) (meaning $x$ is a substring of $y$) and Prefix($x,y$) (meaning $x$ is a prefix of $y$) are available. Note that your answers are not limited to the use of the Substring and Prefix predicates.
+\begin{solution}
+Michelle, Crystal, and Tom are in the cabal
+\end{solution}
 
-\begin{enumerate}
-\item Write a predicate Suffix($x, y$) that means $x$ is a suffix of $y$.
+\problem Let us consider all finite length binary strings. We may use the following operations: $substring(x,y)$, which will return true if x is a substring of y, and $prefix(x,y)$, which will return true if x is a prefix of y. For the following problems, assume input $x$ consists of exclusively 0s and 1s. 
 
+\subproblem Write an expression that means $x$ consists of alternating 0s and 1s. For example, 01010101 or 10101010, but not 110010100. 
 
-\item Write an expression that means $x$ consists of alternating 0s and 1s, e.g 01010 or 101010. (Hint: Consider substrings of size two.)
+\subproblem Write an expression that means that $x$ is the binary representation of an integer of the form $5(2^k)$ for some integer $k \geq 0$. 
 
+\begin{solution}
+\subsolution $\lnot substring(11, x) \land \lnot substring(00,x)$
+\subsolution $ prefix(101, x) \land \lnot substring(11, x) \land \lnot substring(10101, x) \land \lnot substring(001,x)$
 
-\item Write an expression that means $x$ is the binary representation of an integer of the form $5(2^k)$ for some integer $k \geq 0$.
-\end{enumerate}
+\end{solution}
 
-\end{enumerate}
 \end{document}

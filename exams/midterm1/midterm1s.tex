@@ -1,0 +1,89 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[solution, letterpaper]{cs20exam}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{hyperref}
+\begin{document}
+\header{1}{Monday, February 22, 2016}
+
+\problem{}{} Prove that if you pick $5$ integers from $\{1, \ldots, 100\}$, some two differ by at most $24$.
+
+\begin{solution}
+Divide the integers $\{1, \ldots, 100\}$ into the 4 sets of integers $\{1, \ldots, 25\}$, $\{26, \ldots, 50\}$, $\{51, \ldots, 75\}$, and $\{76, \ldots, 100\}$. Let each of this four sets be a pigeonhole. We are picking 5 integers from $\{1, \ldots, 100\}$. Let each of these five integers be a pigeon. By the pigeonhole principle there must be two integers in the same set.  
+
+Since the smallest and largest integers in each set differ by only 24, the 2 integers from the same set can differ by at most 24, and so there must be some 2 of our 5 integers that differ by at most 24.
+\end{solution}
+
+\problem{}{} Let $A = \neg (\neg p \lor q) \to r$ and $B = \neg r \oplus (\neg p \land q)$. For which value(s) of $p, q$, and $r$ do $A$ and $B$ differ? Use a truth table.
+
+\begin{solution}
+They differ only for $p = 1$, $q = 0$, and $r = 0$.
+\begin{table}[h]
+\centering
+\begin{tabular}{lllll}
+p & q & r & $\neg (\neg p \lor q) \to r$ & $\neg r \oplus (\neg p \land q)$ \\
+1 & 1 & 1 & 0                               & 0                              \\
+1 & 1 & 0 & 1                               & 1                              \\
+1 & 0 & 1 & 1                               & 1                              \\
+1 & 0 & 0 & 1                               & 0                              \\
+0 & 1 & 1 & 0                               & 0                              \\
+0 & 1 & 0 & 1                               & 1                              \\
+0 & 0 & 1 & 0                               & 0                              \\
+0 & 0 & 0 & 1                               & 1                             
+\end{tabular}
+\end{table}
+\end{solution}
+
+\problem{}{} Perform the following operations in binary.
+
+\subproblem $1111_2 + 1111_2$
+\subproblem $1010_2 - 100_2$
+
+\begin{solution}
+\subsolution $11110_2$
+\subsolution $110_2$
+\end{solution}
+
+\problem{}{} Let the domain of discourse be all Harvard CS courses. The predicate $P(c, d)$ means that course $c$ is a prerequisite for course $d$. Assume that it is not possible for a course to be a prerequesite of itself. Write the following English sentences using quantificational formulas.
+
+\subproblem There is a course that is a prerequisite for every other course.
+\subproblem At least one course is a prerequisite for exactly one other course.
+
+\begin{solution}
+\subsolution $\exists c \forall d: (d \neq c) \implies F(c,d)$
+\subsolution $\exists c, a . \forall b : (a \neq c) \land F(c, a) \land (F(c, b) \implies a = b)$
+
+\end{solution}
+
+\problem{}{} The Tribonacci numbers are defined by $T_0 = 1, T_1 = 1, T_2 = 2$, and $T_n = T_{n_1} + T_{n-2} + T_{n-3}$ for all $n \ge 3$. The beginning of the Tribonacci sequence is $1, 1, 2, 4, 7, 13, ...$. Use strong induction to prove that $T_n \le 3^n$ for all natural numbers $n$.
+
+\begin{solution}
+Let $P(n)$ be the predicate $T_n \le 3^n$. Base cases: $P(0)$ is true, since $T_0 = 1 \le 3^0 = 1$. $P(1)$ is true, since $T_1 = 1 \le 3^1 = 3$. $P(2)$ is also true, since $T_2 = 2 \le 3^2 = 9$. Inductive step: assume $P(1), ..., P(n)$ holds for $n \ge 2$. Then 
+\begin{math}
+T_{n+1} = T_n + T_{n-1} + T_{n-2}
+\\ \le 3^n + 3^{n-1} + 3^{n-2}
+\\ = 3^{n+1}(\frac{1}{3} + \frac{1}{9} + \frac{1}{27})
+\\ = 3^{n+1}\frac{13}{27}
+\\ \le 3^{k+1}
+\end{math}
+\end{solution}
+
+
+\problem{}{}
+
+Prove that in any group of six people, at least two of them know the same number of people. Note that you don't know yourself, and that if A knows B then B knows A (thus ``knows'' is a symmetric relation). 
+
+\begin{solution}
+
+There are 6 possible numbers of people a person can know (0 through 5 since you cannot know yourself).
+
+Suppose that each person knows a different number of people. Then someone (person A) knows 0 people and someone (person B) else knows 5 people. Since B knows 5 people and cannot know him or herself, then B knows A. Since knowing is a symmetric relation, A knows B. This is a contradiction because A knows 0 people.
+
+Since we have arrived at a contradiction, we can conclude that in any group of six people, at least two of them know the same number of people.
+
+\end{solution}
+
+
+\end{document}
