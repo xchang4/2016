@@ -1,0 +1,71 @@
+%% Please fill in your name and collaboration statement here.
+\newcommand{\studentName}{**FILL IN YOUR NAME HERE**}
+\newcommand{\collaborationStatement}{**FILL IN YOUR COLLABORATION STATEMENT HERE \\ (See the syllabus for information)**}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[solution, letterpaper]{cs20}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{hyperref}
+\begin{document}
+\header{1}{Due Wednesday, March 3, 2016 at 9:59am. All students should submit an electronic copy.}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\PART{Hannah}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\problem{2+2}{1/3 page}
+In this problem, we will prove that for any two sets $X$ and $Y$, $\overline{X \cup Y} = \overline{X} \cap \overline{Y}$. We will prove $\overline{X \cup Y} \subseteq \overline{X} \cap \overline{Y}$ in part (A) and $\overline{X} \cap \overline{Y} \subseteq \overline{X \cup Y}$ in part (B).
+
+\subproblem Consider an element $a \in \overline{X \cup Y}$ and prove $a \in \overline{X} \cap \overline{Y}$.
+\subproblem Consider an element $b \in \overline{X} \cap \overline{Y}$ and prove $b \in \overline{X \cup Y}$.
+
+\begin{solution}
+\subsolution Consider an element $a \in \overline{X \cup Y}$. 
+
+By the definition of complement, $\neg (a \in X \cup Y)$. 
+
+By the definition of union, $\neg (a \in X \vee a \in Y)$. 
+
+Using De Morgan's Law, $\neg (a \in X) \wedge \neg (a \in Y)$. 
+
+By the definition of complement, $a \in \overline{X} \wedge a \in \overline{Y}$.
+
+By the definition of intersection, $a \in \overline{X} \cap \overline{Y}$.
+\subsolution Consider an element $b \in \overline{X} \cap \overline{Y}$.
+
+By the definition of intersection, $b \in \overline{X} \wedge b \in \overline{Y}$.
+
+By the definition of complement, $\neg (b \in X) \wedge \neg (b \in Y)$.
+
+Using De Morgan's Law, $\neg (b \in X \vee b \in Y)$.
+
+By the definition of union, $\neg (b \in X \cup Y)$.
+
+By the definition of complement, $b \in \overline{X \cup Y}$.
+
+\end{solution}
+
+\problem{2+2+2}{1/3 page}
+Let $A$ and $B$ be finite sets such that $|A| = n$ and $|B| = m$. What are the minimum and maximum sizes of each of the following sets? (Justify each answer in 1-2 sentences. No formal proof needed.)
+
+\subproblem $A \cup B$
+\subproblem $A \cap B$
+\subproblem $A - B$
+ 
+\begin{solution}
+\subsolution If $A$ and $B$ have no elements in common, then their union contains all of the elements of $A$ and of $B$ with no overlap. The maximum size is therefore $n + m$. 
+
+\noindent If the smaller of $A$ and $B$ is a subset of the larger, then their union is equal to the larger set. The minimum size is therefore $max(n, m)$.
+\subsolution If the smaller of $A$ and $B$ is a subset of the larger, then their intersection is equal to the smaller set. The maximum size is therefore $min(n, m)$.
+
+\noindent If $A$ and $B$ have no elements in common, then their intersection is the empty set. The minimum size is therefore 0.
+\subsolution If $A$ and $B$ have no elements in common, then $A - B$ is simply equal to $A$ (since no elements are removed). The maximum size is therefore $n$.
+
+\noindent If $A$ is a subset of $B$, then $A - B$ is the empty set (since $A - B$ consists of all elements of $A$which are not in $B$, and all of the elements of $A$ are in $B$). The minimum size is therefore 0.
+\end{solution}
+
+\end{document}
