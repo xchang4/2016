@@ -46,7 +46,7 @@ p & q & r & $\neg (\neg p \lor q) \to r$ & $\neg r \oplus (\neg p \land q)$ \\
 \subsolution $110_2$
 \end{solution}
 
-\problem{}{} Let the domain of discourse be all Harvard CS courses. The predicate $P(c, d)$ means that course $c$ is a prerequisite for course $d$. Assume that it is not possible for a course to be a prerequesite of itself. Write the following English sentences using quantificational formulas.
+\problem{}{} Let the domain of discourse be all Harvard CS courses. The predicate $P(c, d)$ means that course $c$ is a prerequisite for course $d$. Assume that it is not possible for a course to be a prerequisite of itself. Write the following English sentences using quantificational formulas.
 
 \subproblem There is a course that is a prerequisite for every other course.
 \subproblem At least one course is a prerequisite for exactly one other course.
@@ -57,7 +57,7 @@ p & q & r & $\neg (\neg p \lor q) \to r$ & $\neg r \oplus (\neg p \land q)$ \\
 
 \end{solution}
 
-\problem{}{} The Tribonacci numbers are defined by $T_0 = 1, T_1 = 1, T_2 = 2$, and $T_n = T_{n_1} + T_{n-2} + T_{n-3}$ for all $n \ge 3$. The beginning of the Tribonacci sequence is $1, 1, 2, 4, 7, 13, ...$. Use strong induction to prove that $T_n \le 3^n$ for all natural numbers $n$.
+\problem{}{} The Tribonacci numbers are defined by $T_0 = 1, T_1 = 1, T_2 = 2$, and $T_n = T_{n-1} + T_{n-2} + T_{n-3}$ for all $n \ge 3$. The beginning of the Tribonacci sequence is $1, 1, 2, 4, 7, 13, ...$. Use strong induction to prove that $T_n \le 3^n$ for all natural numbers $n$.
 
 \begin{solution}
 Let $P(n)$ be the predicate $T_n \le 3^n$. Base cases: $P(0)$ is true, since $T_0 = 1 \le 3^0 = 1$. $P(1)$ is true, since $T_1 = 1 \le 3^1 = 3$. $P(2)$ is also true, since $T_2 = 2 \le 3^2 = 9$. Inductive step: assume $P(1), ..., P(n)$ holds for $n \ge 2$. Then 
