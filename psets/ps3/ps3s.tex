@@ -30,7 +30,7 @@
 
 \subsolution Recall that $p \oplus q \equiv (p \lor q) \land \lnot (p \land q)$. The expression then expands to $(p \lor q) \land \lnot (p \land q) \rightarrow (r \land q)$ which is equivalent to $\lnot((p \lor q) \land \lnot (p \land q)) \lor (r \land q)$. Using De Morgan's laws to remove the negation, we get $\lnot (p \lor q) \lor (p \land q) \lor (r \land q)$, which simplifies to $(\lnot p \land \lnot q) \lor (p \land q) \lor (r \land q)$.
 
-\subsolution Eliminating $\rightarrow$, we get $\lnot (\lnot (\lnot p \lor q) \lor p) \lor p$. Then, pushing the negations inwards, the expression becomes $(\lnot (\lnot p \lor q) \land \lnot p) \lor p$ and $((\lnot p \lor q) \land \lnot p) \lor p$. Finally, pushing the disjunctions in using the distributive property gives $(\lnot p \lor q \lor p) \land (\lnot p \lor p)$. This is a tautology, known as Peirce's law.
+\subsolution Eliminating $\rightarrow$, we get $\lnot (\lnot (\lnot p \lor q) \lor p) \lor p$. Then, pushing the negations inwards, the expression becomes $(\lnot (\lnot p \lor q) \land \lnot p) \lor p$ and $((\lnot p \lor q) \land \lnot p) \lor p$. Finally, pushing the disjunctions in using the distributive property gives $(\lnot p \lor q \lor p) \land (\lnot p \lor p)$. This is a tautology, known as Peirce's law. We can get rid of the second expression, since it's a tautology, and get left with $\lnot p \lor p \lor q$, which is in DNF.
 
 \subsolution A statement is in DNF if it is the or of ands. For any expression, we can generate a truth table for every possible combination of inputs. We can convert the rows of this table that evaluate to true to a statement in DNF. To do so, for each line that evaluates to true, create a clause that "ands" together the variables turned on in that line. If any one of these individual clauses evaluates to true, the whole expression will evaluate to true. Thus, the final expression in DNF is all of these clauses "or-ed". 
 
@@ -42,7 +42,7 @@
 
 \problem{2+2}{1/3 page}
 
-While wandering the halls of Hogwarts, Harry stumbles upon a note that reads: "Danger lies before you, while safety lies behind. Drink some of us to help you, the combination you must find". Harry sees four bottles of mysterious potion, one colored red, one blue, one yellow, and one green. A sign next to the door reads:
+While wandering the halls of Hogwarts, Harry stumbles upon a note that reads: ``Danger lies before you, while safety lies behind. Drink some of us to help you, the combination you must find". Harry sees four bottles of mysterious potion, one colored red, one blue, one yellow, and one green. A sign next to the door reads:
 
 \begin{enumerate}
 \item Drink two of these potions, one must be colored blue.
