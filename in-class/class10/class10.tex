@@ -58,12 +58,11 @@
 \end{solution}
 
 \problem
- The domain of discourse is the set of all finite-length binary strings. The predicates Substring($x,y$) (meaning $x$ is a substring of $y$) and Prefix($x,y$) (meaning $x$ is a prefix of $y$) are available.
+ The domain of discourse is the set of all finite-length binary strings. The predicates Sub($x,y$) (meaning $x$ is a substring of $y$) and Pre($x,y$) (meaning $x$ is a prefix of $y$) are available.
 
 \subproblem  Write an expression that means $x$ consists of alternating 0s and 1s, e.g 01010 or 101010.
-\subproblem  Write an expression that means $x$ is the binary representation of an integer of the form $5(2^k)$ for some integer $k \geq 0$.
-\subproblem Write three different expressions that means $x$ consists of one or more 1s, and no 0s. Important caveat: none of your expressions may contain ``0''.
-\subproblem (BONUS) Write a fourth expression for (c) that is \textit{recursive}, meaning that the expression appears in its own definition.
+\subproblem Write two different expressions that mean $x$ consists of one or more 1s, and no 0s. Important caveat: neither of your expressions may contain ``0''.
+\subproblem (BONUS) Write two additional expression for (c) under the same constraint.
 
 \begin{solution}
   % Write your answer here.
@@ -71,10 +70,10 @@
 
 
 \problem
-We define a committee to be a set of senators $\mathcal{S} = \{S_1,S_2,\cdots,S_n\}$. The predicate $M(S,\mathcal{C})$ means ``Senator $S$ is a member of committee $\mathcal{C}$.'' Rewrite the following in terms of predicate logic.
+(BONUS) We define a committee to be a subset of senators $S = \{s_1,s_2,\cdots,s_n\}$. The predicate $M(s,C)$ means ``Senator $s$ is a member of committee $C$.'' Rewrite the following in terms of predicate logic. You may use ``$=$'' and ``$\in$'' in your expressions.
 
 \subproblem Every committee has at least two senators serving on it.
-\subproblem Any two distinct senators determine a unique committee. 
+\subproblem No two senators serve on more than one committee together.
 
 \begin{solution}
   % Write your answer here.
@@ -83,8 +82,8 @@ We define a committee to be a set of senators $\mathcal{S} = \{S_1,S_2,\cdots,S_
 \problem The domain of discourse is the set of integers. Let $S(x, y, z)$ mean that ``$z$ is the sum of $x$ and $y$.''
 
 \subproblem Write a formula that means $x$ is an even integer. 
-\subproblem Write a formula that symbolizes the commutative property for addition $(x+y = y +x)$ of integers.
-\subproblem Write a formula that symbolizes the associative law for addition\\ $(x + (y + z) = (x + y) + z)$ of integers.
+\subproblem Write a formula that symbolizes the commutative property for addition $(x+y = y+x)$ of integers.
+\subproblem Write a formula that symbolizes the associative law for addition of integers:\\ $x + (y + z) = (x + y) + z$.
 
 \begin{solution}
   % Write your answer here.
