@@ -5,7 +5,7 @@
 \usepackage{tikz}
 \usepackage{hyperref}
 \begin{document}
-\header{8}{Wednesday, February 10, 2016}
+\header{9}{Wednesday, February 12, 2016}
 
 \noindent Author: Michelle Danoff% \\
 
@@ -64,7 +64,7 @@
 
 \begin{solution}
 \subsolution $\exists x. H(x)$
-\subsolution $\exists x.y.H(x) \wedge H(y)$
+\subsolution $\exists x.y.H(x) \wedge H(y) \wedge x \neq y$
 \subsolution $\exists x. \lnot H(x)$
 \subsolution $\exists x. H(x) \wedge \forall y (H(y) \rightarrow x = y)$
 \subsolution $\exists x. \forall y(\lnot L(x,y)), \lnot(\forall x \exists y. L(x,y)), \exists x . \lnot (\exists y . L(x,y))$
@@ -87,7 +87,7 @@
 
 \problem A certain cabal (\emph{cabal: a secret political clique or faction})
  within the CS~20 course staff is
-plotting to make the final exam \emph{ridiculously hard}. The only way to stop their evil plan is to determine exactly who is in the cabal. Some of the course staff include: Michelle, Erin, Tom, Hannah, Crystal, and Jack. The cabal is a subset of these six. A membership roster ahs been found and appears below, but it is deviously encrypted in logic notation. The predicate $cabal$ indicates who is in the cabal; that is, $cabal(x)$ is true if and only if $x$ is a member of the cabal. Use the following information to gather who is in the cabal. 
+plotting to make the final exam \emph{ridiculously hard}. The only way to stop their evil plan is to determine exactly who is in the cabal. Some of the course staff include: Michelle, Erin, Tom, Hannah, Crystal, and Jack. The cabal is a subset of these six. A membership roster has been found and appears below, but it is deviously encrypted in logic notation. The predicate $cabal$ indicates who is in the cabal; that is, $cabal(x)$ is true if and only if $x$ is a member of the cabal. Use the following information to gather who is in the cabal. 
 
 \subproblem $\exists x \exists y \exists z (x \neq y \land x \neq z \land y \neq z \land cabal(x) \land cabal(y) \land cabal(z))$
 \subproblem $cabal(Jack) \rightarrow \forall x cabal(x)$
@@ -103,7 +103,7 @@ Michelle, Crystal, and Tom are in the cabal
 
 \subproblem Write an expression that means $x$ consists of alternating 0s and 1s. For example, 01010101 or 10101010, but not 110010100. 
 
-\subproblem Write an expression that means that $x$ is the binary representation of an integer of the form $5(2^k)$ for some integer $k \geq 0$. 
+\subproblem Write an expression that means that $x$ is the binary representation of an integer of the form $5 \cdot 2^k$ for some integer $k \geq 0$. 
 
 \begin{solution}
 \subsolution $\lnot substring(11, x) \land \lnot substring(00,x)$

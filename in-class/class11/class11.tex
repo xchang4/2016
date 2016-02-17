@@ -5,6 +5,7 @@
 \usepackage{tikz}
 \usepackage{hyperref}
 \usepackage{circuitikz}
+\usepackage{caption}
 \begin{document}
 \header{11}{Friday, February 19, 2016}
 
@@ -13,35 +14,32 @@
 \paragraph*{Midterm Review}
 This in-class midterm review is a puzzle. Each problem gives you one piece of the puzzle. Solve all the problems and put together the pieces to discover the keyword. Enjoy!
 
-\problem What follows is alleged to be a proof of the ``Anti-Friendship Theorem'': that for all $n$, there exists a set of $n$ people for which all subsets of 3 people are neither all friends nor all enemies. Find the \textit{first} line that contains a \textbf{logical flaw}, if one exists. (If something is ``unnecessary'' but logically true, it is not a logical flaw.)
+\problem How many base cases does the following proof by induction require?
+\\
+\\ The Tribonacci numbers are defined by $T_0 = 1, T_1 = 1, T_2 = 2$, and $T_n = T_{n-1} + T_{n-2} + T_{n-3}$ for all $n \ge 3$. The beginning of the Tribonacci sequence is $1, 1, 2, 4, 7, 13, ...$. 
+\\
+\\ \textbf{Proof.} Let $P(n)$ be the predicate $T_n \le 3^n$. Base cases: [???]. Inductive step: assume $P(1), ..., P(n)$ holds for $n \ge [???]$. Then 
+\begin{math}
+T_{n+1} = T_n + T_{n-1} + T_{n-2}
+\\ \le 3^n + 3^{n-1} + 3^{n-2}
+\\ = 3^{n+1}(\frac{1}{3} + \frac{1}{9} + \frac{1}{27})
+\\ = 3^{n+1}\frac{13}{27}
+\\ \le 3^{k+1}
+\end{math} 
 
-\begin{enumerate}
-\item Proceeding by induction, we define the predicate $P(n) = $ there exists a set of $n$ people for which all subsets of 3 people are neither all friends nor all enemies.
-\item Base cases: Suppose Alice and Bob are friends, Bob and Charlotte are friends, but Alice and Charlotte are not friends. $P(3)$ evidently holds. Add Dianne, a friend of Bob but not of Alice or Charlotte. Thus $P(4)$ holds.
-\item Add Eric, a friend of Alice and Charlotte but not Bob or Dianne. Thus $P(5)$ holds as well.
-\item Inductive step: Assume for that $n \ge 5$, $P(3), P(4), ..., P(n)$ holds.
-\item Let $S$ be a set of $n+1$ people. We can split $S$ into two smaller sets, one with $n$ people and another with 1 person. Call the 1 lonely person $s_0 \in S$ and the set of $n$ people $S_n$.
-\item By the inductive hypothesis, any 3 people in $S_n$ are neither all friends nor all enemies.
-\item For a subset of 3 in $S_n$, we can take those 3 and add $s_0$ to create a set with 4 people.
-\item We showed in the base case that $P(4)$ holds. Therefore this new set of 4 people must contain a subset of 3 who are neither all friends nor all enemies.
-\item These 4 people were all from the original set of size $n+1$, so we have found the set we're looking for to prove $P(n+1)$. By induction, the Anti-Friendship Theorem holds.
-\item No flaw exists.
-\end{enumerate}
 
 \begin{table}[h]
 \centering
-\begin{tabular}{llllllllll}
-1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
-G & R & S & A & H & L & M & E & O & B 
+\begin{tabular}{lllllll}
+0 & 1 & 2 & 3 & 4 & 5 & $>5$ \\
+G & R & S & E & H & L & M
 \end{tabular}
-\caption{Problem 1 Clue}
+\caption*{Problem 1 Clue}
 \end{table}
 
 \begin{solution}
   % Write your answer here.
 \end{solution}
-
-\pagebreak
 
 \problem Construct a truth table for $(p \leftrightarrow q) \to (q \leftrightarrow r)$. How many rows in the truth table are True?
 
@@ -51,7 +49,7 @@ G & R & S & A & H & L & M & E & O & B
 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & $>8$ \\
 E & N & A & V & B & R & I & Z & X & Q            
 \end{tabular}
-\caption{Problem 2 Clue}
+\caption*{Problem 2 Clue}
 \end{table}
 
 \begin{solution}
@@ -72,7 +70,7 @@ E & N & A & V & B & R & I & Z & X & Q
 (c) -| (myor.in 2);
 \end{circuitikz}
 
-Which of the following does the above logic circuit compute?
+Which of the following does the above logic circuit compute? (For the purpose of this problem, assume $1+1 = 1$.)
 
 \begin{enumerate}
 \item $A \cdot B + C$
@@ -88,20 +86,20 @@ Which of the following does the above logic circuit compute?
 1 & 2 & 3 & 4 & 5 \\
 S & E & O & T & R
 \end{tabular}
-\caption{Problem 3 Clue}
+\caption*{Problem 3 Clue}
 \end{table}
 
 \begin{solution}
   % Write your answer here.
 \end{solution}
 
-\problem Use the quantificational logic statements below to deduce which of the propositions is True.
+\problem Which of the following quantificational logic statements are true?
 
 \begin{enumerate}
 \item $\forall n \in \mathbb{N}, \exists m \in \mathbb{N} . n\cdot m = 1$
 \item $\forall n \in \mathbb{N}, \forall m \in \mathbb{N} . n+m = n$
 \item $\exists n \in \mathbb{N}, \forall m \in \mathbb{N} . n+m = n$
-\item $\exists n \in \mathbb{N}, \forall m \in \mathbb{N} . n\cdot m = n$
+\item $\exists n \in \mathbb{N}, \forall m \in \mathbb{N} . n\cdot m = n+m$
 \item $\exists n \in \mathbb{N}, \forall m \in \mathbb{N} . n\cdot m = m$
 \end{enumerate}
 
@@ -111,7 +109,7 @@ S & E & O & T & R
 1 & 2 & 3 & 4 & 5 \\
 M & N & R & E & L
 \end{tabular}
-\caption{Problem 4 Clue}
+\caption*{Problem 4 Clue}
 \end{table}
 
 \begin{solution}
@@ -126,7 +124,7 @@ M & N & R & E & L
 2 & 5 & 9 & 12 & 17 & 26 & 50 & $>50$ \\
 A & W & B & K & U & O & N & T
 \end{tabular}
-\caption{Problem 5 Clue}
+\caption*{Problem 5 Clue}
 \end{table}
 
 \begin{solution}
