@@ -53,7 +53,7 @@ Using set-builder notation, give formal descriptions of the following sets:
 \subproblem The power set of a set $X$, denoted $P(X)$.
 
 \begin{solution}
-\subsolution $XY = \{(x,y) \mid x \in X \wedge y \in Y\}$
+\subsolution $X \times Y = \{(x,y) \mid x \in X \wedge y \in Y\}$
 \subsolution $X-Y = \{z \mid z \in X \wedge z \notin Y\}$
 \subsolution $P(X) = \{A \mid A \subseteq X \}$
 \end{solution}
@@ -62,14 +62,16 @@ Using set-builder notation, give formal descriptions of the following sets:
 %% PROBLEM 3 %%
 \problem
 
-\subproblem Explain why $|X \cup Y| \neq |X| + |Y|$. 
+\subproblem Explain why $|X \cup Y|$ is not always equal to $|X| + |Y|$. 
 \subproblem Provide a formula for $|X \cup Y|$ in terms of $|X|$, $|Y|$, and $|X \cap Y|$.
-\subproblem (BONUS) Generalize this formula to unions of more than two sets.
+\subproblem (BONUS) Provide a formula for the cardinality of the union of three sets. Generalize this formula to unions of more than three sets.
 
 \begin{solution}
 \subsolution $|X \cup Y| \neq |X| + |Y|$ if $X$ and $Y$ have any elements in common. Each element that is in both $X$ and $Y$ is counted twice in $|X| + |Y|$, but only counted once in $|X \cup Y|$.
 \subsolution $|X \cup Y| = |X| + |Y| - |X \cap Y|$ 
-\subsolution $$\bigcup_{i=1}^n S_i = (\sum_{i=1}^n |S_i|) - (\sum_{i \leq i < j \leq n} |S_i \cap S_j|) + (\sum_{i \leq i < j < k \leq n} |S_i \cap S_j \cap S_k|) - \dots + ((-1)^{n-1} |\bigcap_{i=1}^n S_i|)$$
+\subsolution Three sets: $|X \cup Y \cup Z| = |X| + |Y| + |Z| - |X \cap Y| - |X \cap Z| - |Y \cap Z| + |X \cap Y \cap Z|$ 
+
+Generally: $$\bigcup_{i=1}^n S_i = (\sum_{i=1}^n |S_i|) - (\sum_{i \leq i < j \leq n} |S_i \cap S_j|) + (\sum_{i \leq i < j < k \leq n} |S_i \cap S_j \cap S_k|) - \dots + ((-1)^{n-1} |\bigcap_{i=1}^n S_i|)$$
 \end{solution}
 
 
