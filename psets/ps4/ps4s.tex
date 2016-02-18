@@ -84,12 +84,13 @@ Since we are able to define functions between the two sets in both directions, w
  
  
 \problem{4}{1/4 page}
-If you have a bijective function $f(x)$ and it?s inverse $g(x) = f^{-1}(x)$, prove that your function $g(x)$ is also bijective.
+If you have a bijective function $f(x)$ and it?s inverse $g(x) = f^{-1}(x)$, prove that your function $g(x)$ both surjective and injective and is thus bijective.
 
 \begin{solution}
 \noindent We define $g$ as follows:
 $$\forall y \in B, g(y) = x\text{, where }x \in A \wedge f(x) = y$$
-\noindent Because $f$ is bijective, meaning that every element of $A$ maps to exactly one element of $B$, $g$ is also bijective, because each element of $B$ maps directly back to exactly one element of $A$.
+\noindent Because $f$ is injective, every element in $B$ has at most arrow coming into it. Because $f$ is surjective, every element in $B$ has at least arrow coming into it. This means that every element in $B$ has exactly one arrow coming into it, and that you can uniquely trace an element in $B$ to the element in $A$ which maps to it.
+\noindent Looking now at $g$, we see that $g$ is injective because every element in $A$ has at most one arrow coming in. We also see that $g$ is surjective because every element in $A$ has at least one arrow coming in.
 
 \end{solution}
 
