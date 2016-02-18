@@ -5,8 +5,9 @@
 \usepackage{tikz}
 \usepackage{hyperref}
 \usepackage{ dsfont }
+\usepackage{amsmath}
 \begin{document}
-\header{12}{Friday, February 27, 2016}
+\header{13}{Friday, February 27, 2016}
 
 \noindent Author: Erin Masatsugu
 
@@ -25,42 +26,64 @@
 \pagebreak
 
 %% PROBLEM 1 %%
-\problem Determine which labels apply to the following relations: function, total, injective, surjective, bijective.
-\subproblem The relation that assigns a Harvard undergraduate student to a residential House
-\subproblem The relation that maps every natural number to its square (from natural numbers to natural numbers)
-\subproblem The relation that maps every integer to its square (from integers to natural numbers)
-\subproblem The relation that maps every student in the class to every class he or she is taking this current semester.
+\problem Determine which labels apply to the following relations: function, total, injective, surjective, bijective. Also, identify the domain and co-domain of each relation.
+\subproblem The relation that associates a Harvard undergraduate student with a residential House
+\subproblem The relation that associates every natural number with its square (from natural numbers to natural numbers)
+\subproblem The relation that associates every integer with its square (from integers to natural numbers)
+\subproblem The relation that associates every student in the class with every class he or she is taking this current semester. Assume there are no empty classes, and no students with empty schedules.
+\subproblem The relation that associates each class with the students enrolled in that class. There might be empty classes, but there are no students with empty schedules.
 
 \begin{solution}
-\subsolution Total, surjective function
-\subsolution Total, injective function
-\subsolution Total function
-\subsolution Total, surjective (assuming no empty classes)
+\subsolution Total, surjective function. Domain: set of students, Co-Domain: set of houses
+\subsolution Total, injective function. Domain: natural numbers, Co-Domain: natural numbers
+\subsolution Total function. Domain: integers, Co-Domain: natural numbers
+\subsolution Total, surjective. Domain: set of students, Co-Domain: set of classes
+\subsolution Surjective. Domain: set of classes, Co-Domain: set of students
+\end{solution}
+
+%% PROBLEM 2 %%
+\problem Determine which labels apply to the following functions: total, injective, surjective, bijective.
+\subproblem $f(x) = x + 5$
+\subproblem $f : \mathds{N} \rightarrow \mathds{N}$ where $f(x) = 2x$
+\subproblem  $f : \mathds{N} \rightarrow \mathds{N}$ where
+$f(x) =$
+\[ \begin{cases} 
+      x-1 & x \geq 2 \\
+      1 & x = 1
+   \end{cases}
+\]
+\subproblem $f : \mathds{N} X \mathds{N} \rightarrow \mathds{N}$ where $f(x, y) = x - y$
+
+\begin{solution}
+\subsolution Total, injective, bijective
+\subsolution Total, injective
+\subsolution Total, surjective
+\subsolution Surjective
+\end{solution}
+
+%% PROBLEM 3 %%
+\problem Define $f, g$ such that $f$ is a total, injective function from set $A$ to set $B$ and $g$ is a total, surjective function from $B$ to $C$. Let $g \circ f$ denote function composition, i.e., $g \circ f=g(f(x))$. Prove or disprove the following claim: If $f$ is total and injective and $g$ is total and surjective, then $g \circ f$ is injective.
+
+\begin{solution}
+The claim is false, and we provide a counter-example. Consider $A=\{1,2,3\}$, $B=\{a, b, c\}$, and $C=\{\alpha, \beta\}$. Define $f: A \rightarrow B$ via $f(1)=a$, $f(2)=b$, and $f(3)=c$ and define $g: B \rightarrow C$ via $g(a)=\alpha$ and $g(b)=g(c)=\beta$. Then $f$ is total and injective, $g$ is total and surjective, but $(g \circ f)(2) = (g \circ f)(3) = \beta$, so $g \circ f$ is not injective.
 \end{solution}
 
 
-%% PROBLEM 2 %%
-\problem Show that if two finite sets $A$ and $B$ are the same size, and $r$ is a total injective function from $A$ to $B$, then $r$ is also surjective; i.e. $r$ is a bijection.
+%% PROBLEM 4 %%
+\problem (BONUS) Show that if two finite sets $A$ and $B$ are the same size, and $r$ is a total injective function from $A$ to $B$, then $r$ is also surjective; i.e. $r$ is a bijection.
 
 \begin{solution}
 Since $r$ is total and injective, $x \neq y \rightarrow r(x) \neq r(y)$, i.e. $r$ assigns each element of A to a different element of B. Assume for contradiction that $r$ is not surjective, so there is some element $b \in B$ that is not paired with any element in $A$. Let $n = |A| = |B|$. The $n$ elements of A must then be paired with the $n - 1$ other elements of $B$. By the pigeonhole principle, this is impossible, and so we have a contradiction. Thus $r$ must be surjective, and since it is injective and surjective it is thus bijective.
 \end{solution}
 
+\problem (BONUS) Give a counterexample showing that the conclusion of problem 2 does not necessarily hold if A and B are two infinite sets that have the same cardinality. Hint: $\mathds{N}$ (the set of natural numbers) and $\mathds{Z}$ (the set of integers) have the same cardinality.
 
-%% PROBLEM 3 %%
-\problem Give a counterexample showing that the conclusion of problem 2 does not necessarily hold if A and B are two infinite sets that have the same cardinality.
 
+%% PROBLEM 5 %%
 \begin{solution}
 We take $A = \mathds{N}$ (the set of natural numbers) and $B = \mathds{Z}$ (the set of integers). $A$ and $B$ are both countably infinite, and so they have the same cardinality. Let $r : \mathds{N} \rightarrow \mathds{N}$ be the function that assigns each natural number to itself. Then r is a total injective function, since no two natural numbers are mapped to the same integer, but it is not surjective, since any negative integer has no natural number that maps to it.
 \end{solution}
 
-
-%% PROBLEM 4 %%
-\problem (BONUS) Given two functions $f,g$, let $g \circ f$ denote function composition, i.e., $g \circ f=g(f(x))$. Prove or disprove the following claim: If $f$ is total and injective and $g$ is total and surjective, then $g \circ f$ is injective.
-
-\begin{solution}
-The claim is false, and we provide a counter-example. Let's say that $f$ is a total, injective function from set $A$ to set $B$ and $g$ is a total, surjective function from $B$ to $C$. Consider $A=\{1,2,3\}$, $B=\{a, b, c\}$, and $C=\{\alpha, \beta\}$. Define $f: A \rightarrow B$ via $f(1)=a$, $f(2)=b$, and $f(3)=c$ and define $g: B \rightarrow C$ via $g(a)=\alpha$ and $g(b)=g(c)=\beta$. Then $f$ is total and injective, $g$ is total and surjective, but $(g \circ f)(2) = (g \circ f)(3) = \beta$, so $g \circ f$ is not injective.
-\end{solution}
 
 
 \end{document}
