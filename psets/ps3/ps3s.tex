@@ -64,12 +64,12 @@ Luckily, Harry sees all the colored bottles. Define r, y, b, g:
 
 \begin{solution}
 
-\subsolution $(r \land y \land g) \lor (b \land (y \oplus g))$
+\subsolution $(r \land y \land g \land \lnot b) \lor (b \land (y \oplus g) \land \lnot r)$
+There are also other correct ways to write this expression. 
 
-could also do 
-$(r \land y \land g) \lor (b \land y) \lor (b \land g)$
 \subsolution 
 \includegraphics[width=3in]{LogicGate.jpg}
+There are other correct circuits as well. 
 
 \end{solution}
 
