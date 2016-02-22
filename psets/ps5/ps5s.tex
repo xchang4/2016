@@ -1,0 +1,72 @@
+%% Please fill in your name and collaboration statement here.
+\newcommand{\studentName}{**FILL IN YOUR NAME HERE**}
+\newcommand{\collaborationStatement}{**FILL IN YOUR COLLABORATION STATEMENT HERE \\ (See the syllabus for information)**}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[solution, letterpaper]{cs20}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{hyperref}
+\begin{document}
+\header{5}{Due Wednesday, March 9, 2016 at 9:59am. All students should submit an electronic copy.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\PART{Ben}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\PART{Crystal}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\problem{3+1}{1/2 page}
+\subproblem Give a recursive definition of the set S of bit strings with no more than a single 1 in them such as 00010, 010,000...
+\subproblem Is $0010\in S$? Why?
+
+\begin{solution}
+\subsolution
+\begin{itemize}
+\item Base cases: the empty string $\epsilon$, 0, 1 $\in S$
+\item Constructor Rule: If w is in S, then
+\subitem C1: $0w\in S$
+\subitem C2: $w0\in S$
+\item “Nothing else” (generally implicit): Nothing is in S unless it is obtained from the base case and constructor rule.
+\end{itemize}
+\subsolution Yes, because
+\begin{itemize}
+\item $1\in S$ (Base case)
+\item $10\in S$ by C2 
+\item $010\in S$ by C1
+\item $0010\in S$ by C1
+\end{itemize}
+\end{solution}
+
+\problem{2+2}{1/2 page}
+Let A= $\left\{ {5n|n\in\mathbb{N}}\right\}$ and S be the set defined as follows:
+\begin{itemize}
+\item Base Case: $5 \in S$
+\item Constructor Rule: If $x\in S$ and $y\in S$, $(x+y) \in S$ 
+\end{itemize}
+\subproblem Use induction to prove that $A\subset S $.
+\subproblem Use structural induction to prove that $S\subset A$.
+
+\begin{solution}
+\subsolution Proving that $A\subset S$ is equivalent to proving that $\forall x[x\in A\rightarrow x\in S]$
+\begin{itemize}
+\item Let P(n): $5n\in S$. We must show that for all $n\in\mathbb{N}, P(n)$.
+\item Base case: When n=1, $5(1)=5\in S$ by base case in the definition of S.
+\item Induction step: \\
+Assuming for some $n\in\mathbb{N}$ P(n) is true, i.e. $5n\in S$, we want to prove that $P(n+1): 5(n+1)=5n+5\in S$.\\
+Since 5, 5n$\in S$, $5n+5\in S$ by the constructor rule of definition of S.
+\end{itemize}
+\subsolution Proving that $S\subset A$ is equivalent to proving that $\forall x[x\in S\rightarrow x\in A]$
+\begin{itemize}
+\item Basis step: By the base case of the definition of S, $3\in S$. Since 3=3(1), $3\in A$
+\item Recursive step: \\
+Now consider the constructor rule in the definition of S. Assume elements $x,y\in S$ are also in A. We must  show that $x+y\in A$.\\
+Since $x,y\in A$, x=3i and y=3j for some natural numbers i and j. So x+y=3i+3j=3(i+j), where $i+j\in\mathbb{N}$ since $i,j\in\mathbb{N}$. Thus $x+y\in A.$
+\end{itemize}
+\end{solution}
+
+\end{document}
