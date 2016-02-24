@@ -76,13 +76,13 @@ Apply C1 to (2n+2, 2n+1), we then could get $(2n+4, 2n+1)\in S$. Then apply C2 t
 \end{solution}
 
 %% PROBLEM 3%%
-\problem (Bonus) Construct a recursive definition for the set of strings \textbf{S} over the alphabet a,b excepting empty string, i.e. set of string consisting of a's and b's such as abbab, bbabaa, etc.
+\problem (Bonus) A palindrome is a sequence of characters (do not need to be a word) which reads the same backward or forward e.g. dad, mom, abba, moom... Let's define the set $\sum$ as the set of all letters $\{a,b,c,...,z\}$, $\lambda$ as the empty string and P as the set of all palindromes(excepting empty string). Give a recursive definition for the set P.
 
 \begin{solution}
 \begin{itemize}
-\item Base Cases:  $a\in S$, and $b \in S$
-\item Constructor Rule: For any element x in S, $as \in S$, and $bx \in S$
-\item “Nothing else” (generally implicit): Nothing is in S unless it is obtained from the base case and constructor rule.
+\item Base Cases: $\forall x\in \sum, x\in P$
+\item Constructor Rule:If $p \in P$,  $\forall x\in \sum$, $xpx\in P$
+\item “Nothing else” (generally implicit): Nothing is in P unless it is obtained from the base case and constructor rule.
 \end{itemize}
 \end{solution}
 
