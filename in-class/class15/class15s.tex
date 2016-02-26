@@ -29,11 +29,11 @@
 
 %% PROBLEM 1 %%
 \problem Recursive Definition:
-\subproblem There's an error in the following definition of the set of even integers (EI). Find the error and fix it. 
+\subproblem There's an error in the following definition of the set of even integers (E). Find the error and fix it. 
 \begin{itemize}
-\item Base Case:  $0\in EI$
-\item Constructor Rule: For any element x in EI, x+2 is in EI. 
-\item “Nothing else” (generally implicit): Nothing is in NE unless it is obtained from the base case and constructor rule.
+\item Base Case:  $0\in E$
+\item Constructor Rule: For any element x in E, x+2 is in E. 
+\item “Nothing else” (generally implicit): Nothing is in E unless it is obtained from the base case and constructor rule.
 \end{itemize}
 \subproblem Give a recursive definition of the natural numbers $\mathbb{N}$.
 \subproblem Give a recursive definition of the sequence $b_n$, $b_n=2n+5,  n\in\mathbb{N}$
@@ -43,7 +43,7 @@
 \subsolution  It doesn't include negative Even Integer. There should be one more constructor rule “x-2 is in EI”.
 \subsolution 
 \begin{itemize}
-\item Base Cases:  $0\in \mathbb{N}$
+\item Base Cases:  $1\in \mathbb{N}$
 \item Constructor Rule: If $n\in\mathbb{N}$, then $n+1\in\mathbb{N}$.
 \item “Nothing else” (generally implicit): Nothing is in $\mathbb{N}$ unless it is obtained from the base case and constructor rule.
 \end{itemize}
@@ -59,7 +59,7 @@
 \problem Let S be the set defined as follows:
 \begin{itemize}
 \item Base Case: $(1,2) \in S$
-\item Constructor Rules: If $(x,y)\in S$, then C1: $(x+2, y) \in S$, C2: $(y,x) \in S$ 
+\item Constructor Rules: If $(x,y)\in S$, then C1: $(x+2, y) \in S$ and C2: $(y,x) \in S$ 
 \end{itemize}
 \subproblem Is $(4,3)\in S$? If it is, how can you derive it from (1,2)?
 \subproblem Use induction to prove that $(2n+2, 2n+1)\in S$ for all n $\in \mathbb{N}$.
@@ -71,12 +71,23 @@
 \item Base case: When n=1, $(4,3)\in S$. (Already proved in (A))
 \item Induction step: \\
 Assuming P(n): $(2n+2, 2n+1)\in S$ holds, we want to prove that $P(n+1): (2(n+1)+2, 2(n+1)+1)=(2n+4, 2n+3)\in S$.\\
-Apply C1 to (2n+2, 2n+1), we then could get $(2n+4, 2n+1)\in S$. Then apply C2 to (2n+4, 2n+1), we could get $(2n+1, 2n+4)\in S$. Finally, apply C1 to (2n+1, 2n+4), then we can get $(2n+3, 2n+4)\in S$.
+Apply C1 to (2n+2, 2n+1), we then could get $(2n+4, 2n+1)\in S$. Then apply C2 to (2n+4, 2n+1), we could get $(2n+1, 2n+4)\in S$. Then, apply C1 to (2n+1, 2n+4), then we can get $(2n+3, 2n+4)\in S$. Finally, apply C2 again to (2n+3, 2n+4), then we can get $(2n+4, 2n+3)\in S$.
 \end{itemize}
 \end{solution}
 
-%% PROBLEM 3 %%
-\problem Let S be the set defined as follows:
+%% PROBLEM 3%%
+\problem (Bonus) A palindrome is a sequence of characters (do not need to be a word) which reads the same backward or forward e.g. dad, mom, abba, moom... Let's define the set $\sum$ as the set of all letters $\{a,b,c,...,z\}$, $\lambda$ as the empty string and P as the set of all palindromes(excepting empty string). Give a recursive definition for the set P.
+
+\begin{solution}
+\begin{itemize}
+\item Base Cases: $\forall x\in \sum, x\in P$
+\item Constructor Rule:If $p \in P$,  $\forall x\in \sum$, $xpx\in P$
+\item “Nothing else” (generally implicit): Nothing is in P unless it is obtained from the base case and constructor rule.
+\end{itemize}
+\end{solution}
+
+%% PROBLEM 4 %%
+\problem (Bonus) Let S be the set defined as follows:
 \begin{itemize}
 \item Base Case: $(0,0) \in S$
 \item Constructor Rules: If $(a,b)\in S$, then C1: $(a, b+1) \in S$, C2: $(a+1,b+1)\in S$ and C3: $(a+2, b+1)\in S$ 
@@ -94,17 +105,6 @@ Now consider the constructor rule in the definition of S. Assume elements $a,b\i
 \subitem 1. prove $a\leq2(b+1)$:  $a\leq2b\rightarrow a\leq(2b+2)=2(b+1)$
 \subitem 2. prove $(a+1)\leq2(b+1)$: $a\leq2b \rightarrow (a+1)\leq(2b+1)\leq(2b+2)=2(b+1)$
 \subitem 3. prove $(a+2)\leq2(b+1)$:  $a\leq2b \rightarrow (a+2)\leq(2b+2)=2(b+1)$
-\end{itemize}
-\end{solution}
-
-%% PROBLEM 4%%
-\problem (Bonus) Construct a recursive definition for the set of strings \textbf{S} over the alphabet a,b excepting empty string, i.e. set of string consisting of a's and b's such as abbab, bbabaa, etc.
-
-\begin{solution}
-\begin{itemize}
-\item Base Cases:  $a\in S$, and $b \in S$
-\item Constructor Rule: For any element x in S, $as \in S$, and $bx \in S$
-\item “Nothing else” (generally implicit): Nothing is in S unless it is obtained from the base case and constructor rule.
 \end{itemize}
 \end{solution}
 

@@ -61,7 +61,7 @@ $$P(q) \wedge (q \rightarrow r) \implies P(r)$$
 
 \begin{solution}
 \subsolution The size of the state space after 1 move is 4.
-\subsolution The size of the state space after 2 moves is 8.\\
+\subsolution The size of the state space after 2 moves is 9. (Includes the initial state.)\\
 \includegraphics[width=12cm]{final8}
 \end{solution}
 
@@ -70,8 +70,8 @@ $$P(q) \wedge (q \rightarrow r) \implies P(r)$$
 \begin{itemize}
 \item x=c; y=0;
 \item while ($x>0$):
-\subitem $x--$
-\subitem $y$++
+\subitem $x--$ (subtract 1 from x)
+\subitem $y++$ (add 1 to y)
 \end{itemize}
 \subproblem Construct a loop invariant for the proof.
 \subproblem Use induction to prove that the loop preserves the invariant.
@@ -83,7 +83,6 @@ $$P(q) \wedge (q \rightarrow r) \implies P(r)$$
 \item Let state set $S=N*N*N$ contain the values of $(x, y, c)$
 \item $(x,y,c) \rightarrow (x-1, y+1, c)$  in each iteration of loop.
 \item Let $P(x,y,n)\equiv$ $x+y=c$ 
-\item $y$++
 \end{itemize}
 \subsolution
 \begin{itemize}

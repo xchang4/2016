@@ -29,11 +29,11 @@
 
 %% PROBLEM 1 %%
 \problem Recursive Definition:
-\subproblem There's an error in the following definition of the set of even integers (EI). Find the error and fix it. 
+\subproblem There's an error in the following definition of the set of even integers (E). Find the error and fix it. 
 \begin{itemize}
-\item Base Case:  $0\in EI$
-\item Constructor Rule: For any element x in EI, x+2 is in EI. 
-\item “Nothing else” (generally implicit): Nothing is in NE unless it is obtained from the base case and constructor rule.
+\item Base Case:  $0\in E$
+\item Constructor Rule: For any element x in E, x+2 is in E. 
+\item “Nothing else” (generally implicit): Nothing is in E unless it is obtained from the base case and constructor rule.
 \end{itemize}
 \subproblem Give a recursive definition of the natural numbers $\mathbb{N}$.
 \subproblem Give a recursive definition of the sequence $b_n$, $b_n=2n+5,  n\in\mathbb{N}$
@@ -42,14 +42,17 @@
 \problem Let S be the set defined as follows:
 \begin{itemize}
 \item Base Case: $(1,2) \in S$
-\item Constructor Rules: If $(x,y)\in S$, then C1: $(x+2, y) \in S$, C2: $(y,x) \in S$ 
+\item Constructor Rules: If $(x,y)\in S$, then C1: $(x+2, y) \in S$ and C2: $(y,x) \in S$ 
 \end{itemize}
 \subproblem Is $(4,3)\in S$? If it is, how can you derive it from (1,2)?
 \subproblem Use induction to prove that $(2n+2, 2n+1)\in S$ for all n $\in \mathbb{N}$.
 \pagebreak
 
-%% PROBLEM 3 %%
-\problem Let S be the set defined as follows:
+%% PROBLEM 3%%
+\problem (Bonus) A palindrome is a sequence of characters (do not need to be a word) which reads the same backward or forward e.g. dad, mom, abba, moom... Let's define the set $\sum$ as the set of all letters $\{a,b,c,...,z\}$, $\lambda$ as the empty string and P as the set of all palindromes(excepting empty string). Give a recursive definition for the set P.
+
+%% PROBLEM 4 %%
+\problem(Bonus) Let S be the set defined as follows:
 \begin{itemize}
 \item Base Case: $(0,0) \in S$
 \item Constructor Rules: If $(a,b)\in S$, then C1: $(a, b+1) \in S$, C2: $(a+1,b+1)\in S$ and C3: $(a+2, b+1)\in S$ 
@@ -57,8 +60,5 @@
 \subproblem List 5 elements in set S.
 \subproblem Use structural induction to prove that for every $(a,b)\in S, a\leq 2b$.
 
-
-%% PROBLEM 4%%
-\problem (Bonus) Construct a recursive definition for the set of strings \textbf{S} over the alphabet a,b excepting empty string, i.e. set of string consisting of a's and b's such as abbab, bbabaa, etc.
 
 \end{document}
