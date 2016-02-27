@@ -17,11 +17,11 @@
 \PART{Ben}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \problem{4}{1/3 page}
-Show that the intersection of two uncountable sets can be empty, finite, countably
+Show by giving an example for each case that the intersection of two uncountable sets can be: empty, finite, countably
 infinite, or uncountably infinite.
 
 \begin{solution}
-We can solve the problem by giving an example in each case. An example of the empty set resulting from the intersection of two uncountable sets is \fbox{$\big[0,1\big] \cap \big[2,3\big] = \emptyset$}.
+An example of the empty set resulting from the intersection of two uncountable sets is \fbox{$\big[0,1\big] \cap \big[2,3\big] = \emptyset$}.
 \newline
 
 \noindent An example of a finite set resulting from the intersection of two uncountable sets is 
@@ -35,45 +35,47 @@ We can solve the problem by giving an example in each case. An example of the em
 \noindent An example of an uncountable set resulting from the intersection of two uncountable sets is \fbox{$\mathbb{R} \cap \mathbb{R}=\mathbb{R}$}.
 \end{solution}
 
-\problem{2+3}{2/3 page}
-In the city of Hundred-land, the citizens all live in houses, each of which is labelled with a unique number. Specifically, the set of all house numbers is equal to the set of all real numbers from $1$ to $100$, inclusive. Let's assume for the sake of the problem that every house in Hundred-land is occupied by at least one citizen.
+\problem{4+2}{1 page}
+In the large city of Hundred-land, there is a house for every real number between $1$ and $100$, inclusive. Let's assume for the sake of the problem that every house in Hundred-land is occupied by at least one citizen. In addition, every house is labelled with a unique real number between $1$ and $100$.
 
-\subproblem Exasperated with the unfathomable costs associated with painting all of the house numbers, the mayor of Hundred-land declares that the numbering system be changed such that each house is labelled with a unique positive integer instead. Ignoring questions of time and resource-consumption, explain why it is impossible to label all of the houses in Hundred-land this way.
+\subproblem The Schr\"{o}der-Bernstein Theorem states that for sets $S$ and $T$, if there exist injective functions $f : S \rightarrow T$ and $g : T \rightarrow S$, then $S$ and $T$ have the same cardinality. The neighboring city of Hundred-tropolis has a house for every real number between, but not including, $1$ and $100$. Using the Schr\"{o}der-Bernstein Theorem, show that Hundred-land and Hundred-tropolis have the same number of houses.
 
-\subproblem Fortunately, before the mayor can enact his plan, the band One Direction pays a visit to Hundred-land as part of their world tour and, absolutely enamored, the mayor declares the city to now be named One-land. As such, each house will now have to be labelled with a unique real number from $0$ to $1$, inclusive. Is it possible to accomplish this? Devise a system so that each citizen in Hundred-land can re-label their house or, if such a labelling system does not exist, explain why.
+\subproblem The band One Direction pays a visit to Hundred-land as part of their world tour and, absolutely enamored, the mayor declares the city to now be named One-land. As such, each house will now have to be labelled with a unique real number from $0$ to $1$, inclusive. Is it possible to accomplish this? Devise a system so that each citizen in Hundred-land can re-label their house or, if such a labelling system does not exist, explain why.
 
 \begin{solution}
-\subsolution In order for each citizen to re-label their houses such that no two houses have the same number in the new system, we need to develop an injection mapping the set of all real numbers from $1$ to $100$ to the set of all positive integers. However, we know that the set of all real numbers over any non-zero interval is uncountable, while the set of all positive integers is countable. Hence, since the cardinality of the set we are mapping from is greater than the cardinality of the set we are mapping to, no such injection exists.
+\subsolution The solution to the problem is the same as showing that the cardinality of $\big[0,100\big]$ is the same as $(0,100)$. Using the Schr\"{o}der-Bernstein Theorem, we want to construct an injective function from each set to the other. We can set the injective function $f : (0, 100) \rightarrow \big[0, 100\big]$ to be $f(x) = x$ for all $x \in (0, 100)$. If $f(x_1) = f(x_2)$, then $x_1 = x_2$, so $f$ is injective.
+
+Next, we want to construct an injective function $g : \big[0, 100\big] \rightarrow (0, 100)$. The idea is to find a ``copy'' of $\big[0, 100\big]$ in $(0, 100)$, then do some scaling and translation to map $\big[0, 100\big]$ onto the copy. We find that $g(x) = \frac{x}{2} + 25$ is an appropriate function for $0 \leq x \leq 100$. If $0 \leq x \leq 100$, then $0 \leq \frac{x}{2} \leq 50$, so $25 \leq \frac{x}{2} + 25 \leq 75$. This proves that $g$ is a function from $\big[0, 100\big]$ to $\big[25, 75\big]$, which is a subset of $(0,100)$.
+
+Next, we want to show that $g$ is injective. It suffices to show that if $g(x_1) = g(x_2)$, then $x_1 = x_2$. For $g(x_1) = g(x_2)$, we have: 
+$$\frac{x_1}{2} + 25 = \frac{x_2}{2} + 25$$
+$$\frac{x_1}{2} = \frac{x_2}{2}$$
+$$x_1 = x_2$$
+Having found satisfactory injective functions $f$ and $g$, we know by the Schr\"{o}der-Bernstein Theorem that the cardinality of $\big[0,100\big]$ is the same as $(0,100)$ and the two cities have the same number of houses.
 
 \subsolution In this case the cardinality of the set that we are mapping from is equal to the cardinality of the set that we are mapping to (every set of real numbers over a non-zero interval has the same cardinality by definition). An example of a successful system (a correct injective function) would be to have a citizen currently living in a house with label value $n$ to re-label their house to have value $\frac{n-1}{99}$. In this fashion, every house number between $1$ and $100$ can be re-labelled as a unique house number between $0$ and $1$, inclusive.
 \end{solution}
 
-\problem{2+4}{1/3 page}
+\problem{2+2}{1/2 page}
 A robot named Wall-E wanders around a two-dimensional grid. He starts at (0,0) and is allowed to take four different types of steps:
 \begin{enumerate}
-\item (+1,-2)
-\item (+5, -1)
-\item (+0, +3)
-\item (-2, -2)
+\item (-2, +2)
+\item (-4, +4)
+\item (+1, -1)
+\item (+3, -3)
 \end{enumerate}
 For example, Wall-E might take the following stroll. The types of his steps are denoted by each arrow's subscript:
-$$(0,0) \to_1 (1,-2) \to_3 (1,1) \to_2 (6,0) \to_4 (4,-2) \to \ldots$$
+$$(0,0) \to_1 (-2,2) \to_3 (-1,1) \to_2 (-5,5) \to_4 (-2,2) \to \ldots$$
 Wall-E's true love, the fashionable and high-powered robot, Eve, awaits at (1, 2).
 \subproblem Describe a state machine model of this problem.
 \subproblem Will Wall-E ever find his true love? Either find a path from Wall-E to Eve or use the Invariant Principle to prove that no such path exists.
 
 \begin{solution}
-\subsolution In our state machine model, every state takes the form $(x,y)$. The start state is $(0,0)$, and the possible transitions out of a state $(x,y)$ are to $(x+1, y-2),(x+5,y-1),(x,y+3),(x-2,y-2)$.
-\subsolution He will not. Consider if we take all of the possible states and take the $x$ and $y$ coordinates $\bmod\ 3$. Then the possible transitions are equivalent to:
-\begin{enumerate}
-\item $(+1, -2) \equiv (+1, +1) \pmod{3}$
-\item $(+5, -1) \equiv (+2, +2) \pmod{3}$
-\item $(+0, +3) \equiv (+0, +0) \pmod{3}$
-\item $(-2, -2) \equiv (+1, +1) \pmod{3}$
-\end{enumerate}
-We then propose the following invariant: for any state $(x,y)$ 
-\[x \bmod\ 3 = y \bmod\ 3\]
-We see that it is true for the start state $(0,0)$, and all of the transitions preserve this invariant, as they add the same amount to both the $x$ and $y$ coordinates mod 3. However, our desired final state $(1,2)$ does not satisfy this invariant, and so it must be impossible to reach.
+\subsolution In our state machine model, every state takes the form $(x,y)$. The start state is $(0,0)$, and the possible transitions out of a state $(x,y)$ are to $(x-2, y+2),(x-4,y+4),(x+1,y-1),(x+3,y-3)$.
+\subsolution He will not.
+We propose the following invariant: for any state $(x,y)$ 
+\[x = -y \]
+We see that it is true for the start state $(0,0)$, and all of the transitions preserve this invariant, as they add or subtract the same amount to both the $x$ and $y$ coordinates. However, our desired final state $(1,2)$ does not satisfy this invariant, and so it must be impossible to reach.
 \end{solution}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -92,7 +94,7 @@ We see that it is true for the start state $(0,0)$, and all of the transitions p
 \item Constructor Rule: If w is in S, then
 \subitem C1: $0w\in S$
 \subitem C2: $w0\in S$
-\item �Nothing else� (generally implicit): Nothing is in $S$ unless it is obtained from the base case and constructor rule.
+\item ?Nothing else? (generally implicit): Nothing is in $S$ unless it is obtained from the base case and constructor rule.
 \end{itemize}
 \subsolution Yes, because
 \begin{itemize}

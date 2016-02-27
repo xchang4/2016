@@ -24,6 +24,7 @@
 \item for all consecutive states $q$ and $r$, $q \rightarrow r$.
 \end{itemize}
 \item A state $s \in S$ is \textit{reachable} if some execution of a state machine includes $s$.
+\item A state machine \textit{accepts} a string $a$ if the execution of a state machine with input $a$ ends on a final state of the state machine.
 \item Predicate $P$ is a preserved invariant of a state machine if for all $q,r \in S$,
 $$P(q) \wedge (q \rightarrow r) \implies P(r)$$
 \item \textbf{The Invariant Principle}: If a preserved invariant of a state machine is true for the start state, then it is true for all reachable states.
@@ -57,7 +58,6 @@ $$P(q) \wedge (q \rightarrow r) \implies P(r)$$
 \subproblem Construct a loop invariant for the proof.
 \subproblem Use induction to prove that the loop preserves the invariant.
 \subproblem Use loop invariants to prove the correctness property that $y=c$ (for $c>0$) after the loop terminates.
-\pagebreak
 
 %% PROBLEM 4 %%
 \problem (BONUS) Consider the following piece of code where $n$ is a positive integer:
