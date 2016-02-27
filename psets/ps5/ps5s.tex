@@ -55,14 +55,14 @@ Having found satisfactory injective functions $f$ and $g$, we know by the Schr\"
 \end{solution}
 
 \problem{2+2}{1/2 page}
-A robot wanders around a two-dimensional grid. He starts at (0,0) and is allowed to take four different types of steps:
+A robot wanders around a two-dimensional grid. The robot starts at (0,0) and is allowed to take four different types of steps:
 \begin{enumerate}
 \item (-2, +2)
 \item (-4, +4)
 \item (+1, -1)
 \item (+3, -3)
 \end{enumerate}
-For example, the robot might take the following stroll. The types of his steps are denoted by each arrow's subscript:
+For example, the robot might take the following stroll. The types of steps are denoted by each arrow's subscript:
 $$(0,0) \to_1 (-2,2) \to_3 (-1,1) \to_2 (-5,5) \to_4 (-2,2) \to \ldots$$
 
 \subproblem Describe a state machine model of this problem.
@@ -70,7 +70,7 @@ $$(0,0) \to_1 (-2,2) \to_3 (-1,1) \to_2 (-5,5) \to_4 (-2,2) \to \ldots$$
 
 \begin{solution}
 \subsolution In our state machine model, every state takes the form $(x,y)$. The start state is $(0,0)$, and the possible transitions out of a state $(x,y)$ are to $(x-2, y+2),(x-4,y+4),(x+1,y-1),(x+3,y-3)$.
-\subsolution He will not.
+\subsolution The robot will not.
 We propose the following invariant: for any state $(x,y)$ 
 \[x = -y \]
 We see that it is true for the start state $(0,0)$, and all of the transitions preserve this invariant, as they add or subtract the same amount to both the $x$ and $y$ coordinates. However, our desired final state $(1,2)$ does not satisfy this invariant, and so it must be impossible to reach.
