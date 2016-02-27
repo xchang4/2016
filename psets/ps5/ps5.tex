@@ -17,44 +17,42 @@
 \PART{Ben}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \problem{4}{1/3 page}
-Show by giving an example for each case that the intersection of two uncountable sets can be: empty, finite, countably
+Show, by giving an example for each case, that the intersection of two uncountable sets can be: empty, finite, countably
 infinite, or uncountably infinite.
 
 \problem{4+2}{1 page}
-In the large city of Hundred-land, there is a house for every real number between $1$ and $100$, inclusive. Let's assume for the sake of the problem that every house in Hundred-land is occupied by at least one citizen. In addition, every house is labelled with a unique real number between $1$ and $100$.
+\subproblem The Schr\"{o}der-Bernstein Theorem states that for sets $S$ and $T$, if there exist injective functions $f : S \rightarrow T$ and $g : T \rightarrow S$, then $S$ and $T$ have the same cardinality. Using the Schr\"{o}der-Bernstein Theorem, show that the cardinality of the set of all real numbers between $0$ and $100$, inclusive, is the same as the cardinality of the set of all real numbers between, but not including, $0$ and $100$.
 
-\subproblem The Schr\"{o}der-Bernstein Theorem states that for sets $S$ and $T$, if there exist injective functions $f : S \rightarrow T$ and $g : T \rightarrow S$, then $S$ and $T$ have the same cardinality. The neighboring city of Hundred-tropolis has a house for every real number between, but not including, $1$ and $100$. Using the Schr\"{o}der-Bernstein Theorem, show that Hundred-land and Hundred-tropolis have the same number of houses.
-
-\subproblem The band One Direction pays a visit to Hundred-land as part of their world tour and, absolutely enamored, the mayor declares the city to now be named One-land. As such, each house will now have to be labelled with a unique real number from $0$ to $1$, inclusive. Is it possible to accomplish this? Devise a system so that each citizen in Hundred-land can re-label their house or, if such a labelling system does not exist, explain why.
+\subproblem Prove the finite case for the Schr\"{o}der-Bernstein Theorem. That is, prove that for finite sets $S$ and $T$, if there exist injective functions $f : S \rightarrow T$ and $g : T \rightarrow S$, then sets $S$ and $T$ have the same cardinality. (HINT: Check out the warm-up proof from the Relations and Functions lesson for some inspiration!)
 
 \problem{2+2}{1/2 page}
-A robot named Wall-E wanders around a two-dimensional grid. He starts at (0,0) and is allowed to take four different types of steps:
+A robot wanders around a two-dimensional grid. He starts at (0,0) and is allowed to take four different types of steps:
 \begin{enumerate}
 \item (-2, +2)
 \item (-4, +4)
 \item (+1, -1)
 \item (+3, -3)
 \end{enumerate}
-For example, Wall-E might take the following stroll. The types of his steps are denoted by each arrow's subscript:
+For example, the robot might take the following stroll. The types of his steps are denoted by each arrow's subscript:
 $$(0,0) \to_1 (-2,2) \to_3 (-1,1) \to_2 (-5,5) \to_4 (-2,2) \to \ldots$$
-Wall-E's true love, the fashionable and high-powered robot, Eve, awaits at (1, 2).
+
 \subproblem Describe a state machine model of this problem.
-\subproblem Will Wall-E ever find his true love? Either find a path from Wall-E to Eve or use the Invariant Principle to prove that no such path exists.
+\subproblem Will the robot ever reach (1, 2)? Either find an appropriate path for the robot or use the Invariant Principle to prove that no such path exists.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \PART{Crystal}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \problem{3+1}{1/2 page}
-\subproblem Give a recursive definition of the set $S$ of bit strings with no more than a single 1 in them 
+\subproblem Using string concatenation as the sole constructor, give a recursive definition of the set $S$ of bit strings with no more than a single 1 in them 
 
 (e.g. 00010, 010, or 000)
 \subproblem Is $0010\in S$? How can you derive it from your base case?
 
 \problem{2+2}{1/2 page}
-Let $A = \left\{ {5n|n\in\mathbb{N}}\right\}$ and let $S$ be the set defined as follows:
+Let $A = \left\{ {5n:n\in\mathbb{N}}\right\}$ and let $S$ be the set defined as follows:
 \begin{itemize}
 \item Base Case: $5 \in S$
-\item Constructor Rule: If $x\in S$ and $y\in S$, $(x+y) \in S$ 
+\item Constructor Rule: If $x\in S$ and $y\in S$, $x+y \in S$ 
 \end{itemize}
 \subproblem Use induction to prove that $A\subseteq S $.
 \subproblem Use structural induction to prove that $S\subseteq A$.

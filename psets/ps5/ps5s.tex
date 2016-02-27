@@ -17,7 +17,7 @@
 \PART{Ben}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \problem{4}{1/3 page}
-Show by giving an example for each case that the intersection of two uncountable sets can be: empty, finite, countably
+Show, by giving an example for each case, that the intersection of two uncountable sets can be: empty, finite, countably
 infinite, or uncountably infinite.
 
 \begin{solution}
@@ -36,14 +36,12 @@ An example of the empty set resulting from the intersection of two uncountable s
 \end{solution}
 
 \problem{4+2}{1 page}
-In the large city of Hundred-land, there is a house for every real number between $1$ and $100$, inclusive. Let's assume for the sake of the problem that every house in Hundred-land is occupied by at least one citizen. In addition, every house is labelled with a unique real number between $1$ and $100$.
+\subproblem The Schr\"{o}der-Bernstein Theorem states that for sets $S$ and $T$, if there exist injective functions $f : S \rightarrow T$ and $g : T \rightarrow S$, then $S$ and $T$ have the same cardinality. Using the Schr\"{o}der-Bernstein Theorem, show that the cardinality of the set of all real numbers between $0$ and $100$, inclusive, is the same as the cardinality of the set of all real numbers between, but not including, $0$ and $100$.
 
-\subproblem The Schr\"{o}der-Bernstein Theorem states that for sets $S$ and $T$, if there exist injective functions $f : S \rightarrow T$ and $g : T \rightarrow S$, then $S$ and $T$ have the same cardinality. The neighboring city of Hundred-tropolis has a house for every real number between, but not including, $1$ and $100$. Using the Schr\"{o}der-Bernstein Theorem, show that Hundred-land and Hundred-tropolis have the same number of houses.
-
-\subproblem The band One Direction pays a visit to Hundred-land as part of their world tour and, absolutely enamored, the mayor declares the city to now be named One-land. As such, each house will now have to be labelled with a unique real number from $0$ to $1$, inclusive. Is it possible to accomplish this? Devise a system so that each citizen in Hundred-land can re-label their house or, if such a labelling system does not exist, explain why.
+\subproblem Prove the finite case for the Schr\"{o}der-Bernstein Theorem. That is, prove that for finite sets $S$ and $T$, if there exist injective functions $f : S \rightarrow T$ and $g : T \rightarrow S$, then sets $S$ and $T$ have the same cardinality. (HINT: Check out the warm-up proof from the Relations and Functions lesson for some inspiration!)
 
 \begin{solution}
-\subsolution The solution to the problem is the same as showing that the cardinality of $\big[0,100\big]$ is the same as $(0,100)$. Using the Schr\"{o}der-Bernstein Theorem, we want to construct an injective function from each set to the other. We can set the injective function $f : (0, 100) \rightarrow \big[0, 100\big]$ to be $f(x) = x$ for all $x \in (0, 100)$. If $f(x_1) = f(x_2)$, then $x_1 = x_2$, so $f$ is injective.
+\subsolution We want to show that the cardinality of $\big[0,100\big]$ is the same as $(0,100)$. Using the Schr\"{o}der-Bernstein Theorem, we want to construct an injective function from each set to the other. We can set the injective function $f : (0, 100) \rightarrow \big[0, 100\big]$ to be $f(x) = x$ for all $x \in (0, 100)$. If $f(x_1) = f(x_2)$, then $x_1 = x_2$, so $f$ is injective.
 
 Next, we want to construct an injective function $g : \big[0, 100\big] \rightarrow (0, 100)$. The idea is to find a ``copy'' of $\big[0, 100\big]$ in $(0, 100)$, then do some scaling and translation to map $\big[0, 100\big]$ onto the copy. We find that $g(x) = \frac{x}{2} + 25$ is an appropriate function for $0 \leq x \leq 100$. If $0 \leq x \leq 100$, then $0 \leq \frac{x}{2} \leq 50$, so $25 \leq \frac{x}{2} + 25 \leq 75$. This proves that $g$ is a function from $\big[0, 100\big]$ to $\big[25, 75\big]$, which is a subset of $(0,100)$.
 
@@ -51,24 +49,24 @@ Next, we want to show that $g$ is injective. It suffices to show that if $g(x_1)
 $$\frac{x_1}{2} + 25 = \frac{x_2}{2} + 25$$
 $$\frac{x_1}{2} = \frac{x_2}{2}$$
 $$x_1 = x_2$$
-Having found satisfactory injective functions $f$ and $g$, we know by the Schr\"{o}der-Bernstein Theorem that the cardinality of $\big[0,100\big]$ is the same as $(0,100)$ and the two cities have the same number of houses.
+Having found satisfactory injective functions $f$ and $g$, we know by the Schr\"{o}der-Bernstein Theorem that the cardinality of $\big[0,100\big]$ is the same as $(0,100)$.
 
-\subsolution In this case the cardinality of the set that we are mapping from is equal to the cardinality of the set that we are mapping to (every set of real numbers over a non-zero interval has the same cardinality by definition). An example of a successful system (a correct injective function) would be to have a citizen currently living in a house with label value $n$ to re-label their house to have value $\frac{n-1}{99}$. In this fashion, every house number between $1$ and $100$ can be re-labelled as a unique house number between $0$ and $1$, inclusive.
+\subsolution We use proof by contradiction. Suppose that sets $S$ and $T$ do not have the same cardinality. Without loss of generality, assume that $|S| < |T|$. Now consider the injective function $g$. By the definition of an injective function, for any $a$ and $b$ in $T$, $a \neq b \Rightarrow g(a) \neq g(b)$. However, since $g$ is mapping elements from $T$ to elements in $S$ and there are more elements in $T$ than in $S$, by the Pigeonhole Principle there must be at least two unique elements in $T$ that map to the same element in $S$. In formal terms, $\exists a,b \in T $ s.t. $a \neq b \wedge g(a) = g(b)$. Then $g$ must not be an injective function, which is a contradiction, so we conclude that sets $S$ and $T$ must have the same cardinality (a symmetrical argument applies if $|S| > |T|$ by examining the injective function $f$).
 \end{solution}
 
 \problem{2+2}{1/2 page}
-A robot named Wall-E wanders around a two-dimensional grid. He starts at (0,0) and is allowed to take four different types of steps:
+A robot wanders around a two-dimensional grid. He starts at (0,0) and is allowed to take four different types of steps:
 \begin{enumerate}
 \item (-2, +2)
 \item (-4, +4)
 \item (+1, -1)
 \item (+3, -3)
 \end{enumerate}
-For example, Wall-E might take the following stroll. The types of his steps are denoted by each arrow's subscript:
+For example, the robot might take the following stroll. The types of his steps are denoted by each arrow's subscript:
 $$(0,0) \to_1 (-2,2) \to_3 (-1,1) \to_2 (-5,5) \to_4 (-2,2) \to \ldots$$
-Wall-E's true love, the fashionable and high-powered robot, Eve, awaits at (1, 2).
+
 \subproblem Describe a state machine model of this problem.
-\subproblem Will Wall-E ever find his true love? Either find a path from Wall-E to Eve or use the Invariant Principle to prove that no such path exists.
+\subproblem Will the robot ever reach (1, 2)? Either find an appropriate path for the robot or use the Invariant Principle to prove that no such path exists.
 
 \begin{solution}
 \subsolution In our state machine model, every state takes the form $(x,y)$. The start state is $(0,0)$, and the possible transitions out of a state $(x,y)$ are to $(x-2, y+2),(x-4,y+4),(x+1,y-1),(x+3,y-3)$.
@@ -82,7 +80,7 @@ We see that it is true for the start state $(0,0)$, and all of the transitions p
 \PART{Crystal}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \problem{3+1}{1/2 page}
-\subproblem Give a recursive definition of the set $S$ of bit strings with no more than a single 1 in them 
+\subproblem Using string concatenation as the sole constructor, give a recursive definition of the set $S$ of bit strings with no more than a single 1 in them 
 
 (e.g. 00010, 010, or 000)
 \subproblem Is $0010\in S$? How can you derive it from your base case?
@@ -106,10 +104,10 @@ We see that it is true for the start state $(0,0)$, and all of the transitions p
 \end{solution}
 
 \problem{2+2}{1/2 page}
-Let $A = \left\{ {5n|n\in\mathbb{N}}\right\}$ and let $S$ be the set defined as follows:
+Let $A = \left\{ {5n:n\in\mathbb{N}}\right\}$ and let $S$ be the set defined as follows:
 \begin{itemize}
 \item Base Case: $5 \in S$
-\item Constructor Rule: If $x\in S$ and $y\in S$, $(x+y) \in S$ 
+\item Constructor Rule: If $x\in S$ and $y\in S$, $x+y \in S$ 
 \end{itemize}
 \subproblem Use induction to prove that $A\subseteq S $.
 \subproblem Use structural induction to prove that $S\subseteq A$.
