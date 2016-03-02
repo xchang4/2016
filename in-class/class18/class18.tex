@@ -5,7 +5,7 @@
 \usepackage{tikz}
 \usepackage{hyperref}
 \begin{document}
-\header{6}{Wednesday, March 9, 2016}
+\header{18}{Wednesday, March 9, 2016}
 
 \noindent Author: Michelle Danoff, Tom Silver% \\
 
@@ -17,7 +17,6 @@
 \item \textit{Reflexive}: $u R u$ for all $u \in A$.
 \item \textit{Irreflexive}: $\neg(uRu)$ for all $u \in A$
 \item \textit{Symmetric}: $u R w \implies w R u$ for all $u,w \in A$.
-\item \textit{Antisymmetric}: $u R w \implies \neg(wRu)$ for all $u, w \in A$, $u \neq w$.
 \item \textit{Asymmetric}: $u R w \implies \neg(wRu)$ for all $u, w \in A$.
 \end{itemize}
 \item Recall that $G$ is a binary relation on $V$, where $uGw$ means that there is an edge from $u$ to $w$.
@@ -41,7 +40,7 @@
 Draw one directed graph with 3 vertices $A, B, C$ for each of the following relationships
 \subproblem Reflexive
 \subproblem Symmetric
-\subproblem Antisymmetric
+\subproblem Asymmetric
 \subproblem Transitive
 
 
@@ -50,13 +49,16 @@ Draw one directed graph with 3 vertices $A, B, C$ for each of the following rela
 \end{solution}
 
 \problem
-Prove that if a relation $R$ is transitive and irreflexive, then it is asymmetric.
+
+\subproblem Explain the difference between irreflexive and not reflexive
+\subproblem Explain the difference between not symmetric and asymmetric 
+\subproblem Prove that if a relation $R$ is transitive and irreflexive, then it is asymmetric.
 
 \begin{solution}
   % Write your answer here.
 \end{solution}
 
-\problem Say that a string $x$ overlaps a string $y$ if there exist strings $p,q,r$ such that $x = pq$ and $y = qr$, with $q \neq \epsilon$. For example, $abcde$ overlaps $cdefg$, but does not overlap $bcd$ or $cdab$. Answer each of the following questions and prove your answer, or provide a counterexample.
+\problem Say that a string $x$ overlaps a string $y$ if there exist strings $p,q,r$ such that $x = pq$ and $y = qr$, with $q \neq \epsilon$. For example, $abcde$ overlaps $cdefg$, but does not overlap $bcd$ or $cdab$. Answer each of the following questions and prove your answer, or provide a counterexample. Consider the domain of all non-empty strings. 
 
 \subproblem Is the overlap relation reflexive? 
 \subproblem Is it symmetric?
@@ -66,11 +68,10 @@ Prove that if a relation $R$ is transitive and irreflexive, then it is asymmetri
   % Write your answer here.
 \end{solution}
 
-\problem Determine what properties each of the following relations have. For those that are equivalence relations, briefly describe what the equivalence classes are in the relation.
+\problem [BONUS] Determine what properties each of the following relations have. For those that are equivalence relations, briefly describe what the equivalence classes are in the relation.
 
 \subproblem The relation ``shares a class with'', where two people share a class if there is a class they are both enrolled in this semester.
 \subproblem The relation $R$ on $\mathbb{Z}$, where $aRb$ if $b$ is a multiple of $a$.
-\subproblem The relation $R$ on $\mathbb{Z} \times \mathbb{Z}$, with $(a,b)$ $R$ $(c,d)$ if $ad = bc$. 
 
 
 \begin{solution}
