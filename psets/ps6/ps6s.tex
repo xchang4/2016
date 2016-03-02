@@ -28,13 +28,13 @@ Induction step: assume that for some DAG with $n$ vertices, the maximum number o
 \end{solution}
 
 
-\problem{3}{some number of lines}
-A directed graph $G$ has a Euler Tour if and only if there is a closed walk in that graph that uses each edges exactly once, although it may visit vertexes multiple times. Prove that if a graph has a Euler Tour, iff in and out degrees of every vertex are equal. 
+\problem{3}{10 lines}
+A directed graph $G$ has a Euler Tour if and only if there is a closed walk in that graph that uses each edge exactly once, although it may visit vertexes multiple times. Prove that if a graph has a Euler Tour iff the in and out degrees of every vertex are equal. 
 
 \begin{solution}
-We complete the proof in both directions. First, let us prove that if a graph $G$ has a Euler tour, then the in an out degrees of each vertex are equal. There are two cases: where our path passes through every vertex once and where it passes through some of these vertexes multiple times. If it passes through every vertex once, then the in degree and out degree of each vertex is one; the in and out degree of every vertex is equal. We can express other other case as several euler tours of subsets of these vertices combined; thus the in and out degrees will still be equal. 
+We complete the proof in both directions. First, let us prove that if a graph $G$ has a Euler tour, then the in an out degrees of each vertex are equal. There are two cases: where our path passes through every vertex once and where it passes through some of these vertexes multiple times. If it passes through every vertex once (a "simple" tour), then the in degree and out degree of each vertex is one; the in and out degree of every vertex is equal. We can express other other case as several Euler tours of subsets of these vertices combined; thus the in and out degrees will still be equal since each of these simple Euler tours will be equal. 
 
-Now, let us prove that if the in and out degrees are equal, then there is a Euler tour. 
+Now let us prove that if we have a graph with equal in and out degree, then we have a Euler tour. Proof by construction. Begin construction at any vertex in the graph that has out degree of at least 1 and begin constructing a path. For all reachable vertexes from V, since in and out degrees are equal, we know we will be able to leave a vertex if we reach it. Eventually we must end back up at the vertex we started at. If not every edge has been traversed, we repeat this construction starting at another vertex with at least one edge not yet traversed. We continue until every edge has been traversed; the Euler tour of the graph is the union of these smaller Euler tours produced at each step of the construction. 
 
 \end{solution}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
