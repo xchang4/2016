@@ -15,6 +15,28 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \PART{Michelle}
+
+\problem{2+4}{8 lines}
+
+\subproblem Determine the maximum number of edges in a DAG with $n$ vertices.
+\subproblem Prove your answer using induction.  
+
+\begin{solution}
+\subsolution The maximum number of edges is is $n(n-1)/2$. 
+\subsolution Base case: $n = 1$. Maximum number of edges is 0. 
+Induction step: assume that for some DAG with $n$ vertices, the maximum number of edges is $n(n-1)/2$. We must prove that for $n+1$ vertices, the maximum number of edges will be $(n+1)(n)/2$. Let us consider our graph with $n$ vertices and add one additional vertex.  We want to maximize the number of edges in this new graph without creating a cycle. If we add an edge from our new vertex to every existing edge in the graph, we will not create a cycle since there will be no way to return to our vertex. Thus, we will end up with $n(n-1)/2 + n$ edges, which is by simple algebra equal to $(n+1)(n)/2$. 
+\end{solution}
+
+
+\problem{3}{some number of lines}
+A directed graph $G$ has a Euler Tour if and only if there is a closed walk in that graph that uses each edges exactly once, although it may visit vertexes multiple times. Prove that if a graph has a Euler Tour, iff in and out degrees of every vertex are equal. 
+
+\begin{solution}
+We complete the proof in both directions. First, let us prove that if a graph $G$ has a Euler tour, then the in an out degrees of each vertex are equal. There are two cases: where our path passes through every vertex once and where it passes through some of these vertexes multiple times. If it passes through every vertex once, then the in degree and out degree of each vertex is one; the in and out degree of every vertex is equal. We can express other other case as several euler tours of subsets of these vertices combined; thus the in and out degrees will still be equal. 
+
+Now, let us prove that if the in and out degrees are equal, then there is a Euler tour. 
+
+\end{solution}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
