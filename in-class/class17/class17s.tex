@@ -58,7 +58,7 @@ CS 20, CS 50, \& Stat 110 have no prerequisites, but should be in the graph.
 \subproblem If you must take all of a class's prerequisite classes before taking the class, what is the fewest possible number of semesters it would take to complete all these courses? Assume you are able to handle an unlimited workload every semester.
 
 \begin{solution}
-\subsolution 
+\subsolution \includegraphics[width=3in]{ClassGraph.jpg}
 \subsolution This graph is a DAG. It should not have a cycle because that would make it impossile to successfully construct a schedule; if courses are prerequisites for each other there is no way to start taking courses since there is a barrier to entry for every course. 
 \subsolution Three semesters. The first semester we take CS20, CS50, and Stat110. The second semester we take CS121, CS61, and CS51. Third semester we take CS182 and CS124. 
 
@@ -70,8 +70,13 @@ CS 20, CS 50, \& Stat 110 have no prerequisites, but should be in the graph.
 where $dist(u,v)$ is the shortest path between the vertices $u$ and $v$.
 
 \begin{solution}
-There are two possible cases: either w is a point on the path from u to v, or it is a point not on the path. If x is on the path, then $dist(u,x) + dist(x,v) = dist(u,v)$, so by definition the equality holds. If x is not a point on the path from u to v, then we know that $dist(u,v)$ is the shortest path between u and v. Thus, any path that goes through another point must be longer than this path by definition. 
- 
+There are two possible cases: either w is a point on the path from u to v, or it is a point not on the path. If x is on the path, then $dist(u,x) + dist(x,v) = dist(u,v)$, so by definition the inequality holds. If x is not a point on the path from u to v, then we know that $dist(u,v)$ is the shortest path between u and v. Thus, any path that goes through another point must be longer than this path by definition. 
+\end{solution}
+
+\problem [BONUS] A topological ordering of a grpah is an ordering of the nodes such that if there is an edge between vertexes a and b in the graph, then a is before b in the topological ordering. Prove that we can provide a topological ordering for any DAG> 
+
+\begin{solution}
+Proof by induction. Base case: a single vertex. The topological ordering is just that vertex. Induction: assume we can provide a topological ordering for n vertices. Let us prove this is also the case for $n+1$ vertices. If we insert another vertex into our graph containing n vertexes, let us consider where we will place this new vertex in the topological ordering. If it has only eges coming in, then we can place it at the end of our ordering. If it has only edges going out, we can place it at the beginning. If it has both in and out, we place it in the ordering such that it is after the vertexes that have edges to it and before those it has edges to. Since there is no cycle in the graph, we know we can find such a location without disrupting the topological ordering. 
 \end{solution}
 
 
