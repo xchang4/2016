@@ -38,7 +38,7 @@ Prove that any finite DAG has at least one vertex with in-degree 0.
 
 
 \begin{solution}
-Proof by contradiction. Assume there is no vertex with in-degree 0; this means that every vertex has at least one edge that points to it. Let us begin to follow these edges backwards. Start this process at any random node in the graph; we follow this node to the node that points to it. Since every node has in degree of at least one, we can continue this process at every reachable node, or infinitely. Thus, we have a contradiction since the graph is finite rather than infinite. We must have at least one vertex with in-degree 0. 
+Proof by contradiction. Assume there is no vertex with in-degree 0; this means that every vertex has at least one edge that points to it. Let us begin to follow these edges backwards. Start this process at any random node in the graph; we follow this node to the node that points to it. Since every node has in degree of at least one, we can continue this process at every reachable node, or infinitely. Since we know the graph has no cycle, every edge must lead backwards to a new node. Thus, we have a contradiction since the graph is finite, but following edges backwards will allow us to reach an infinite amount of unique vertices. We must have at least one vertex with in-degree 0. 
 
 
 \end{solution}
@@ -58,9 +58,9 @@ CS 20, CS 50, \& Stat 110 have no prerequisites, but should be in the graph.
 \subproblem If you must take all of a class's prerequisite classes before taking the class, what is the fewest possible number of semesters it would take to complete all these courses? Assume you are able to handle an unlimited workload every semester.
 
 \begin{solution}
-\subsolution
+\subsolution 
 \subsolution This graph is a DAG. It should not have a cycle because that would make it impossile to successfully construct a schedule; if courses are prerequisites for each other there is no way to start taking courses since there is a barrier to entry for every course. 
-\subsolution
+\subsolution Three semesters. The first semester we take CS20, CS50, and Stat110. The second semester we take CS121, CS61, and CS51. Third semester we take CS182 and CS124. 
 
 
 \end{solution}
@@ -70,7 +70,7 @@ CS 20, CS 50, \& Stat 110 have no prerequisites, but should be in the graph.
 where $dist(u,v)$ is the shortest path between the vertices $u$ and $v$.
 
 \begin{solution}
-
+There are two possible cases: either w is a point on the path from u to v, or it is a point not on the path. If x is on the path, then $dist(u,x) + dist(x,v) = dist(u,v)$, so by definition the equality holds. If x is not a point on the path from u to v, then we know that $dist(u,v)$ is the shortest path between u and v. Thus, any path that goes through another point must be longer than this path by definition. 
  
 \end{solution}
 
@@ -78,7 +78,8 @@ where $dist(u,v)$ is the shortest path between the vertices $u$ and $v$.
 
 
 \begin{solution}
-
+Base case: $n = 1$. Maximum number of edges is 0. 
+Induction step: assume that for some DAG with $n$ vertices, the maximum number of edges is $n(n-1)/2$. We must prove that for $n+1$ vertices, the maximum number of edges will be $(n+1)(n)/2$. Let us consider our graph with $n$ vertices and add one additional vertex.  We want to maximize the number of edges in this new graph without creating a cycle. If we add an edge from our new vertex to every existing edge in the graph, we will not create a cycle since there will be no way to return to our vertex. Thus, we will end up with $n(n-1)/2 + n$ edges, which is by simple algebra equal to $(n+1)(n)/2$. 
 \end{solution}
 
 \end{document}
