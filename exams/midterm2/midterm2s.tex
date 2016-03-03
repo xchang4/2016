@@ -14,11 +14,37 @@
 \vspace{-1.8in}\hbox{}\hspace{2in}Your Name: \namebox
 \vspace{1.2in}
 
-\problem{}{} TODO
+
+%% Written by Jack %%
+
+\problem{}{}
+
+Let $G$ be a directed graph with $n$ vertices. Show that if $G$ has a path of length greater than $n$, then $G$ has a cycle (a path has length $k$ if it contains $k$ edges).
 
 \begin{solution}
-TODO
+
+Proof by contradiction: assume there is a path of length $m > n$. The path can be written as: $(v_0, v_1), (v_1, v_2), (v_2, v_3), \ldots, (v_{m-1}, v_m)$. There are $m + 1 > n + 1$ vertices on the path. By the pigeonhole principle, at least 2 of those vertices are equal as the graph only has n vertices. Let the index of the first instance of the vertex in the path be $i$ and the index of the second instance of the vertex be $j$, then there is a cycle starting and ending at that vertex with the path $(v_i, v_{i+1}), (v_{i+1}, v_{i+2}), \ldots, (v_{j-1}, v_{j})$.
+
 \end{solution}
+
+\problem{}{}
+Let $G = (V, E)$ be a directed acyclic graph. Define a relation $R$ on $V$ by $(v_1, v_2)$ which is an element of $R$ iff there is a path from $v_1$ to $v_2$.
+
+\subproblem Is $R$ reflexive? Prove your answer.
+\subproblem Is $R$ symmetric? Prove your answer.
+\subproblem Is $R$ transitive? Prove your answer.
+
+\begin{solution}
+
+\subsolution $R$ is not reflexive. A DAG contains no cycles, and therefore there cannot be any paths from a vertex to itself.
+
+\subsolution $R$ is not symmetric. Proof by contradiction: suppose $R$ is symmetric, and that there is a path from $(v_1, v_2) \in R$. Then there must be a path from $v_2$ to $v_1$, which implies that $(v_1, v_1) \in R$. We have already shown that this cannot be the case in a DAG, so $R$ cannot be symmetric.
+
+\subsolution $R$ is transitive. If there is a path from $v_1$ to $v_2$ and a path from $v_2$ to $v_3$, we can concatenate the two paths to construct a path from $v_1$ to $v_3$.
+
+\end{solution}
+
+%% End of problems written by Jack %%
 
 \pagebreak
 
