@@ -17,6 +17,7 @@
 \item \textit{Reflexive}: $u R u$ for all $u \in A$.
 \item \textit{Irreflexive}: $\neg(uRu)$ for all $u \in A$
 \item \textit{Symmetric}: $u R w \implies w R u$ for all $u,w \in A$.
+\item \textit{Antisymmetric}: $((u \neq w) \land (u R w)) \implies \neg(wRu)$ for all $u, w \in A$.
 \item \textit{Asymmetric}: $u R w \implies \neg(wRu)$ for all $u, w \in A$.
 \end{itemize}
 \item Recall that $G$ is a binary relation on $V$, where $uGw$ means that there is an edge from $u$ to $w$.
@@ -54,12 +55,12 @@ Draw one directed graph with 3 vertices $A, B, C$ for each of the following rela
 \problem
 
 \subproblem Explain the difference between irreflexive and not reflexive
-\subproblem Explain the difference between not symmetric and asymmetric 
+\subproblem Explain the difference between not symmetric, asymmetric, and antisymmetric. 
 \subproblem Prove that if a relation $R$ is transitive and irreflexive, then it is asymmetric.
 
 \begin{solution}
 \subproblem Irreflexive is the negative of the universal (every possible relation is not reflexive). No node in an irreflexive graph has a self loop. Not reflexive means that there is at least one relation that is not reflexive. A graph that is not reflexive could have some self loops, but must have at least one node for which there is no self loop. 
-\subproblem Asymmetric is the negative of the universal (every relation is not symmetric) where as a a relation is not symmetric if there were any instance where the relation is not symmetric. 
+\subproblem Asymmetric is the negative of the universal (every relation is not symmetric) where as a a relation is not symmetric if there were any instance where the relation is not symmetric. Antisymmetric is the same as asymmetric, except that an element may be in the relation with itself.
 \subproblem Proof by contradiction. Assume for a moment the graph is symmetric. Let us consider two connected nodes in the graph $a$ and  $b$. If there is an edge from $a$ to $b$  then there must also be edges from $b$ to $a$ since the graph is symmetric. Since the graph is transitive, there also be an edge from $a$ to $a$. However, we now have a contradiction since the graph is irreflexive. The graph must be asymmetric. 
 
 
