@@ -5,7 +5,7 @@
 \usepackage{tikz}
 \usepackage{hyperref}
 \begin{document}
-\header{6}{Monday, March 7, 2016}
+\header{17}{Monday, March 7, 2016}
 
 \noindent Author: Michelle Danoff, Tom Silver% \\
 
@@ -38,7 +38,7 @@ Prove that any finite DAG has at least one vertex with in-degree 0.
 
 
 \begin{solution}
-Proof by contradiction. Assume there is no vertex with in-degree 0; this means that every vertex has at least one edge that points to it. Let us begin to follow these edges backwards. Start this process at any random node in the graph; we follow this node to the node that points to it. Since every node has in degree of at least one, we can continue this process at every reachable node, or infinitely. Since we know the graph has no cycle, every edge must lead backwards to a new node. Thus, we have a contradiction since the graph is finite, but following edges backwards will allow us to reach an infinite amount of unique vertices. We must have at least one vertex with in-degree 0. 
+Proof by contradiction. Assume there is no vertex with in-degree 0; this means that every vertex has at least one edge that points to it. Let us begin to follow these edges backwards. Start this process at any random node in the graph; we follow this node to the node that points to it. Since every node has in degree of at least one, we can continue this process at every reachable node, or infinitely. Since we know the graph has no cycle, every edge must lead backwards to a new node. Thus, we have a contradiction since the graph is finite, but following edges backwards will allow us to reach an infinite number of unique vertices. We must have at least one vertex with in-degree 0. 
 
 
 \end{solution}
@@ -67,16 +67,17 @@ CS 20, CS 50, \& Stat 110 have no prerequisites, but should be in the graph.
 
 \problem Prove the triangle inequality, which states that for any $u, x, v \in V$
 \[dist(u, v) \le dist(u, x) + dist(x, v)\]
-where $dist(u,v)$ is the shortest path between the vertices $u$ and $v$.
+where $dist(u,v)$ is the length of the shortest path between the vertices $u$ and $v$.
 
 \begin{solution}
-There are two possible cases: either w is a point on the path from u to v, or it is a point not on the path. If x is on the path, then $dist(u,x) + dist(x,v) = dist(u,v)$, so by definition the inequality holds. If x is not a point on the path from u to v, then we know that $dist(u,v)$ is the shortest path between u and v. Thus, any path that goes through another point must be longer than this path by definition. 
+Proof by contradiction. Assume it is not the case that \[dist(u, v) \le dist(u, x) + dist(x, v)\] Consider a shortest path $p_1$ from $u$ to $x$. By definition, the length of $p_1$ is $dist(u, x)$. Next consider a shortest path $p_2$ from $x$ to $v$. The length of $p_2$ is $dist(x, v)$. Now consider the path obtained by starting with $p_1$ and continuing with $p_2$, which is valid because the end of $p_1$ is the start of $p_2$. The length of this joined path is the length of the two paths combined: $dist(u, x)+dist(x, v)$. Moreover, this is a path from $u$ to $v$. So it cannot be the case that $dist(u, v) > dist(u, x)+dist(x, v)$, since $dist(u, v)$ is the length of the shortest path from $u$ to $v$.
+
 \end{solution}
 
-\problem [BONUS] A topological ordering of a grpah is an ordering of the nodes such that if there is an edge between vertexes a and b in the graph, then a is before b in the topological ordering. Prove that we can provide a topological ordering for any DAG> 
+\problem [BONUS] A topological ordering of a graph is an ordering of the nodes such that if there is an edge between vertexes a and b in the graph, then a is before b in the topological ordering. Prove that we can provide a topological ordering for any DAG. 
 
 \begin{solution}
-Proof by induction. Base case: a single vertex. The topological ordering is just that vertex. Induction: assume we can provide a topological ordering for n vertices. Let us prove this is also the case for $n+1$ vertices. If we insert another vertex into our graph containing n vertexes, let us consider where we will place this new vertex in the topological ordering. If it has only eges coming in, then we can place it at the end of our ordering. If it has only edges going out, we can place it at the beginning. If it has both in and out, we place it in the ordering such that it is after the vertexes that have edges to it and before those it has edges to. Since there is no cycle in the graph, we know we can find such a location without disrupting the topological ordering. 
+Proof by induction. Base case: a single vertex. The topological ordering is just that vertex. Induction: assume we can provide a topological ordering for n vertices. Let us prove this is also the case for $n+1$ vertices. If we insert another vertex into our graph containing n vertexes, let us consider where we will place this new vertex in the topological ordering. If it has only edges coming in, then we can place it at the end of our ordering. If it has only edges going out, we can place it at the beginning. If it has both in and out, we place it in the ordering such that it is after the vertexes that have edges to it and before those it has edges to. Since there is no cycle in the graph, we know we can find such a location without disrupting the topological ordering. By the principles of induction, we can provide a topological ordering for a DAG containing any number $n$ vertices. 
 \end{solution}
 
 

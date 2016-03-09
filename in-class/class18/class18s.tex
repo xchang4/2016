@@ -5,7 +5,7 @@
 \usepackage{tikz}
 \usepackage{hyperref}
 \begin{document}
-\header{6}{Wednesday, March 9, 2016}
+\header{18}{Wednesday, March 9, 2016}
 
 \noindent Author: Michelle Danoff, Tom Silver% \\
 
@@ -17,7 +17,7 @@
 \item \textit{Reflexive}: $u R u$ for all $u \in A$.
 \item \textit{Irreflexive}: $\neg(uRu)$ for all $u \in A$
 \item \textit{Symmetric}: $u R w \implies w R u$ for all $u,w \in A$.
-\item \textit{Antisymmetric}: $u R w \implies \neg(wRu)$ for all $u, w \in A$, $u \neq w$.
+\item \textit{Antisymmetric}: $((u \neq w) \land (u R w)) \implies \neg(wRu)$ for all $u, w \in A$.
 \item \textit{Asymmetric}: $u R w \implies \neg(wRu)$ for all $u, w \in A$.
 \end{itemize}
 \item Recall that $G$ is a binary relation on $V$, where $uGw$ means that there is an edge from $u$ to $w$.
@@ -41,7 +41,7 @@
 Draw one directed graph with 3 vertices $A, B, C$ for each of the following relationships
 \subproblem Reflexive
 \subproblem Symmetric
-\subproblem Antisymmetric
+\subproblem Asymmetric
 \subproblem Transitive
 
 
@@ -53,15 +53,20 @@ Draw one directed graph with 3 vertices $A, B, C$ for each of the following rela
 \end{solution}
 
 \problem
-Prove that if a relation $R$ is transitive and irreflexive, then it is asymmetric.
+
+\subproblem Explain the difference between irreflexive and not reflexive
+\subproblem Explain the difference between not symmetric, asymmetric, and antisymmetric. 
+\subproblem Prove that if a relation $R$ is transitive and irreflexive, then it is asymmetric.
 
 \begin{solution}
-Proof by contradiction. Assume for a moment the graph is symmetric. Let us consider two connected nodes in the graph $a$ a $b$. If there is an edge from $a$ to $b$  then there must also be edges from $b$ to $a$ since the graph is symmetric. Since the graph is transitive, there also be an edge from $a$ to $a$. However, we now have a contradiction since the graph is irreflexive. The graph must be asymmetric. 
+\subproblem Irreflexive is the negative of the universal (every possible relation is not reflexive). No node in an irreflexive graph has a self loop. Not reflexive means that there is at least one relation that is not reflexive. A graph that is not reflexive could have some self loops, but must have at least one node for which there is no self loop. 
+\subproblem Asymmetric is the negative of the universal (every relation is not symmetric) where as a a relation is not symmetric if there were any instance where the relation is not symmetric. Antisymmetric is the same as asymmetric, except that an element may be in the relation with itself.
+\subproblem Proof by contradiction. Assume for a moment the graph is symmetric. Let us consider two connected nodes in the graph $a$ and  $b$. If there is an edge from $a$ to $b$  then there must also be edges from $b$ to $a$ since the graph is symmetric. Since the graph is transitive, there also be an edge from $a$ to $a$. However, we now have a contradiction since the graph is irreflexive. The graph must be asymmetric. 
 
 
 \end{solution}
 
-\problem Say that a string $x$ overlaps a string $y$ if there exist strings $p,q,r$ such that $x = pq$ and $y = qr$, with $q \neq \epsilon$. For example, $abcde$ overlaps $cdefg$, but does not overlap $bcd$ or $cdab$. Answer each of the following questions and prove your answer, or provide a counterexample.
+\problem Say that a string $x$ overlaps a string $y$ if there exist strings $p,q,r$ such that $x = pq$ and $y = qr$, with $q \neq \epsilon$. For example, $abcde$ overlaps $cdefg$, but does not overlap $bcd$ or $cdab$. Answer each of the following questions and prove your answer, or provide a counterexample. Consider the domain of all non-empty strings. 
 
 \subproblem Is the overlap relation reflexive? 
 \subproblem Is it symmetric?
@@ -75,17 +80,15 @@ Proof by contradiction. Assume for a moment the graph is symmetric. Let us consi
  
 \end{solution}
 
-\problem Determine what properties each of the following relations have. For those that are equivalence relations, briefly describe what the equivalence classes are in the relation.
+\problem [BONUS] Determine what properties each of the following relations have. For those that are equivalence relations, briefly describe what the equivalence classes are in the relation.
 
 \subproblem The relation ``shares a class with'', where two people share a class if there is a class they are both enrolled in this semester.
 \subproblem The relation $R$ on $\mathbb{Z}$, where $aRb$ if $b$ is a multiple of $a$.
-\subproblem The relation $R$ on $\mathbb{Z} \times \mathbb{Z}$, with $(a,b)$ $R$ $(c,d)$ if $ad = bc$. 
 
 
 \begin{solution}
 \subsolution Reflexive: you always share a class with yourself. Symmetric: if you are taking the same class as another person, then they are taking a class with you. NOT transitive. 
 \subsolution Reflexive: a number always is a multiple of itself.  Transitive: consider $aRb$ and  $bRc$ $b = ax$, $c = by$. Thus, $c = axy$, where $xy$ is some multiplier. Not necessarily symmetric. 
-\subsolution Reflexive: for $(a,b)$ $R$ $(a,b)$, $ab = ab$. Transitive: consider $(a,b)$ $R$ $(c,d)$ and  $(c,d)$ $R$ $(e,f)$. Then $ad = bc$ and $cf = de$. Then $c/d$ = $a/b$ = $e/f$. Symmetric: $cb = ad$, order does not matter. This is an equivalence relationship between sets of tuples for which this property applies. 
 
 \end{solution}
 

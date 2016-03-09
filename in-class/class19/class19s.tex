@@ -64,8 +64,8 @@ The shape of Pythagoras tree is built by recursively feeding the axiom through t
 \begin{itemize}
 \item 0: draw a line segment ending in a leaf
 \item 1: draw a line segment
-\item $[$: push position and angle, turn left 45 degrees
-\item $]$: pop position and angle, turn right 45 degrees
+\item $[$: save position and angle, turn left 45 degrees
+\item $]$: load position and angle, turn right 45 degrees
 \end{itemize}
 Applying the graphical rules listed above to the earlier recursion, we could get the graphical representation of axiom, 1st and 2nd recursion as the following :\\
 \includegraphics[width=2cm]{0} 
@@ -78,7 +78,7 @@ Draw out the graphical representation of the 3rd and 4th recursion.
 \begin{itemize}
 \item Base Case:  $0\in E$
 \item Constructor Rule:  $(1\rightarrow 11), (0\rightarrow 1[0]0)$
-\item ‚ÄúNothing else‚Äù (generally implicit): Nothing is in the set of Pythagoras tree unless it is obtained from the base case and constructor rule.
+\item ‚ÄNothing elseÄù (generally implicit): Nothing is in the set of Pythagoras tree unless it is obtained from the base case and constructor rule.
 \end{itemize}
 \subsolution 
 \begin{itemize}
