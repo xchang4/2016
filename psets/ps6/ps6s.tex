@@ -29,12 +29,11 @@ Induction step: assume that for some DAG with $n$ vertices, the maximum number o
 
 
 \problem{5}{10 lines}
-A directed graph $G$ has a Euler Tour if and only if there is a closed walk in that graph that uses each edge exactly once, although it may visit vertices multiple times. Prove that a graph has a Euler Tour iff the in and out degrees of every vertex are equal. 
+A directed graph $G$ has a Euler Tour if and only if there is a closed walk in that graph that uses each edge exactly once, although it may visit vertices multiple times. Prove that if a graph has a Euler tour, then its in and out degrees are equal. (Hint: conceptualize a Euler tour that touches vertexes multiple times as a union of one or more walks that touch any node at most once)
 
 \begin{solution}
-We complete the proof in both directions. First, let us prove that if a graph $G$ has a Euler tour, then the in an out degrees of each vertex are equal. There are two cases: where our path passes through every vertex once and where it passes through some of these vertices multiple times. If it passes through every vertex once (a simple tour), then the in degree and out degree of each vertex is one; the in and out degree of every vertex is equal. We can express other other case as several Euler tours of subsets of these vertices combined; thus the in and out degrees will still be equal since each of these simple Euler tours will be equal. 
-
-Now let us prove that if we have a graph with equal in and out degree, then we have a Euler tour. Proof by construction. Begin construction at any vertex in the graph that has out degree of at least 1 and begin constructing a path. For all reachable vertexes from V, since in and out degrees are equal, we know we will be able to leave a vertex if we reach it. Eventually we must end back up at the vertex we started at. If not every edge has been traversed, we repeat this construction starting at another vertex with at least one edge not yet traversed. We continue until every edge has been traversed; the Euler tour of the graph is the union of these smaller Euler tours produced at each step of the construction. 
+Let us prove that if a graph $G$ has a Euler tour, then the in and out degrees of each vertex are equal. There are two cases: where our path passes through every vertex once and where it passes through some of these vertices multiple times.
+If it passes through every vertex once (a simple tour), then the in degree and out degree of each vertex is one; the in and out degree of every vertex is equal by definition. Now let us consider a graph where some nodes have in and out degree more than one. We can conceptualize this more complex Euler tour as the union of simple Euler tours. We follow one simple Euler tour and then remove all the edges we followed. The nodes that remain connected will still have equal in an out degree, or they will be unconnected (in an out degree 0). We can continue this process until no nodes are connected; the final Euler tour will be the union of these simple Euler tours we constructed. 
 
 \end{solution}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
