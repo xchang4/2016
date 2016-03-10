@@ -29,11 +29,10 @@ Induction step: assume that for some DAG with $n$ vertices, the maximum number o
 
 
 \problem{5}{10 lines}
-A directed graph $G$ has a Euler Tour if and only if there is a closed walk in that graph that uses each edge exactly once, although it may visit vertices multiple times. Prove that if a graph has a Euler tour, then its in and out degrees are equal. (Hint: conceptualize a Euler tour that touches vertexes multiple times as a union of one or more walks that touch any node at most once)
+An Euler Tour on a directed graph is a closed walk that uses each edge exactly once. Note that an Euler Tour may visit vertices multiple times. Prove that if a directed graph $G = (V, E)$ has an Euler tour, then for all $v \in V$, the in degree of $v$ is equal to the out degree of $v$. (Hint: How does removing all of the edges in a cycle affect the differences between in and out degrees?)
 
 \begin{solution}
-Let us prove that if a graph $G$ has a Euler tour, then the in and out degrees of each vertex are equal. There are two cases: where our path passes through every vertex once and where it passes through some of these vertices multiple times.
-If it passes through every vertex once (a simple tour), then the in degree and out degree of each vertex is one; the in and out degree of every vertex is equal by definition. Now let us consider a graph where some nodes have in and out degree more than one. We can conceptualize this more complex Euler tour as the union of simple Euler tours. We follow one simple Euler tour and then remove all the edges we followed. The nodes that remain connected will still have equal in an out degree, or they will be unconnected (in an out degree 0). We can continue this process until no nodes are connected; the final Euler tour will be the union of these simple Euler tours we constructed. 
+Let $G = (V, E)$ be a directed graph with an Euler tour. Let $v_1, ..., v_m \in V$ be the vertices visited in the Euler tour. Note that $v_1 = v_m$ by the definition of a closed walk. Starting at $v_1$, follow the walk until you find a vertex $v_j$ that has already been seen, i.e. there is a $v_i$ with $i < j$ and $v_i = v_j$. Consider the edges in the original walk that visit $v_i, v_{i+1}, ..., v_j$. Since $v_j$ is the first non-unique vertex, these edges must form a cycle. Using the hint, we know that removing these edges will preserve the differences between the in and out degrees of each of the vertices in the cycle. Remove these edges. Continue along the original Euler tour until another repeated vertex is encountered, and repeat the same edge removal procedure. This process will conclude at $v_1$ when there are no edges in the graph remaining. At this point, all in and out degrees are 0, and since we never modified the differences between in and out degrees, the original in and out degrees must have been equivalent for all vertices.
 
 \end{solution}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -44,7 +43,7 @@ If it passes through every vertex once (a simple tour), then the in degree and o
 
 \problem{1+1+1+1+1}{one line each}
 
-Determine whether each of the possible binary relations is an equivalence relation. If you do not believe that the relation is an equivalence, you should justify your answer by stating the properties of equivalance relations that the relation fails to satisfy. Otherwise, no justification is needed.
+Determine whether each of the possible binary relations is an equivalence relation. If you do not believe that the relation is an equivalence, you should justify your answer by stating the properties of equivalence relations that the relation fails to satisfy. Otherwise, no justification is needed.
 
 \subproblem The relation $R$ where $aRb \iff$ a is a sibling of b.
 \subproblem The relation $R$ where $aRb \iff$ a is friends with b.
@@ -52,38 +51,25 @@ Determine whether each of the possible binary relations is an equivalence relati
 \subproblem The relation $R = \{(a, a), (a, c), (b, b), (c, c), (c, a) \}$ on the set $A = \{a, b, c\}$.
 \subproblem The relation $R = \{(a, b), (a, a), (c, c), (a, c), (c, a), (b, a), (b, b) \}$ on the set $A = \{a, b, c\}$.
 
-\solution
+\begin{solution}
 
-\subsolution This is not an equivalence relation, since the reflexive property does not hold (you are not your own sibiling).
+\subsolution This is not an equivalence relation, since the reflexive property does not hold (you are not your own sibling).
 \subsolution This is not an equivalence relation, since the reflexive and transitive properties do not hold (you are not friends with yourself, two people who share a friend do not necessarily have to be friends).
-\subsolution This is not an equivalance relation, since none of the properties hold.
+\subsolution This is not an equivalence relation, since none of the properties hold.
 \subsolution This is an equivalence relation.
 \subsolution This is not an equivalence relation, since the transitive property does not hold ($bTa$ and $aTc$ but it is not the case that $bTc$.
 
-\problem{1+2+2+2}{two lines each}
-
-The following question refers to the set $S = \{T, F\}$.
-
-\subproblem How many binary relations are there on $S$?
-\subproblem List all of the reflexive binary relations on $S$
-\subproblem List all of the asymmetric binary relations on $S$
-\subproblem List all of the reflexive and symmetric binary relations on $S$
-
-\solution
-
-\subsolution 16
-\subsolution $\{(T, T), (F, F)\}$, $\{(T, T), (F, F), (T, F)\}$, $\{(T, T), (F, F), (F, T)\}$, and $\{(T, T), (F, F), (T, F), (F, T)\}$
-\subsolution $\emptyset$, $\{(T, F)\}$, and $\{(F, T)\}$
-\subsolution $\{(T, T), (F, F)\}$ and $\{(T, T), (F, F), (T, F), (F, T)\}$
+\end{solution}
 
 \problem{4}{six lines}
 
 Consider the set $\mathbb{N} \times \mathbb{N}$ of all ordered pairs of positive integers. Show that the relation $(a, b) \sim (c,d) \iff ad = bc$ is an equivalence relation.
 
-\solution
+\begin{solution}
 
-\subsolution Reflexifity: for a pair $(a, b)$ it is true that $ab = ba$, so $(a, b) \sim (a, b)$.
+\subsolution Reflexivity: for a pair $(a, b)$ it is true that $ab = ba$, so $(a, b) \sim (a, b)$.
 \subsolution Symmetry: if $(a, b) \sim (c, d)$, then $ad = bc$. This implies that $cb = da$ is true, so $(c, d) \sim (a, b)$.
 \subsolution Transitivity: if $(a, b) \sim (c, d)$ and if $(c, d) \sim (e, f)$, then $ad = bc$ and $cf = de$. Multiplying the first equation by $f$ we get $adf = bcf$, and substituting for $cf$ from the second equation we get $adf = bde$. Since $d$ is not 0, we can cancel it from both sides to get $af = be$, which shows that $(a, b) \sim (e, f)$.
+\end{solution}
 
 \end{document}
