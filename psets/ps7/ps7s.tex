@@ -17,10 +17,8 @@
 \PART{Erin}
 
 \problem{4+2}{1/4 page}
-\subproblem Prove that in every graph, there are an even number of vertices of odd degree. \emph{Hint: Use the Handshaking Lemma.}
-\subproblem Conclude that at a party where some people shake
-hands, the number of people who shake hands an odd number of times is an
-even number.
+\subproblem Prove that in every undirected graph, there are an even number of vertices of odd degree. \emph{Hint: Use the Handshaking Lemma.}
+\subproblem Prove that at a party where some people shake hands, the number of people who shake hands an odd number of times is an even number.
 
 \begin{solution} 
 \subsolution Partitioning the vertices into those of even degree and those of odd degree, we know
@@ -53,7 +51,7 @@ A tree is an undirected graph in which any two vertices are connected by exactly
 \subproblem A \emph{spanning tree} of a graph $G=(V,E)$ is a tree on the set of all vertices of $G$ whose edges are in $E$. In other words, it is a tree that connects all the vertices of $G$ using only edges in $G$.  Prove or disprove: For a given a graph $G$, any two spanning trees of $G$ are isomorphic.
 
 \begin{solution}
-\subsolution Proof by contradiction. Suppose every node in graph $G$ has degree $\geq 1$. Starting at any vertex $v$, follow a sequence of distinct edges until you see a vertex twice; this is guaranteed to happen because the degree of every vertex is at least two, so upon arriving at a vertex for the first time it is always possible to leave the vertex on another edge (note that here we are assuming a finite graph). When a vertex repeats for the first time, we have discovered a cycle, which contradicts the fact that our graph is a tree.
+\subsolution Proof by contradiction. Suppose every node in graph $G$ has degree $> 1$. Starting at any vertex $v$, follow a sequence of distinct edges. Because the degree of every vertex is at least 2, upon arriving at a vertex for the first time, it is always possible to leave the vertex on another edge (note that here we are assuming a finite graph). When we see a vertex that we've already seen, we have discovered a cycle, which contradicts the fact that our graph is a tree.
 
 \subsolution Base Case: In a basic tree (one node), there are zero edges, so the claim holds. 
 \begin{itemize}

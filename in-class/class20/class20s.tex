@@ -5,7 +5,7 @@
 \usepackage{tikz}
 \usepackage{hyperref}
 \begin{document}
-\header{20}{Friday, March 21, 2016}
+\header{20}{Monday, March 21, 2016}
 
 \noindent Author: Erin Masatsugu% \\
 
@@ -40,6 +40,21 @@ In other words, there is an edge between two vertices in $G$ if and only if ther
 
 \paragraph*{In Class Problems}
 
+\problem Are the two graphs below isomorphic? If no, explain why. If yes, for each vertex from the left graph give its corresponding vertex from the right one.
+\begin{center}
+\includegraphics[scale=0.5]{isomorphisms.png}
+\end{center}
+
+\solution The graphs are isomorphic, and one possible bijection $f: $ LEFT $ \rightarrow $ RIGHT is:
+\begin{itemize}
+\item[] $ c \rightarrow g $
+\item[] $ d \rightarrow h $
+\item[] $ a \rightarrow m $
+\item[] $ e \rightarrow p $
+\item[] $ b \rightarrow k $
+\item[] $ f \rightarrow s $
+\end{itemize}
+
 \problem Determine which among the four graphs pictured below are isomorphic. If two of these graphs are isomorphic, describe an isomorphism between them. If they are not, give a property that is preserved under isomorphism such that one graph has the property, but the other does not.
 \begin{center}
 \includegraphics[scale=0.5]{isomorphisms_4.png}
@@ -58,21 +73,6 @@ In other words, there is an edge between two vertices in $G$ if and only if ther
 \problem Prove that if an undirected graph has more than two nodes and is bipartite, then it cannot be complete. Draw the undirected graph that has exactly two nodes and is both bipartite and complete.
 
 \solution Proof by contradiction: Suppose there is an undirected graph with more than 2 nodes that is bipartite and also complete. If there is an edge between every pair of vertices (the definition of a complete graph), there are no two vertices which are not connected by an edge. Thus, the graph cannot be a bipartite graph. The undirected graph that has exactly 2 nodes and is both bipartite and complete is the graph with 2 nodes connected by an edge.
-
-\problem Are the two graphs below isomorphic? If no, explain why. If yes, for each vertex from the left graph give its corresponding vertex from the right one.
-\begin{center}
-\includegraphics[scale=0.5]{isomorphisms.png}
-\end{center}
-
-\solution The graphs are isomorphic, and one possible bijection $f: $ LEFT $ \rightarrow $ RIGHT is:
-\begin{itemize}
-\item[] $ c \rightarrow g $
-\item[] $ d \rightarrow h $
-\item[] $ a \rightarrow m $
-\item[] $ e \rightarrow p $
-\item[] $ b \rightarrow k $
-\item[] $ f \rightarrow s $
-\end{itemize}
 
 \problem (BONUS) Prove that any undirected graph with at least two vertices has at least two vertices of the same degree.
 
