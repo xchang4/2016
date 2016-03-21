@@ -1,0 +1,86 @@
+%% Please fill in your name and collaboration statement here.
+\newcommand{\studentName}{**FILL IN YOUR NAME HERE**}
+\newcommand{\collaborationStatement}{**FILL IN YOUR COLLABORATION STATEMENT HERE \\ (See the syllabus for information)**}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[solution, letterpaper]{cs20}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{hyperref}
+\begin{document}
+\header{1}{Due Wednesday, February 3, 2016 at 9:59am. All students should submit an electronic copy.}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\PART{Tom}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\problem{5}{1/3 page}
+ Let $A$ be the set of your pigeons, and let $B$ be the set of pigeonholes in which they live. The \textit{Generalized Pigeonhole Principle} states that for a natural number $k$, if $|A| > k|B|$, then there exists a pigeonhole in which more than $k$ pigeons live. Prove the Generalized Pigeonhole Principle by contradiction.
+ 
+\begin{solution}
+Suppose $k$ is a natural number such that $|A| > k|B|$. Proceeding by contradiction, assume that there exists some mapping from $A$ to $B$ such that all pigeonholes contain less than $k$ pigeons. The total number of pigeons is therefore less than or equal to $k|B|$. This is a contradiction, since there are $|A|$ pigeons, and we supposed $|A| > k|B|$. Thus no such mapping exists.
+\end{solution}
+
+\problem{3+3}{1/3 page}
+
+There are 366 possible birthdays.
+
+\subproblem How many people must be in a group to guarantee that at least two people in the group have the same birthday? Identify your pigeons and holes.
+
+\subproblem How many people must be in a group to guarantee that at least $n$ people in the group have the same birthday? Identify your pigeons and holes. (You may use the Generalized Pigeonhole Principle from Problem 1.)
+
+\begin{solution}
+  \subsolution There must be 367 people in a group to guarantee that at least two have the same birthday. 366 will not suffice, since each could have a distinct birthday. We can think of the 367 people as pigeons and the 366 possible birthdays as holes. By the pigeonhole principle, a function mapping people to birthdays cannot be injective. Therefore at least two people must share the same birthday. 
+  \\
+  \subsolution There must be $366(n-1) + 1$ people in a group to guarantee that at least $n$ have the same birthday. $366(n-1)$ will not suffice; every birthday could correspond to exactly $n-1$ people with that birthday. We have $366(n-1) + 1$ people as pigeons and 366 holes. By the generalized pigeonhole principle, one hole must have at least $n$ pigeons. Therefore at least $n$ people must share the same birthday.
+\end{solution}
+
+
+\problem {4}{1/3 page}
+Two natural numbers are \textit{coprime} if their greatest common divisor is 1. What is the smallest value of $m$ for which the following statement is guaranteed? ``In any group of $m$ natural numbers between 2 and 50 (inclusive), at least two numbers in the group are not coprime.'' Use the pigeonhole principle to prove the statement with your value of $m$. 
+
+\begin{solution}
+
+$m = 16$. There are 15 prime numbers less than 50: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47. First observe that $m = 15$ does not suffice, since the group of all prime numbers less than 50 are all coprime. Now note that two numbers are not coprime if one of the fifteen primes divides evenly into them both. Furthermore, any number between 2 and 50 is divisible by at least one of the prime numbers. We can conceive of a group of 16 numbers as pigeons and the prime numbers as holes. Our function maps a number to the least prime that divides the number. By the pigeonhole principle, this function cannot be injective, and therefore there is at least one prime that divides two numbers, i.e. those two numbers are not coprime.
+
+\end{solution}
+
+
+\problem{6}{1/3 page}
+Prove that for all nonnegative integers $n$
+\[ \sum_{i=0}^{n}i^{3}=\left( \sum_{i=0}^{n}i \right)^{2} \]
+{\em Hint: the following identity may be useful}
+\[ \sum_{i=0}^ni=\frac{n(n+1)}{2} \]
+
+\begin{solution}
+  
+We will proceed by induction. As a base case, note that $\sum_{i=0}^0 i^3 = 0$, and 
+$\left( \sum_{i=0}^{0}i \right)^{2} = 0$, so $\sum_{i=0}^{n}i^{3}=\left( \sum_{i=0}^{n}i \right)^{2}$ for $n = 0$. For the inductive step, suppose that the statement holds up to $n = k$. We claim that it also holds for $n = k+1$.
+
+We have that $\left( \sum_{i=0}^{k+1}i \right)^{2} = \left((k+1)+ \sum_{i=0}^{k}i \right)^{2} = (k+1)^2 + 2(k+1)(\sum_{i=0}^{k}i) + (\sum_{i=0}^{k}i)^2$. From the identity above, we know that $(\sum_{i=0}^{k}i) = \frac{k(k+1)}{2}$, so $2(k+1)(\sum_{i=0}^{k}i) = k(k+1)^2$. Thus $(k+1)^2 + 2(k+1)(\sum_{i=0}^{k}i) + (\sum_{i=0}^{k}i)^2 = (k+1)^2 + k(k+1)^2 + (\sum_{i=0}^{k}i)^2 = (k+1)^3 + (\sum_{i=0}^{k}i)^2$. From the inductive hypothesis, $(\sum_{i=0}^{k}i)^2 = \sum_{i=0}^{k}i^{3}$. Then $(k+1)^3 + (\sum_{i=0}^{k}i)^2 = \sum_{i=0}^{k+1}i^{3}$. Therefore, $\sum_{i=0}^{k}i^{3}=\left( \sum_{i=0}^{k}i \right)^{2}$. By induction, we have proved the proposition.  
+  
+\end{solution}
+
+\problem {2+2+2}{1/3 page}
+A natural number $a$ is a perfect square if there exists another natural number $b$ such that $b^2 = a$.
+
+\subproblem Prove or provide a counterexample: if $c$ and $d$ are perfect squares, then $cd$ is a perfect square.
+
+\subproblem Prove or provide a counterexample: if $cd$ is a perfect square, then $c$ and $d$ are perfect squares.
+
+\subproblem Prove or provide a counterexample: if $c$ and $d$ are perfect squares such that $c > d$, and $x^2 = c$ and $y^2 = d$, then $x > y$. (Assume $x, y$ are integers.)
+
+\begin{solution}
+
+\subsolution This statement is true. Let $c$ and $d$ be perfect squares. By definition, there exist natural numbers $a$ and $b$ such that $a^2 = c$ and $b^2 = d$. So $cd = a^2b^2$. By associativity and commutativity, $cd = (ab)(ab) = (ab)^2$. Therefore $cd$ is a perfect square by definition.
+
+\subsolution This statement is false. For a counterexample, consider the perfect square $4$. Let $c = 2$ and $d = 2$. 
+
+\subsolution This statement is false. For a counterexample, consider $c = 4$ and $d = 1$, and $x = -2$, and $y = 1$.
+
+\end{solution}
+
+\end{document}

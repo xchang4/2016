@@ -1,0 +1,60 @@
+%% Please fill in your name and collaboration statement here.
+\newcommand{\studentName}{**FILL IN YOUR NAME HERE**}
+\newcommand{\collaborationStatement}{**FILL IN YOUR COLLABORATION STATEMENT HERE \\ (See the syllabus for information)**}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[solution, letterpaper]{cs20}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{hyperref}
+\begin{document}
+\header{5}{Due Wednesday, March 9, 2016 at 9:59am. All students should submit an electronic copy.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\PART{Ben}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\problem{4}{1/3 page}
+Show, by giving an example for each case, that the intersection of two uncountable sets can be: empty, finite, countably
+infinite, or uncountably infinite.
+
+\problem{4+2}{1 page}
+\subproblem The Schr\"{o}der-Bernstein Theorem states that for sets $S$ and $T$, if there exist injective functions $f : S \rightarrow T$ and $g : T \rightarrow S$, then $S$ and $T$ have the same cardinality. Using the Schr\"{o}der-Bernstein Theorem, show that the cardinality of the set of all real numbers between $0$ and $100$, inclusive, is the same as the cardinality of the set of all real numbers between, but not including, $0$ and $100$.
+
+\subproblem Prove the finite case for the Schr\"{o}der-Bernstein Theorem. That is, prove that for finite sets $S$ and $T$, if there exist injective functions $f : S \rightarrow T$ and $g : T \rightarrow S$, then sets $S$ and $T$ have the same cardinality. (HINT: Check out the warm-up proof from the Relations and Functions lesson for some inspiration!)
+
+\problem{2+2}{1/2 page}
+A robot wanders around a two-dimensional grid. The robot starts at (0,0) and is allowed to take four different types of steps:
+\begin{enumerate}
+\item (-2, +2)
+\item (-4, +4)
+\item (+1, -1)
+\item (+3, -3)
+\end{enumerate}
+For example, the robot might take the following stroll. The types of steps are denoted by each arrow's subscript:
+$$(0,0) \to_1 (-2,2) \to_3 (-1,1) \to_2 (-5,5) \to_4 (-2,2) \to \ldots$$
+
+\subproblem Describe a state machine model of this problem.
+\subproblem Will the robot ever reach (1, 2)? Either find an appropriate path for the robot or use the Invariant Principle to prove that no such path exists.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\PART{Crystal}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\problem{3+1}{1/2 page}
+\subproblem Using string concatenation as the sole constructor, give a recursive definition of the set $S$ of bit strings with no more than a single 1 in them 
+
+(e.g. 00010, 010, or 000)
+\subproblem Is $0010\in S$? How can you derive it from your base case?
+
+\problem{2+2}{1/2 page}
+Let $A = \left\{ {5n:n\in\mathbb{N}}\right\}$ and let $S$ be the set defined as follows:
+\begin{itemize}
+\item Base Case: $5 \in S$
+\item Constructor Rule: If $x\in S$ and $y\in S$, $x+y \in S$ 
+\end{itemize}
+\subproblem Use induction to prove that $A\subseteq S $.
+\subproblem Use structural induction to prove that $S\subseteq A$.
+
+\end{document}

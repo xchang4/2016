@@ -1,0 +1,13 @@
+psets/ps[0-9]/ps[0-9].tex
+psets/ps[0-9]/ps[0-9].pdf
+psets/ps[0-9]/ps[0-9]s.pdf
+
+in-class/class[0-9]/class[0-9].tex
+in-class/class[0-9]/class[0-9].pdf
+in-class/class[0-9]/class[0-9]s.pdf
+
+*.aux
+*.log
+*.out
+
+.DS_Store

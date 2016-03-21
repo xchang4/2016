@@ -1,0 +1,130 @@
+%% Please fill in your name and collaboration statement here.
+\newcommand{\studentName}{**FILL IN YOUR NAME HERE**}
+\newcommand{\collaborationStatement}{**FILL IN YOUR COLLABORATION STATEMENT HERE \\ (See the syllabus for information)**}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[solution, letterpaper]{cs20inclass}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{hyperref}
+\begin{document}
+\header{3}{Friday, January 29, 2016}
+
+\noindent Author: Hannah Blumberg% \\
+
+\paragraph*{Executive Summary}
+
+\begin{enumerate}
+\item Let $P(x)$ be a predicate and $m, n$ nonnegative integers.  If $P(m)$ is true and $P(n) \Rightarrow P(n+1)$ for all $n \ge m$, then $P(n)$ is true for all $n \ge m$.
+\item Writing an inductive proof is like explaining to someone how to climb a ladder. If you can describe how to get onto one of the lower rungs of the ladder and you can describe how to get from one rung to the next , then someone can repeat the procedure as many times as they'd like to climb a ladder of any height.
+\item To write a proof by induction, first you need to identify the proposition to be proven.  Then prove the base case, prove the inductive step (how you can get from the proposition holding for $n$ to the proposition holding for $n+1$), and the conclusion.  Be sure you identify properly the thing being inducted upon.
+
+\end{enumerate}
+
+\paragraph*{Check-In Question}
+Suppose that we want to prove that statement $S$ is true for all positive integers $n$. Which of the following steps should be done first?
+\begin{enumerate}
+\item	Assume that $S$ is true for some positive integer $n$ and prove that the statement is true for $n-1$.
+\item	Assume that $S$ is true for some positive integer $n$ and prove that the statement is true for $n+1$.
+\item	Prove that $S$ is true for the base case $n = 0$.
+\item	Prove that $S$ is true for the base case $n = 1$.
+\end{enumerate}
+
+\textbf{Solution:} (d)
+
+The first step in an inductive proof (after clearly stating the predicate) is to prove the predicate for the base case. In this case, the base case is 1 since 1 is the smallest positive number.
+
+\problem
+
+What is wrong with this proof that all cars are the same color?\\
+
+Let $P(n)$ = ``every group of $n$ cars contains only cars of the same color.''\\
+Base case $P(1)$: There is only one car in the group, thus clearly all cars in the group have the same color. \\
+Inductive step: Assume $P(n)$ is true. We will show that it follows that $P(n+1)$ is true. \\  
+Consider a group of $n+1$ cars. The first $n$ cars must have the same color by the inductive assumption, and likewise the last $n$ cars must also have the same color by the inductive assumption. Because the two groups overlap in the middle, the cars in the first group must have the same color as the cars in the seconds group. Therefore, all $n+1$ cars must have the same color. Thus we have shown that $P(n+1)$ is true, and our proof is complete.
+
+\begin{solution}
+
+The proof hinges on the observation that ``the two groups overlap in the middle''; however, this is not the case when $n = 2$.
+  
+\end{solution}
+
+\problem
+
+Prove by induction that the decimal representation of every power of $3$ ends in one of the digits 1, 3 ,7, or 9.
+
+\begin{solution}
+
+Let $P(n)$ be $3^n$ ends in 1, 3, 7, or 9. We will prove by induction that $P(n)$ is true for $n\geq0$.
+
+\textit{Base case, P(0):} $3^0 = 1$, which ends in 1. Therefore, $P(0)$ is true.
+
+\textit{Inductive step:} Assume $P(n)$ (that $3^n$ ends in 1, 3, 7, or 9). We will show that $P(n+1)$ (that $3^{n+1}$ ends in 1, 3, 7, or 9) follows.
+
+Consider $3^{n+1} = 3^n (3)$
+
+By the inductive hypothesis, $3^n$ must end in 1, 3, 7, or 9. As a result, there are 4 possible cases:
+
+\begin{enumerate}
+
+\item The last digit of $3^n$ is 1. Since 1*3 = 3, the last digit of $3^{n+1}$ is 3. $P(n+1)$ holds true.
+
+\item the last digit of $3^n$ is 3. Since 3*3 = 9, the last digit of $3^{n+1}$ is 9. $P(n+1)$ holds true.
+
+\item the last digit of $3^n$ is 7. Since 7*3 = 21, the last digit of $3^{n+1}$ is 1. $P(n+1)$ holds true.
+
+\item the last digit of $3^n$ is 9. Since 9*3 = 27, the last digit of $3^{n+1}$ is 7. $P(n+1)$ holds true.
+
+\end{enumerate}
+
+We can therefore conclude that $P(n+1)$ follows from $P(n)$. Since $P(0)$ is true and $P(n+1)$ follows from $P(n)$, we can conclude that $P(n)$ holds true for $n \geq 0$ and every power of $3$ ends in one of the digits 1, 3 ,7, or 9.
+
+\end{solution}
+
+\problem 
+
+(BONUS). Use induction to prove that for all nonnegative integers $n$:
+\[ \sum_{k=0}^{n}k^{2}=\frac{n(n+1)(2n+1)}{6} \]
+
+\begin{solution}
+
+Let $P(n)$ be $\sum_{k=0}^{n}k^{2}=\frac{n(n+1)(2n+1)}{6}$. We will prove by induction that $P(n)$ is true for $n\geq0$.
+
+\textit{Base case, P(0):} 
+
+$\sum_{k=0}^{n}k^{2}=\sum_{k=0}^{0}k^{2}= 0^2 = 0$
+
+$\frac{n(n+1)(2n+1)}{6}=\frac{0(0+1)(2*0+1)}{6}=0$
+
+Therefore, $P(0)$ is true.
+
+\textit{Inductive step:} Assume $P(n)$. We will show that $P(n+1)$ follows.
+
+$\sum_{k=0}^{n+1}k^{2} = \sum_{k=0}^{n}k^{2} + (n+1)^2$
+
+$\sum_{k=0}^{n+1}k^{2} = \frac{n(n+1)(2n+1)}{6} + (n+1)^2$ by the inductive hypothesis
+
+$\sum_{k=0}^{n+1}k^{2} = \frac{1}{6} (n(n+1)(2n+1) + 6(n+1)^2)$
+
+\hspace{1.6cm}$ = \frac{1}{6} (n+1)(2n^2+n+6n+6)$
+
+\hspace{1.6cm}$ = \frac{1}{6} (n+1)(2n^2+7n+6)$
+
+\hspace{1.6cm}$ = \frac{1}{6} (n+1)(2n^2+4n+3n+6)$
+
+\hspace{1.6cm}$ = \frac{1}{6} (n+1)(2n(n+2)+3(n+2))$
+
+\hspace{1.6cm}$ = \frac{1}{6} (n+1)(2n+3)(n+2)$
+
+\hspace{1.6cm}$ = \frac{(n+1)((n+1)+2)(2(n+1)+1)}{6}$
+
+$P(n+1)$ therefore follows from $P(n)$.
+
+We can therefore conclude that $P(n+1)$ follows from $P(n)$. Since $P(0)$ is true and $P(n+1)$ follows from $P(n)$, we can conclude that $P(n)$ holds true for $n \geq 0$ and $\sum_{k=0}^{n}k^{2}=\frac{n(n+1)(2n+1)}{6}$ for all non-negative integers $n$.
+
+\end{solution}
+
+\end{document}

@@ -1,0 +1,133 @@
+%% Please fill in your name and collaboration statement here.
+\newcommand{\studentName}{**FILL IN YOUR NAME HERE**}
+\newcommand{\collaborationStatement}{**FILL IN YOUR COLLABORATION STATEMENT HERE \\ (See the syllabus for information)**}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[solution, letterpaper]{cs20}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{hyperref}
+\begin{document}
+\header{5}{Due Wednesday, March 9, 2016 at 9:59am. All students should submit an electronic copy.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\PART{Ben}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\problem{4}{1/3 page}
+Show, by giving an example for each case, that the intersection of two uncountable sets can be: empty, finite, countably
+infinite, or uncountably infinite.
+
+\begin{solution}
+An example of the empty set resulting from the intersection of two uncountable sets is \fbox{$\big[0,1\big] \cap \big[2,3\big] = \emptyset$}.
+\newline
+
+\noindent An example of a finite set resulting from the intersection of two uncountable sets is 
+
+\noindent \fbox{$\big[0,1\big] \cap \big[1,2\big] = \{1\}$}.
+\newline
+
+\noindent An example of a countably infinite set resulting from the intersection of two uncountable sets is \fbox{$(\mathbb{Z} \cup \big[0,1\big]) \cap (\mathbb{Z} \cup \big[2,3\big]) = \mathbb{Z}$}.
+\newline
+
+\noindent An example of an uncountable set resulting from the intersection of two uncountable sets is \fbox{$\mathbb{R} \cap \mathbb{R}=\mathbb{R}$}.
+\end{solution}
+
+\problem{4+2}{1 page}
+\subproblem The Schr\"{o}der-Bernstein Theorem states that for sets $S$ and $T$, if there exist injective functions $f : S \rightarrow T$ and $g : T \rightarrow S$, then $S$ and $T$ have the same cardinality. Using the Schr\"{o}der-Bernstein Theorem, show that the cardinality of the set of all real numbers between $0$ and $100$, inclusive, is the same as the cardinality of the set of all real numbers between, but not including, $0$ and $100$.
+
+\subproblem Prove the finite case for the Schr\"{o}der-Bernstein Theorem. That is, prove that for finite sets $S$ and $T$, if there exist injective functions $f : S \rightarrow T$ and $g : T \rightarrow S$, then sets $S$ and $T$ have the same cardinality. (HINT: Check out the warm-up proof from the Relations and Functions lesson for some inspiration!)
+
+\begin{solution}
+\subsolution We want to show that the cardinality of $\big[0,100\big]$ is the same as $(0,100)$. Using the Schr\"{o}der-Bernstein Theorem, we want to construct an injective function from each set to the other. We can set the injective function $f : (0, 100) \rightarrow \big[0, 100\big]$ to be $f(x) = x$ for all $x \in (0, 100)$. If $f(x_1) = f(x_2)$, then $x_1 = x_2$, so $f$ is injective.
+
+Next, we want to construct an injective function $g : \big[0, 100\big] \rightarrow (0, 100)$. The idea is to find a ``copy'' of $\big[0, 100\big]$ in $(0, 100)$, then do some scaling and translation to map $\big[0, 100\big]$ onto the copy. We find that $g(x) = \frac{x}{2} + 25$ is an appropriate function for $0 \leq x \leq 100$. If $0 \leq x \leq 100$, then $0 \leq \frac{x}{2} \leq 50$, so $25 \leq \frac{x}{2} + 25 \leq 75$. This proves that $g$ is a function from $\big[0, 100\big]$ to $\big[25, 75\big]$, which is a subset of $(0,100)$.
+
+Next, we want to show that $g$ is injective. It suffices to show that if $g(x_1) = g(x_2)$, then $x_1 = x_2$. For $g(x_1) = g(x_2)$, we have: 
+$$\frac{x_1}{2} + 25 = \frac{x_2}{2} + 25$$
+$$\frac{x_1}{2} = \frac{x_2}{2}$$
+$$x_1 = x_2$$
+Having found satisfactory injective functions $f$ and $g$, we know by the Schr\"{o}der-Bernstein Theorem that the cardinality of $\big[0,100\big]$ is the same as $(0,100)$.
+
+\subsolution We use proof by contradiction. Suppose that sets $S$ and $T$ do not have the same cardinality. Without loss of generality, assume that $|S| < |T|$. Now consider the injective function $g$. By the definition of an injective function, for any $a$ and $b$ in $T$, $a \neq b \Rightarrow g(a) \neq g(b)$. However, since $g$ is mapping elements from $T$ to elements in $S$ and there are more elements in $T$ than in $S$, by the Pigeonhole Principle there must be at least two unique elements in $T$ that map to the same element in $S$. In formal terms, $\exists a,b \in T $ s.t. $a \neq b \wedge g(a) = g(b)$. Then $g$ must not be an injective function, which is a contradiction, so we conclude that sets $S$ and $T$ must have the same cardinality (a symmetrical argument applies if $|S| > |T|$ by examining the injective function $f$).
+\end{solution}
+
+\problem{2+2}{1/2 page}
+A robot wanders around a two-dimensional grid. The robot starts at (0,0) and is allowed to take four different types of steps:
+\begin{enumerate}
+\item (-2, +2)
+\item (-4, +4)
+\item (+1, -1)
+\item (+3, -3)
+\end{enumerate}
+For example, the robot might take the following stroll. The types of steps are denoted by each arrow's subscript:
+$$(0,0) \to_1 (-2,2) \to_3 (-1,1) \to_2 (-5,5) \to_4 (-2,2) \to \ldots$$
+
+\subproblem Describe a state machine model of this problem.
+\subproblem Will the robot ever reach (1, 2)? Either find an appropriate path for the robot or use the Invariant Principle to prove that no such path exists.
+
+\begin{solution}
+\subsolution In our state machine model, every state takes the form $(x,y)$. The start state is $(0,0)$, and the possible transitions out of a state $(x,y)$ are to $(x-2, y+2),(x-4,y+4),(x+1,y-1),(x+3,y-3)$.
+\subsolution The robot will not.
+We propose the following invariant: for any state $(x,y)$ 
+\[x = -y \]
+We see that it is true for the start state $(0,0)$, and all of the transitions preserve this invariant, as they add or subtract the same amount to both the $x$ and $y$ coordinates. However, our desired final state $(1,2)$ does not satisfy this invariant, and so it must be impossible to reach.
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\PART{Crystal}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\problem{3+1}{1/2 page}
+\subproblem Using string concatenation as the sole constructor, give a recursive definition of the set $S$ of bit strings with no more than a single 1 in them 
+
+(e.g. 00010, 010, or 000)
+\subproblem Is $0010\in S$? How can you derive it from your base case?
+
+\begin{solution}
+\subsolution
+\begin{itemize}
+\item Base cases: the empty string $\epsilon$, 0, 1 $\in S$
+\item Constructor Rule: If w is in S, then
+\subitem C1: $0w\in S$
+\subitem C2: $w0\in S$
+\item ?Nothing else? (generally implicit): Nothing is in $S$ unless it is obtained from the base case and constructor rule.
+\end{itemize}
+\subsolution Yes, because
+\begin{itemize}
+\item $1\in S$ (Base case)
+\item $10\in S$ by C2 
+\item $010\in S$ by C1
+\item $0010\in S$ by C1
+\end{itemize}
+\end{solution}
+
+\problem{2+2}{1/2 page}
+Let $A = \left\{ {5n:n\in\mathbb{N}}\right\}$ and let $S$ be the set defined as follows:
+\begin{itemize}
+\item Base Case: $5 \in S$
+\item Constructor Rule: If $x\in S$ and $y\in S$, $x+y \in S$ 
+\end{itemize}
+\subproblem Use induction to prove that $A\subseteq S $.
+\subproblem Use structural induction to prove that $S\subseteq A$.
+
+\begin{solution}
+\subsolution Proving that $A\subseteq S$ is equivalent to proving that $\forall x[x\in A\rightarrow x\in S]$
+\begin{itemize}
+\item Let P(n): $5n\in S$. We must show that for all $n\in\mathbb{N}, P(n)$.
+\item Base case: When n=1, $5(1)=5\in S$ by base case in the definition of S.
+\item Induction step: \\
+Assuming for some $n\in\mathbb{N}$ P(n) is true, i.e. $5n\in S$, we want to prove that $P(n+1): 5(n+1)=5n+5\in S$.\\
+Since 5, 5n$\in S$, $5n+5\in S$ by the constructor rule of definition of S.
+\end{itemize}
+\subsolution Proving that $S\subseteq A$ is equivalent to proving that $\forall x[x\in S\rightarrow x\in A]$
+\begin{itemize}
+\item Basis step: By the base case of the definition of S, $5\in S$. Since $5=5(1)$, $5\in A$
+\item Recursive step: \\
+Now consider the constructor rule in the definition of $S$. Assume elements $x,y\in S$ are also in $A$. We must show that $x+y\in A$.\\
+Since $x,y\in A$, $x=5i$ and $y=5j$ for some natural numbers $i$ and $j$. So $x+y=5i+5j=5(i+j)$, where $i+j\in\mathbb{N}$ since $i,j\in\mathbb{N}$. Thus $x+y\in A.$
+\end{itemize}
+\end{solution}
+
+\end{document}

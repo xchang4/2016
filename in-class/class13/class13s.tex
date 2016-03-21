@@ -1,0 +1,89 @@
+\documentclass[solution, letterpaper]{cs20inclass}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{ dsfont }
+\usepackage{amsmath}
+\begin{document}
+\header{13}{Friday, February 27, 2016}
+
+\noindent Author: Erin Masatsugu
+
+\paragraph*{Executive Summary}
+\begin{enumerate}
+\item A {\em binary relation} describes relationships from one set $A$, called the {\em domain}, to another set $B$, called the {\em codomain} through a subset of $A \times B$ called the {\em relation graph}.  This is often depicted as a diagram with arrows from elements of the {\em domain} to elements of the {\em codomain}. You can also represent a binary relation as a set of ordered pairs.
+\begin{itemize}
+\item A {\em function} is a special case of a relation in which each member of the domain has at most one arrow coming out of it.  Most of the time when we see functions, they can be described in a concise way, such as $f(x) = x^2$.
+\item A relation is {\em surjective} when every item in the codomain has at least one arrow coming in -- that is, every element in the codomain is covered.
+\item A relation is {\em total} when every item in the domain has at least one arrow coming out of it -- that is, every element in the domain participates in the relation.
+\item A relation is {\em injective} when every element of the codomain has at most one arrow coming in -- that is, if you start with an element in the codomain that has an arrow, there's no ambiguity where in the domain it came from.
+\item A relation is {\em bijective} when every element of the domain has exactly one arrow pointing out, and every element of the codomain has exactly one arrow pointing in. A bijection between 2 sets exist if the 2 sets have the same cardinality, or size.
+\end{itemize}
+\end{enumerate}
+
+\pagebreak
+
+%% PROBLEM 1 %%
+\problem Determine which labels apply to the following relations: function, total, injective, surjective, bijective. Also, identify the domain and co-domain of each relation.
+\subproblem The relation that associates a Harvard undergraduate student with a residential House
+\subproblem The relation that associates every natural number with its square (from natural numbers to natural numbers)
+\subproblem The relation that associates every integer with its square (from integers to natural numbers)
+\subproblem The relation that associates every student in the class with every class he or she is taking this current semester. Assume there are no empty classes, and no students with empty schedules.
+\subproblem The relation that associates each class with the students enrolled in that class. There might be empty classes, but there are no students with empty schedules.
+
+\begin{solution}
+\subsolution Total, surjective function. Domain: set of students, Co-Domain: set of houses
+\subsolution Total, injective function. Domain: natural numbers, Co-Domain: natural numbers
+\subsolution Total function. Domain: integers, Co-Domain: natural numbers
+\subsolution Total, surjective. Domain: set of students, Co-Domain: set of classes
+\subsolution Surjective. Domain: set of classes, Co-Domain: set of students
+\end{solution}
+
+%% PROBLEM 2 %%
+\problem Determine which labels apply to the following functions: total, injective, surjective, bijective.
+\subproblem $f(x) = x + 5$
+\subproblem $f : \mathds{N} \rightarrow \mathds{N}$ where $f(x) = 2x$
+\subproblem  $f : \mathds{N} \rightarrow \mathds{N}$ where
+$f(x) =$
+\[ \begin{cases} 
+      x-1 & x \geq 2 \\
+      1 & x = 1
+   \end{cases}
+\]
+\subproblem $f : \mathds{N} X \mathds{N} \rightarrow \mathds{N}$ where $f(x, y) = x - y$
+
+\begin{solution}
+\subsolution Total, injective, bijective
+\subsolution Total, injective
+\subsolution Total, surjective
+\subsolution Surjective
+\end{solution}
+
+%% PROBLEM 3 %%
+\problem Define $f, g$ such that $f$ is a total, injective function from set $A$ to set $B$ and $g$ is a total, surjective function from $B$ to $C$. Let $g \circ f$ denote function composition, i.e., $g \circ f=g(f(x))$. Prove or disprove the following claim: If $f$ is total and injective and $g$ is total and surjective, then $g \circ f$ is injective.
+
+\begin{solution}
+The claim is false, and we provide a counter-example. Consider $A=\{1,2,3\}$, $B=\{a, b, c\}$, and $C=\{\alpha, \beta\}$. Define $f: A \rightarrow B$ via $f(1)=a$, $f(2)=b$, and $f(3)=c$ and define $g: B \rightarrow C$ via $g(a)=\alpha$ and $g(b)=g(c)=\beta$. Then $f$ is total and injective, $g$ is total and surjective, but $(g \circ f)(2) = (g \circ f)(3) = \beta$, so $g \circ f$ is not injective.
+\end{solution}
+
+
+%% PROBLEM 4 %%
+\problem (BONUS) Show that if two finite sets $A$ and $B$ are the same size, and $r$ is a total injective function from $A$ to $B$, then $r$ is also surjective; i.e. $r$ is a bijection.
+
+\begin{solution}
+Since $r$ is total and injective, $x \neq y \rightarrow r(x) \neq r(y)$, i.e. $r$ assigns each element of A to a different element of B. Assume for contradiction that $r$ is not surjective, so there is some element $b \in B$ that is not paired with any element in $A$. Let $n = |A| = |B|$. The $n$ elements of A must then be paired with the $n - 1$ other elements of $B$. By the pigeonhole principle, this is impossible, and so we have a contradiction. Thus $r$ must be surjective, and since it is injective and surjective it is thus bijective.
+\end{solution}
+
+\problem (BONUS) Give a counterexample showing that the conclusion of problem 2 does not necessarily hold if A and B are two infinite sets that have the same cardinality. Hint: $\mathds{N}$ (the set of natural numbers) and $\mathds{Z}$ (the set of integers) have the same cardinality.
+
+
+%% PROBLEM 5 %%
+\begin{solution}
+We take $A = \mathds{N}$ (the set of natural numbers) and $B = \mathds{Z}$ (the set of integers). $A$ and $B$ are both countably infinite, and so they have the same cardinality. Let $r : \mathds{N} \rightarrow \mathds{N}$ be the function that assigns each natural number to itself. Then r is a total injective function, since no two natural numbers are mapped to the same integer, but it is not surjective, since any negative integer has no natural number that maps to it.
+\end{solution}
+
+
+
+\end{document}

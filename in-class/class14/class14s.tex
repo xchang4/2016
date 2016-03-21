@@ -1,0 +1,91 @@
+\documentclass[solution, letterpaper]{cs20inclass}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{hyperref}
+\begin{document}
+\header{14}{Monday, February 29, 2016}
+
+\noindent Author: Ben Zheng
+
+\paragraph*{Executive Summary}
+\begin{enumerate}
+
+\item \textbf{Some set notation}
+
+Given a set $S = \{0,1\}$, we have that:
+\begin{itemize}
+\item $\{0,1\}^n$ is the set of strings of exactly length $n$: e.g. $01001 \in \{0,1\}^5.$
+\item $\{0,1\}^*$ is the set of strings of finite length, including the empty string: 
+
+e.g. $010010001 \in \{0,1\}^*.$
+\item $\{0,1\}^{\omega}$ is the set of sequences of infinite length: e.g. $010010001\cdots.$ 
+
+NOTE: We say ``sequence'' because strings are defined to have finite length 
+
+(i.e. they are finite sequences).
+\item The collection of all subsets of $S$ is its power set, denoted $\mathcal{P}(S)$. Note that $\emptyset \in \mathcal{P}(S)$ for all $S$.
+\end{itemize}
+
+\item \textbf{Countable sets}
+\begin{itemize}
+\item Two finite sets $A$ and $B$ have the same cardinality if there is a bijection between them: i.e. $A$ bij $B$.
+\item An infinite set $A$ is called \emph{countably infinite} if $A$ bij $\mathbb{N}$.
+\item The set of all integers $\mathbb{Z}$ is countably infinite.
+\item For finite sets $A$ and $B$, $A$ is a proper subset of $B$ if $A \subseteq B$ and $|A| < |B|.$ For countably infinite sets this is not necessarily so!
+\item Countably infinite sets are closed under the following operations: subset, intersection, Cartesian product and countably infinite union.
+\item We use ``countable'' to refer to sets that are finite or countably infinite.
+\end{itemize}
+
+\item \textbf{Uncountable sets}
+\begin{itemize}
+\item {\bf Cantor's Theorem:} For any set $A$, the cardinality of $\mathcal{P}(A)$ is greater than that of $A$, i.e. a bijection $f$ does not exist between $A$ and $\mathcal{P}(A)$.
+\item Proof approach: Given a bijection $f$, consider the set $W$ consisting of elements in $A$ that are matched to elements in $\mathcal{P}(A)$ that do not contain them (remember, an element in $\mathcal{P}(A)$ is a subset!). By the definition of $f$, some element in $A$ must match to $W$ since $W$ is a subset of $A$ and thus an element of $\mathcal{P}(A)$, but by the definition of $W$ no element in $A$ can match to $W$, which is a contradiction.
+\item Uncountable sets: $S^\omega$ for any set $S$ such that $|S|>1$, $\mathcal{P}(\mathbb{N})$, and the set of real numbers within any interval.
+\end{itemize}
+
+\end{enumerate}
+\pagebreak
+
+%% Problem 1
+\problem Suppose $S=\{0,1\}^*$. Which of the following sets are countable?
+\subproblem The union of two finite sets
+\subproblem The powerset of a countably infinite set
+\subproblem The union of a finite set and a countably infinite set
+\subproblem The powerset of a finite set
+\subproblem $\bigcup_{i\geq 0} S_i$, where $S_i=\{s\ : \ s \in S, \ |s|=i\}$
+\subproblem $S \times S$
+\subproblem The set of all functions mapping from $\mathbb{N}$ to $\{0, 1\}$
+
+
+\begin{solution}
+A and C are countable since countable sets are closed under union with a finite number of countable sets. B is uncountable by definition. D is countable since it is a finite set. E is equivalent to $S$, which is countable. F is countable since we know that countable sets are closed under Cartesian product. For G, for an arbitrary function $f$, we can represent $f$ as a binary string where the $n$th digit in the string represents $f(n)$ (so for a function that mapped all odd natural numbers to $1$ and all even natural numbers to $0$, this string representation would be $10101010\cdots$). Since the set of all functions in this case would be equivalent to the set of all possible such binary strings (of which there are an uncountably infinite number by Cantor's Diagonalization Argument), there must be uncountably infinite functions, so G is uncountable.
+\end{solution}
+
+%% Problem 2
+\problem Show that for any uncountable set $A$ and countable set $B$, the set $A-B$ is uncountable.
+
+\begin{solution}
+We perform a proof by contradiction. For an arbitrary uncountable set $A$ and an arbitrary
+countable set $B$, we assume first that $A - B$ is countable. Next, we note that $A - B = A - A \cap B$. But $A \cap B$ is countable since $|A \cap B| \leq |B|$ and $B$ is countable. Since the union of countable sets is countable, this implies that $(A - A \cap B) \cup (A \cap B) = A$ is countable as well, a contradiction.
+\end{solution}
+
+%% Problem 3
+\problem Show that the Cartesian product $\mathbb{N} \times \mathbb{N} = \{(a,b):a,b \in \mathbb{N}\}$ is countably infinite by creating a bijection between $\mathbb{N}$ and $\mathbb{N} \times \mathbb{N}$.
+
+\begin{solution}
+One approach: To create a bijection $f$ we first note that for any positive integer $n$, there are exactly $n$ elements $(a,b)$ in $\mathbb{N} \times \mathbb{N} $ such that $a + b = n + 1$. Hence, we can map the first natural number $1$ to elements in $\mathbb{N} \times \mathbb{N} $ whose components sum to $2$ (in this case $(1,1)$), the next two natural numbers to elements whose components sum to $3$ in order from smallest-to-largest first component ($(1,2)$ and $(2,1)$), and so on. We know that $f$ is surjective since every element in $\mathbb{N} \times \mathbb{N} $ can be mapped to in this way, and $f$ is injective because for every positive integer $n$ we can map $n$ unique elements in $\mathbb{N}$ to $n$ distinct elements $(a,b)$ in $\mathbb{N} \times \mathbb{N} $ where $a + b = n + 1$. Therefore, $f$ is a bijection.
+\end{solution}
+
+%% Problem 4
+\problem (BONUS) In the Infinity Inn (a Hilton brand) there is a countably infinite number of rooms available for booking. Attracted to the novelty of the building's architecture, a countably infinite number of people arrive on vacation, and quickly occupy all of the rooms in the hotel.
+\subproblem A new celebrity guest arrives at the hotel and demands a room. Devise a method to move each current hotel resident to a new room to open up a room for the incoming guest.
+\subproblem News of the hotel spreads to a parallel universe, and another countably infinite number of people arrive at the already-booked hotel. Figure out a new method to move each current hotel resident to a new room to make space for all of the new guests. (To learn more about this problem, search for ``Hilbert's Hotel'' online!)
+
+\begin{solution}
+\subsolution We can simply move the guest in Room 1 to Room 2, the guest in Room 2 to Room 3, and so on, moving the guest in Room $n$ to Room $n+1$ such that each room will continue to have only one resident (notice that the Pigeonhole Principle doesn't apply when we have a countably infinite number of holes!). This way, Room 1 will be vacant for the new guest.
+\subsolution Extending our approach from part A, we can move the guest in Room 1 to Room 2, the guest in Room 2 to Room 4, and so on, moving the guest in Room $n$ to Room $2n$, so that the current guests will occupy all of the even-numbered rooms (of which there are a countably infinite amount) while the new guests will occupy all of the odd-numbered rooms (also a countably infinite amount). What, then, might we do if a countably infinite number of parallel universes each sent a countably infinite number of tourists over?
+\end{solution}
+
+\end{document}

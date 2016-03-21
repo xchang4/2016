@@ -1,0 +1,140 @@
+\documentclass[solution, letterpaper]{cs20inclass}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{circuitikz}
+\usepackage{caption}
+\begin{document}
+\header{11}{Friday, February 19, 2016}
+
+\noindent Author: Tom Silver% \\
+
+\paragraph*{Midterm Review}
+This in-class midterm review is a puzzle. Each problem gives you one piece of the puzzle. Solve all the problems and put together the pieces to discover the keyword. Enjoy!
+
+\problem How many base cases does the following proof by induction require?
+\\
+\\ The Tribonacci numbers are defined by $T_0 = 1, T_1 = 1, T_2 = 2$, and $T_n = T_{n-1} + T_{n-2} + T_{n-3}$ for all $n \ge 3$. The beginning of the Tribonacci sequence is $1, 1, 2, 4, 7, 13, ...$. 
+\\
+\\ \textbf{Proof.} Let $P(n)$ be the predicate $T_n \le 3^n$. Base cases: [???]. Inductive step: assume $P(1), ..., P(n)$ holds for $n \ge [???]$. Then 
+\begin{math}
+T_{n+1} = T_n + T_{n-1} + T_{n-2}
+\\ \le 3^n + 3^{n-1} + 3^{n-2}
+\\ = 3^{n+1}(\frac{1}{3} + \frac{1}{9} + \frac{1}{27})
+\\ = 3^{n+1}\frac{13}{27}
+\\ \le 3^{k+1}
+\end{math} 
+
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lllllll}
+0 & 1 & 2 & 3 & 4 & 5 & $>5$ \\
+G & R & S & E & H & L & M
+\end{tabular}
+\caption*{Problem 1 Clue}
+\end{table}
+
+\begin{solution}
+  % Write your answer here.
+\end{solution}
+
+\problem Construct a truth table for $(p \leftrightarrow q) \to (q \leftrightarrow r)$. How many rows in the truth table are True?
+
+\begin{table}[h]
+\centering
+\begin{tabular}{llllllllll}
+0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & $>8$ \\
+E & N & A & V & B & R & I & Z & X & Q            
+\end{tabular}
+\caption*{Problem 2 Clue}
+\end{table}
+
+\begin{solution}
+  % Write your answer here.
+\end{solution}
+
+\problem 
+
+\begin{circuitikz} \draw
+(0,2) node[and port] (myand) {}
+(2,1) node[or port] (myor) {}
+(myand.in 1) node[above left=.5cm](a) {A}
+(myand.in 2) node[below left = .5cm](b) {B}
+(myand.out) -| (myor.in 1)
+(a) -| (myand.in 1)
+(b) -| (myand.in 2)
+(b) node[below=1cm](c){C}
+(c) -| (myor.in 2);
+\end{circuitikz}
+
+Which of the following does the above logic circuit compute? (For the purpose of this problem, assume $1+1 = 1$.)
+
+\begin{enumerate}
+\item $A \cdot B + C$
+\item $A + B + C$
+\item $A + B \cdot C$
+\item $A\cdot B\cdot C$
+\item $(A+ B) \cdot C$
+\end{enumerate}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{llllllll}
+1 & 2 & 3 & 4 & 5 \\
+S & E & O & T & R
+\end{tabular}
+\caption*{Problem 3 Clue}
+\end{table}
+
+\begin{solution}
+  % Write your answer here.
+\end{solution}
+
+\problem Which of the following quantificational logic statements are true?
+
+\begin{enumerate}
+\item $\forall n \in \mathbb{N}, \exists m \in \mathbb{N} . n\cdot m = 1$
+\item $\forall n \in \mathbb{N}, \forall m \in \mathbb{N} . n+m = n$
+\item $\exists n \in \mathbb{N}, \forall m \in \mathbb{N} . n+m = n$
+\item $\exists n \in \mathbb{N}, \forall m \in \mathbb{N} . n\cdot m = n+m$
+\item $\exists n \in \mathbb{N}, \forall m \in \mathbb{N} . n\cdot m = m$
+\end{enumerate}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{llllllll}
+1 & 2 & 3 & 4 & 5 \\
+M & N & R & E & L
+\end{tabular}
+\caption*{Problem 4 Clue}
+\end{table}
+
+\begin{solution}
+  % Write your answer here.
+\end{solution}
+
+\problem (BONUS) What is the least value of $m$ for which the following is true? ``In any set of $m$ propositions, all involving only $p$, two of the propositions are logically equivalent.''
+
+\begin{table}[h]
+\centering
+\begin{tabular}{llllllll}
+2 & 5 & 9 & 12 & 17 & 26 & 50 & $>50$ \\
+A & W & B & K & U & O & N & T
+\end{tabular}
+\caption*{Problem 5 Clue}
+\end{table}
+
+\begin{solution}
+  % Write your answer here.
+\end{solution}
+
+\problem \textbf{Final Answer: }
+
+\begin{solution}
+  % Write your answer here.
+\end{solution}
+
+\end{document}
